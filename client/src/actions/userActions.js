@@ -11,7 +11,6 @@ import {
 } from "./Types";
 import uuid from "uuid";
 import Axios from "axios";
-import { useDispatch } from "react-redux";
 
 const config = {
   headers: {
@@ -21,10 +20,12 @@ const config = {
 
 export const setNewUser = user => async dispatch => {
   setLoading();
+
   console.log("reached function");
+  console.log(user);
   try {
     console.log("reached try block");
-    const res = await Axios.post("/admin", user, config);
+    const res = await Axios.post("/users", user, config);
     console.log(res);
     dispatch({
       type: REGISTER_ADMIN,

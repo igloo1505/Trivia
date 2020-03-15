@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
-const Admin = require("../models/adminModel");
+const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const bcrypt = require("bcryptjs");
@@ -11,12 +11,12 @@ router.post(
   [
     check("name", "A Name is required")
       .not()
-      .isEmpty()
-    // check("email", "Please include a valid email").isEmail(),
-    // check(
-    //   "password",
-    //   "Please enter a password with at least 8 characters"
-    // ).isLength({ min: 8 })
+      .isEmpty(),
+    check("email", "Please include a valid email").isEmail(),
+    check(
+      "password",
+      "Please enter a password with at least 8 characters"
+    ).isLength({ min: 8 })
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -25,11 +25,12 @@ router.post(
         errors: errors.array()
       });
     }
-    const { name, email, organization, city, state } = req.body;
+    const { name, password, email, organization, city, state } = req.body;
     console.log("reached server");
-    console.log({ name, email, organization, city, state });
+    console.log({ name, password, email, organization, city, state });
+    console.log(req.body);
     try {
-      let user = await Admin.findOne({ email: email });
+      let user = await User.findOne({ email: email });
 
       const masterCheck = await bcrypt.compare(
         organization,
@@ -42,8 +43,9 @@ router.post(
         });
       }
 
-      user = new Admin({
+      user = new User({
         name,
+        password,
         email,
         organization,
         city,
@@ -53,9 +55,9 @@ router.post(
       console.log(
         "Add check of server side array of organizations, and add the name of their organization and that organization ID to each user at line 58"
       );
-      // const salt = await bcrypt.genSalt(10);
+      const salt = await bcrypt.genSalt(10);
 
-      // user.password = await bcrypt.hash(password, salt);
+      user.password = await bcrypt.hash(password, salt);
 
       await user.save();
 
