@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "./actions/auth/PrivateRoute";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import Nav from "./components/Navbar";
@@ -17,7 +18,7 @@ function App() {
         <div className="container" style={{ marginTop: "30px" }}>
           <Switch>
             <Route exact path="/signIn" component={SignIn} />
-            <Route exact path="/" component={Guest} />
+            <PrivateRoute exact path="/" component={Guest} />
           </Switch>
         </div>
       </Router>

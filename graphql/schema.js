@@ -12,6 +12,7 @@ const Axios = require("axios");
 const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
+const Organization = require("../models/Organization");
 const bcrypt = require("bcryptjs");
 
 const UserType = new GraphQLObjectType({
@@ -57,6 +58,18 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         let Users = User.find();
         return Users;
+      }
+    },
+    organization: {
+      type: OrganizationType,
+      args: {
+        organizationAdminPassword: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        let orgs = Organization.findOne({
+          organizationAdminPassword: organizationAdminPassword
+        });
+        return orgs;
       }
     }
   }

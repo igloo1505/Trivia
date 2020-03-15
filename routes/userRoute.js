@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const User = require("../models/userModel");
+const Organization = require("../models/Organization");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const bcrypt = require("bcryptjs");
@@ -28,19 +29,29 @@ router.post(
     const { name, password, email, organization, city, state } = req.body;
     console.log("reached server");
     console.log({ name, password, email, organization, city, state });
-    console.log(req.body);
     try {
       let user = await User.findOne({ email: email });
 
-      const masterCheck = await bcrypt.compare(
-        organization,
-        config.get("organizationPassword")
-      );
-      console.log("masterCheck " + masterCheck);
-      if (masterCheck == false) {
-        return res.status(400).json({
-          msg: "Organization password is required to become an administrator"
-        });
+      // const masterCheck = await bcrypt.compare(
+      //   organization,
+      //   config.get("organizationPassword")
+      // );
+      // console.log("masterCheck " + masterCheck);
+      // if (masterCheck == false) {
+      //   return res.status(400).json({
+      //     msg: "Organization password is required to become an administrator"
+      //   });
+      // }
+      let organizationId = await Organization.findOne({
+        organizationAdminPassword: organization
+      });
+      console.log(organizationId);
+      if (organizationId == null && organization !== "") {
+        res
+          .status(500)
+          .send(
+            "If you're not an admin, do not submit an organization password"
+          );
       }
 
       user = new User({

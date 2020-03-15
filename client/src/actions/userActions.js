@@ -6,11 +6,14 @@ import {
   SET_USER,
   SET_LOADING,
   USER_ERROR,
+  LOGIN,
   REGISTER_ADMIN,
-  LOGOUT
+  LOGOUT,
+  AUTHENTICATED
 } from "./Types";
 import uuid from "uuid";
-import Axios from "axios";
+import axios from "axios";
+import setAuth from "../setToken";
 
 const config = {
   headers: {
@@ -25,7 +28,7 @@ export const setNewUser = user => async dispatch => {
   console.log(user);
   try {
     console.log("reached try block");
-    const res = await Axios.post("/users", user, config);
+    const res = await axios.post("/users", user, config);
     console.log(res);
     dispatch({
       type: REGISTER_ADMIN,
@@ -56,8 +59,38 @@ export const setNewUser = user => async dispatch => {
 //   };
 // }
 
+const loadUser = () => async dispatch => {
+  setAuth(localStorage.token);
+  try {
+    const res = await axios.get("/auth");
+    dispatch({
+      type: AUTHENTICATED,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({ type: USER_ERROR });
+  }
+};
+
+const loginUser = user => async dispatch => {
+  try {
+    const res = await axios.post("/auth", user, config);
+    dispatch({
+      type: LOGIN,
+      payload: res.data
+    });
+    loadUser();
+  } catch (err) {
+    dispatch({
+      type: USER_ERROR,
+      payload: err.response.data.msg
+    });
+  }
+};
+
 export const setLoading = () => {
   return {
     type: SET_LOADING
   };
 };
+export const logoutUser = () => async dispatch => dispatch({ type: LOGOUT });

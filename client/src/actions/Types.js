@@ -7,3 +7,5 @@ export const SET_USER = "SET_USER";
 export const REGISTER_ADMIN = "REGISTER_ADMIN";
 export const LOGOUT = "LOGOUT";
 export const USER_ERROR = "USER_ERROR";
+export const LOGIN = "LOGIN";
+export const AUTHENTICATED = "AUTHENTICATED";

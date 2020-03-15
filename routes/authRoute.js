@@ -3,33 +3,33 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
-const Admin = require("../models/adminModel");
+const User = require("../models/userModel");
 
-// router.post("/", auth, async (req, res) => {
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return res.status(400).json({
-//       errors: errors.array()
-//     });
-//   }
-//   const { question, answer, category, points } = req.body;
-//   try {
-//     const newQuestion = new Question({
-//       question,
-//       answer,
-//       category,
-//       points
-//     });
-//     const addQuestion = await newQuestion.save();
-//     res.json(addQuestion);
-//   } catch (error) {
-//     console.error(error.message);
-//     res.status(500).send("Server Test");
-//   }
-// });
+router.post("/", auth, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      errors: errors.array()
+    });
+  }
+  const { question, answer, category, points } = req.body;
+  try {
+    const newQuestion = new Question({
+      question,
+      answer,
+      category,
+      points
+    });
+    const addQuestion = await newQuestion.save();
+    res.json(addQuestion);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Test");
+  }
+});
 router.get("/", auth, async (req, res) => {
   try {
-    const admin = await Admin.findById(req.admin.id).isSelected("-password");
+    const admin = await User.findById(req.user.id).isSelected("-password");
     res.json(admin);
   } catch (error) {
     console.error(error.message);

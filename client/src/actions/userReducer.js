@@ -6,12 +6,15 @@ import {
   SET_USER,
   SET_LOADING,
   USER_ERROR,
+  LOGIN,
   REGISTER_ADMIN,
-  LOGOUT
+  LOGOUT,
+  AUTHENTICATED
 } from "./Types";
 
 const initialState = {
   loggedIn: false,
+  token: localStorage.getItem("token"),
   leaders: null,
   loading: false,
   admin: false,
@@ -43,6 +46,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+        loggedIn: true,
+        loading: false
+      };
+    case LOGIN:
+    case AUTHENTICATED:
+      localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        ...action.payload,
         loggedIn: true,
         loading: false
       };
