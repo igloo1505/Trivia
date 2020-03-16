@@ -14,12 +14,22 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  organization: {
-    type: String
-  },
-  admin: {
+  adminStatus: {
     type: Boolean
   },
+  organization: {
+    _id: {
+      type: String
+    },
+    organizationID: {
+      type: String,
+      unique: true
+    },
+    organizationName: {
+      type: String
+    }
+  },
+
   city: {
     type: String,
     required: true

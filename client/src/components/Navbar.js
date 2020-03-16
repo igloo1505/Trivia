@@ -26,7 +26,7 @@ const NavBar = ({ user: { loggedIn } }) => {
       <Nav style={NavLinkStyle}>
         {loggedIn ? (
           <Nav>
-            <Link to="/admin">Admin</Link>
+            <Link to="/admin">Admin</Link> <Link to="/admin">Log Out</Link>
           </Nav>
         ) : (
           ""

@@ -1,6 +1,4 @@
 {
   "mongoURI": "mongodb+srv://Aiglinski:Bigmilly1@triviagame-73far.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "shhThisIsASecret"
-
-
 }

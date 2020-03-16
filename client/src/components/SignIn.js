@@ -13,7 +13,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
     name: "",
     password: "",
     email: "",
-    organization: "",
+    organizationString: "",
     city: "Milwaukee",
     state: "Wisconsin"
   });
@@ -33,10 +33,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
   const onSubmit = e => {
     //!!   Add front end form validation here and 'toast' if not suffice
     e.preventDefault();
-
     setNewUser(user);
-    console.log(setNewUser);
-    console.log(user);
   };
   const RowStyle = {
     margin: "50px"
@@ -76,7 +73,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
             <Form.Label>Organization Code</Form.Label>
             <Form.Control
               type="text"
-              name="organization"
+              name="organizationString"
               onChange={onChange}
               placeholder="Org. code (required only for admins)"
             />

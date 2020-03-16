@@ -13,7 +13,7 @@ import {
 } from "./Types";
 import uuid from "uuid";
 import axios from "axios";
-import setAuth from "../setToken";
+import setAuthToken from "../setToken";
 
 const config = {
   headers: {
@@ -22,7 +22,7 @@ const config = {
 };
 export const loadUser = () => async dispatch => {
   console.log("reached loadUser script");
-  setAuth(localStorage.token);
+  setAuthToken(localStorage.token);
   try {
     const res = await axios.get("/auth");
     dispatch({

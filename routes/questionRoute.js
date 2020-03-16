@@ -29,6 +29,7 @@ router.post("/", auth, async (req, res) => {
       }
     });
     const addQuestion = await newQuestion.save();
+    console.log(addQuestion);
     res.json(addQuestion);
   } catch (error) {
     console.error(error.message);

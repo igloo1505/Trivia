@@ -50,7 +50,7 @@ const QuestionForm = ({
       wrongAnswerOne: "",
       wrongAnswerTwo: "",
       wrongAnswerThree: "",
-      organization: organization
+      submittedBy: { name, email, organization }
     });
   };
   const RowStyle = {

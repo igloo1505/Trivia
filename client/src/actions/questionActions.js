@@ -24,7 +24,7 @@ export const addQuestion = question => async dispatch => {
   console.log(question);
 
   setLoading();
-  console.log("reached addquestion script as " + question);
+  console.log("reached addQuestion script as " + question);
   try {
     const res = await axios.post("/questions", question, config);
     console.log("res", res);
@@ -32,10 +32,10 @@ export const addQuestion = question => async dispatch => {
       type: ADD_QUESTION,
       payload: res.data
     });
-  } catch (error) {
+  } catch (err) {
     dispatch({
       type: QUESTION_ERROR,
-      payload: error.msg
+      payload: err.data
     });
   }
 };
