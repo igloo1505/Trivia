@@ -27,7 +27,12 @@ export default (state = initialState, action) => {
         questions: [action.payload, ...state.questions],
         loading: false
       };
-
+    case QUESTION_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false
+      };
     default:
       return state;
   }

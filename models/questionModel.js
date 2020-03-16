@@ -25,9 +25,17 @@ const QuestionSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  organization: {
-    type: String,
-    required: true
+  submittedBy: {
+    name: {
+      type: String
+    },
+    email: {
+      type: String
+    },
+    organization: {
+      type: String,
+      required: true
+    }
   },
   date: {
     type: Date,

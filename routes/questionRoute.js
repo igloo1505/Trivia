@@ -5,11 +5,6 @@ const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
 
 router.post("/", auth, async (req, res) => {
-  if (!errors.isEmpty()) {
-    return res.status(400).json({
-      errors: errors.array()
-    });
-  }
   const {
     question,
     difficulty,
@@ -17,7 +12,7 @@ router.post("/", auth, async (req, res) => {
     wrongAnswerOne,
     wrongAnswerTwo,
     wrongAnswerThree,
-    organization
+    submittedBy: { name, email, organization }
   } = req.body;
   try {
     const newQuestion = new Question({
@@ -27,7 +22,11 @@ router.post("/", auth, async (req, res) => {
       wrongAnswerOne,
       wrongAnswerTwo,
       wrongAnswerThree,
-      organization
+      submittedBy: {
+        name,
+        email,
+        organization
+      }
     });
     const addQuestion = await newQuestion.save();
     res.json(addQuestion);
@@ -37,7 +36,7 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/:organization", auth, async (req, res) => {
   try {
     const questions = await Question.find();
     res.json(questions);

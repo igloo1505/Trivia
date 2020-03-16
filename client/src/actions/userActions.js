@@ -20,6 +20,19 @@ const config = {
     "Content-Type": "application/json"
   }
 };
+export const loadUser = () => async dispatch => {
+  console.log("reached loadUser script");
+  setAuth(localStorage.token);
+  try {
+    const res = await axios.get("/auth");
+    dispatch({
+      type: SET_USER,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({ type: USER_ERROR });
+  }
+};
 
 export const setNewUser = user => async dispatch => {
   setLoading();
@@ -32,8 +45,9 @@ export const setNewUser = user => async dispatch => {
     console.log(res);
     dispatch({
       type: REGISTER_ADMIN,
-      payload: res.data
+      payload: res
     });
+    loadUser();
   } catch (error) {
     console.log("reached catch block");
     dispatch({
@@ -58,20 +72,6 @@ export const setNewUser = user => async dispatch => {
 //     }
 //   };
 // }
-
-export const loadUser = () => async dispatch => {
-  console.log("reached loadUser script");
-  setAuth(localStorage.token);
-  try {
-    const res = await axios.get("/auth");
-    dispatch({
-      type: SET_USER,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({ type: USER_ERROR });
-  }
-};
 
 export const loginUser = user => async dispatch => {
   try {

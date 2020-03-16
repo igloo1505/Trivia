@@ -33,15 +33,25 @@ const QuestionForm = ({
     wrongAnswerOne: "",
     wrongAnswerTwo: "",
     wrongAnswerThree: "",
-    organization: organization
+    submittedBy: { name, email, organization }
   });
 
   const onChange = e =>
     setQuestion({ ...question, [e.target.name]: e.target.value });
 
-  const onSubmit = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     console.log(question);
     addQuestion(question);
+    setQuestion({
+      question: "",
+      difficulty: "",
+      correctAnswer: "",
+      wrongAnswerOne: "",
+      wrongAnswerTwo: "",
+      wrongAnswerThree: "",
+      organization: organization
+    });
   };
   const RowStyle = {
     margin: "50px"
@@ -56,6 +66,7 @@ const QuestionForm = ({
             as="textarea"
             rows="3"
             name="question"
+            value={question.question}
             onChange={onChange}
           />
         </Form.Group>
@@ -65,6 +76,7 @@ const QuestionForm = ({
             as="select"
             multiple
             name="difficulty"
+            defaultValue={question.difficulty}
             onChange={onChange}
           >
             <option value="100">Trump</option>
@@ -79,6 +91,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Correct Answer"
               name="correctAnswer"
+              value={question.correctAnswer}
               onChange={onChange}
             />
           </Col>
@@ -86,6 +99,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerOne"
+              value={question.wrongAnswerOne}
               onChange={onChange}
             />
           </Col>
@@ -95,6 +109,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerTwo"
+              value={question.wrongAnswerTwo}
               onChange={onChange}
             />
           </Col>
@@ -102,6 +117,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerThree"
+              value={question.wrongAnswerThree}
               onChange={onChange}
             />
           </Col>
@@ -110,7 +126,7 @@ const QuestionForm = ({
           variant="primary"
           size="lg"
           block
-          onClick={onSubmit}
+          onClick={e => onSubmit(e)}
           style={{ width: "70%", margin: "auto" }}
         >
           Submit

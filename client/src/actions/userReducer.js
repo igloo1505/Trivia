@@ -12,6 +12,7 @@ import {
   AUTHENTICATED
 } from "./Types";
 import { loadUser } from "./userActions";
+import setAuthToken from "../setToken";
 
 const initialState = {
   loggedIn: false,
@@ -37,11 +38,12 @@ export default (state = initialState, action) => {
         loading: false
       };
     case REGISTER_ADMIN:
+      setAuthToken(action.payload.data);
       return {
         ...state,
         loggedIn: true,
         admin: true,
-        user: action.payload,
+        user: JSON.parse(action.payload.config.data),
         loading: false
       };
     case SET_USER:

@@ -22,7 +22,7 @@ const config = {
 export const addQuestion = question => async dispatch => {
   let state = store.getState();
   console.log(question);
-  console.log(state.user);
+
   setLoading();
   console.log("reached addquestion script as " + question);
   try {
