@@ -8,7 +8,6 @@ const SignInModal = ({ loginUser, ...props }) => {
     email: "",
     password: ""
   });
-  const { email, password } = user;
   const onChange = e =>
     setUser({
       ...user,
@@ -35,7 +34,7 @@ const SignInModal = ({ loginUser, ...props }) => {
           Use your personal password, or for admin access use the Organization
           password.
         </p>
-        <Form onSubmit={onSubmit}>
+        <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -45,7 +44,7 @@ const SignInModal = ({ loginUser, ...props }) => {
               onChange={onChange}
             />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              We might sell your email on the black market.
             </Form.Text>
           </Form.Group>
 
@@ -58,13 +57,10 @@ const SignInModal = ({ loginUser, ...props }) => {
               onChange={onChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={onSubmit}>Submit</Button>
       </Modal.Footer>
     </Modal>
   );

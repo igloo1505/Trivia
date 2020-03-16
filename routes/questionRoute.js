@@ -4,17 +4,30 @@ const { check, validationResult } = require("express-validator");
 const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({
       errors: errors.array()
     });
   }
-  const { question, answers } = req.body;
+  const {
+    question,
+    difficulty,
+    correctAnswer,
+    wrongAnswerOne,
+    wrongAnswerTwo,
+    wrongAnswerThree,
+    organization
+  } = req.body;
   try {
     const newQuestion = new Question({
       question,
-      answers
+      difficulty,
+      correctAnswer,
+      wrongAnswerOne,
+      wrongAnswerTwo,
+      wrongAnswerThree,
+      organization
     });
     const addQuestion = await newQuestion.save();
     res.json(addQuestion);

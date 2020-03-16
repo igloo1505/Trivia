@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 import userReducer from "./actions/userReducer";
-// import employeeReducer from "./employeeReducer";
+import questionReducer from "./actions/questionsReducer";
 
 export default combineReducers({
-  user: userReducer
+  user: userReducer,
+  question: questionReducer
 });

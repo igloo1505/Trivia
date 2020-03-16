@@ -114,7 +114,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
             </Form.Control>
           </Form.Group>
         </Form.Row>
-        <Button type="submit" style={buttonStyle} onClick={() => onSubmit()}>
+        <Button type="submit" style={buttonStyle} onClick={e => onSubmit(e)}>
           Submit form
         </Button>
         <Button type="signIn" style={buttonStyle} onClick={e => handleModal(e)}>

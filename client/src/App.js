@@ -1,6 +1,7 @@
 import React from "react";
 import "./assets/app.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import setAuthToken from "./setToken";
 import { Provider } from "react-redux";
 import store from "./store";
 import PrivateRoute from "./actions/auth/PrivateRoute";
@@ -13,9 +14,9 @@ import SignIn from "./components/SignIn";
 import Admin from "./components/admin/Admin";
 
 function App({ user: { loggedIn } }) {
-  const client = new ApolloClient({
-    uri: "/graphql"
-  });
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
   return (
     <Provider store={store}>
       <div className="App">

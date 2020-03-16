@@ -29,13 +29,8 @@ const Admin = () => {
   };
 
   return (
-    <div style={AdminDisplay}>
-      <div>
-        <QuestionForm />
-      </div>
-      <div>
-        <h1>Column 2</h1>
-      </div>
+    <div>
+      <QuestionForm />
     </div>
   );
 };

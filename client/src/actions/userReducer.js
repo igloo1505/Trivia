@@ -41,7 +41,8 @@ export default (state = initialState, action) => {
         ...state,
         loggedIn: true,
         admin: true,
-        user: action.payload
+        user: action.payload,
+        loading: false
       };
     case SET_USER:
       return {

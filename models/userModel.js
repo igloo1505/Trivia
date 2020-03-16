@@ -5,9 +5,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  admin: {
-    type: Boolean
-  },
+
   password: {
     type: String,
     required: true
@@ -18,6 +16,9 @@ const UserSchema = mongoose.Schema({
   },
   organization: {
     type: String
+  },
+  admin: {
+    type: Boolean
   },
   city: {
     type: String,

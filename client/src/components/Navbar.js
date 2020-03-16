@@ -34,10 +34,10 @@ const NavBar = ({ user: { loggedIn } }) => {
         {loggedIn ? (
           ""
         ) : (
-          <Nav.Link>
+          <Nav>
             {" "}
             <Link to="/signIn">Sign In</Link>
-          </Nav.Link>
+          </Nav>
         )}
       </Nav>
     </Navbar>

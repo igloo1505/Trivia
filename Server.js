@@ -21,6 +21,7 @@ app.use(
 
 app.use("/users", require("./routes/userRoute"));
 app.use("/auth", require("./routes/authRoute"));
+app.use("/questions", require("./routes/questionRoute"));
 
 connectDB();
 app.use(express.static("public"));
