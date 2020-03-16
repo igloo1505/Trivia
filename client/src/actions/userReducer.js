@@ -11,6 +11,7 @@ import {
   LOGOUT,
   AUTHENTICATED
 } from "./Types";
+import { loadUser } from "./userActions";
 
 const initialState = {
   loggedIn: false,
@@ -50,12 +51,21 @@ export default (state = initialState, action) => {
         loading: false
       };
     case LOGIN:
-    case AUTHENTICATED:
+      console.log("logged in Reducer reached");
       localStorage.setItem("token", action.payload.token);
+      loadUser();
       return {
         ...state,
         ...action.payload,
         loggedIn: true,
+        loading: false
+      };
+
+    case AUTHENTICATED:
+      return {
+        ...state,
+        loggedIn: true,
+        user: action.payload,
         loading: false
       };
 

@@ -20,6 +20,7 @@ app.use(
 );
 
 app.use("/users", require("./routes/userRoute"));
+app.use("/auth", require("./routes/authRoute"));
 
 connectDB();
 app.use(express.static("public"));

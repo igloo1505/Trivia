@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Form, Col, Row, Button, Modal } from "react-bootstrap";
+import dataListArray from "../../assets/datalist";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import dataListArray from "../assets/datalist";
-import { setNewUser } from "../actions/userActions";
-import SignInModal from "./SignInModal";
-import { Route, Redirect } from "react-router-dom";
+import uuid from "uuid";
 
-const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
-  const [modalShow, setModalShow] = useState(false);
+const QuestionForm = ({ user: { loggedIn, loading } }) => {
+  //   useEffect(() => {
+  //     if (current !== null) {
+  //       setQuestion(current);
+  //     } else {
+  //       setQuestion({
+  //         question: "",
+  //         answer: "",
+  //         category: "",
+  //         points: ""
+  //       });
+  //     }
+  //   }, [questionContext, current]);
+
+  const [question, setQuestion] = useState({
+    question: "",
+    answerOne: "",
+    answerTwo: "",
+    answerThree: "",
+    answerFour: "",
+    difficulty: ""
+  });
   const [user, setUser] = useState({
     name: "",
     password: "",
@@ -17,26 +34,15 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
     city: "Milwaukee",
     state: "Wisconsin"
   });
-  const handleModal = e => {
-    e.preventDefault();
-    setModalShow(true);
-  };
+  // const clearAll = () => {
+  //   console.log("clear");
+  // };
 
-  const onChange = e => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value
-    });
-  };
-  let position = window.location.pathname;
-  console.log(position);
-  const onSubmit = e => {
-    //!!   Add front end form validation here and 'toast' if not suffice
-    e.preventDefault();
+  const onChange = e =>
+    setQuestion({ ...question, [e.target.name]: e.target.value });
 
-    setNewUser(user);
-    console.log(setNewUser);
-    console.log(user);
+  const onSubmit = () => {
+    console.log(question);
   };
   const RowStyle = {
     margin: "50px"
@@ -47,13 +53,9 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
     transform: "translateX(-50%)",
     width: "min(50%, 200px)"
   };
-  if (loggedIn && !loading) {
-    return <Redirect to="/" />;
-  }
 
   return (
     <div>
-      <SignInModal show={modalShow} onHide={() => setModalShow(false)} />
       <Form style={{ marginTop: "20px", marginBottom: "20px" }}>
         <Row style={RowStyle}>
           <Col xs={12} md={6} style={{ marginTop: "20px" }}>
@@ -117,17 +119,13 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
         <Button type="submit" style={buttonStyle} onClick={() => onSubmit()}>
           Submit form
         </Button>
-        <Button type="signIn" style={buttonStyle} onClick={e => handleModal(e)}>
-          Have an account?
-        </Button>
       </Form>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  user: state.user,
-  admin: state.admin
+  user: state.user
 });
 
-export default connect(mapStateToProps, { setNewUser })(SignIn);
+export default connect(mapStateToProps)(QuestionForm);

@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-const PrivateRoute = ({ component: Component, user, ...rest }) => {
-  //   const { isAuthenticated, loading } = authContext;
-  const { loggedIn, loading } = user;
+const PrivateRoute = ({
+  user: { loggedIn, loading },
+  component: Component,
+  user,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}

@@ -1,36 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
+const config = require("config");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
 const User = require("../models/userModel");
 
-router.post("/", auth, async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({
-      errors: errors.array()
-    });
-  }
-  const { question, answer, category, points } = req.body;
-  try {
-    const newQuestion = new Question({
-      question,
-      answer,
-      category,
-      points
-    });
-    const addQuestion = await newQuestion.save();
-    res.json(addQuestion);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server Test");
-  }
-});
 router.get("/", auth, async (req, res) => {
   try {
-    const admin = await User.findById(req.user.id).isSelected("-password");
-    res.json(admin);
+    const user = await User.findById(req.user.id).isSelected("-password");
+    res.json(user);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ msg: "not authorized" });
@@ -48,25 +29,39 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { name, password } = req.body;
+    const { email, password } = req.body;
+    console.log(email, password);
     try {
-      let admin = await Admin.findOne({ name });
-      if (!admin) {
+      let user = await User.findOne({ email });
+      console.log(user);
+      if (!user) {
         return res.status(400).json({ msg: "invalid user credentials" });
       }
-      const match = await bcrypt.compare(password, Admin.password);
-      const OrgMatch = await bcrypt.compare(
-        password,
-        config.get("organizationPassword")
-      );
-      if (!match && !OrgMatch) {
+      const match = await bcrypt.compare(password, user.password);
+      console.log("match" + match);
+
+      //   const OrgMatch = await bcrypt.compare(
+      //     password,
+      //     config.get("organizationPassword")
+      //   );
+      if (!match) {
         return res.status(400).json({ msg: "invalid password" });
       }
+      if (match) {
+        user = {
+          name: user.name,
+          email: user.email,
+          organization: user.organization,
+          city: user.city,
+          state: user.state
+        };
+      }
       const payload = {
-        admin: {
-          id: admin.id
+        user: {
+          id: user.id
         }
       };
+      console.log(payload);
       jwt.sign(
         payload,
         config.get("jwtSecret"),
@@ -75,7 +70,7 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.json({ token, admin });
+          res.json({ token, user });
         }
       );
     } catch (error) {

@@ -59,12 +59,13 @@ export const setNewUser = user => async dispatch => {
 //   };
 // }
 
-const loadUser = () => async dispatch => {
+export const loadUser = () => async dispatch => {
+  console.log("reached loadUser script");
   setAuth(localStorage.token);
   try {
     const res = await axios.get("/auth");
     dispatch({
-      type: AUTHENTICATED,
+      type: SET_USER,
       payload: res.data
     });
   } catch (err) {
@@ -72,8 +73,9 @@ const loadUser = () => async dispatch => {
   }
 };
 
-const loginUser = user => async dispatch => {
+export const loginUser = user => async dispatch => {
   try {
+    console.log("reached actions as " + user);
     const res = await axios.post("/auth", user, config);
     dispatch({
       type: LOGIN,
@@ -83,7 +85,7 @@ const loginUser = user => async dispatch => {
   } catch (err) {
     dispatch({
       type: USER_ERROR,
-      payload: err.response.data.msg
+      payload: err.msg
     });
   }
 };

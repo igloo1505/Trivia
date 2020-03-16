@@ -32,16 +32,6 @@ router.post(
     try {
       let user = await User.findOne({ email: email });
 
-      // const masterCheck = await bcrypt.compare(
-      //   organization,
-      //   config.get("organizationPassword")
-      // );
-      // console.log("masterCheck " + masterCheck);
-      // if (masterCheck == false) {
-      //   return res.status(400).json({
-      //     msg: "Organization password is required to become an administrator"
-      //   });
-      // }
       let organizationId = await Organization.findOne({
         organizationAdminPassword: organization
       });

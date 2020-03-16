@@ -1,10 +1,6 @@
 {
   "mongoURI": "mongodb+srv://Aiglinski:Bigmilly1@triviagame-73far.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "shhThisIsASecret",
-  "organizationPassword": "$2a$10$foXQ./6jlyjAmXpSnD9TtelnCKalK/8XEALEIRuEXyoqEivpz9LIy",
-  "organization": [{
-    "org": "UW",
-    "pass": "$2a$10$foXQ./6jlyjAmXpSnD9TtelnCKalK/8XEALEIRuEXyoqEivpz9LIy"
-  }]
+  "jwtSecret": "shhThisIsASecret"
+
 
 }
