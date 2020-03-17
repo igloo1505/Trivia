@@ -30,12 +30,12 @@ export const addQuestion = question => async dispatch => {
     console.log("res", res);
     dispatch({
       type: ADD_QUESTION,
-      payload: res.data
+      payload: res
     });
   } catch (err) {
     dispatch({
       type: QUESTION_ERROR,
-      payload: err.data
+      payload: err
     });
   }
 };

@@ -1,11 +1,20 @@
 const express = require("express");
-const path = require("path");
-
 const connectDB = require("./config/db");
+const path = require("path");
+const morgan = require("morgan");
+const fs = require("fs");
 
 const app = express();
+
 connectDB();
+
 app.use(express.json({ extended: false }));
+var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
+  flags: "a"
+});
+
+// setup the logger
+app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use("/users", require("./routes/userRoute"));
 app.use("/auth", require("./routes/authRoute"));

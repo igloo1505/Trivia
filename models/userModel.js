@@ -17,12 +17,13 @@ const UserSchema = mongoose.Schema({
     type: Boolean
   },
   organizationReference: {
-    type: String
+    type: String,
+    required: true
   },
   organizationName: {
-    type: String
+    type: String,
+    required: true
   },
-
   city: {
     type: String,
     required: true

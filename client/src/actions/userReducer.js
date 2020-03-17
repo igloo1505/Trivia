@@ -38,11 +38,14 @@ export default (state = initialState, action) => {
         loading: false
       };
     case REGISTER_ADMIN:
-      setAuthToken(action.payload.data);
+      const { token, user } = action.payload;
+      setAuthToken(token);
+      console.log(action.payload);
+      localStorage.setItem("token", token);
       return {
         ...state,
         loggedIn: true,
-        user: JSON.parse(action.payload.config.data),
+        user: user,
         loading: false
       };
     case SET_USER:

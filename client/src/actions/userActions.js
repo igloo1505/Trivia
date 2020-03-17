@@ -30,7 +30,7 @@ export const loadUser = () => async dispatch => {
       payload: res.data
     });
   } catch (err) {
-    dispatch({ type: USER_ERROR });
+    dispatch({ type: USER_ERROR, payload: err });
   }
 };
 
@@ -45,14 +45,14 @@ export const setNewUser = user => async dispatch => {
     console.log(res);
     dispatch({
       type: REGISTER_ADMIN,
-      payload: res
+      payload: res.data
     });
     loadUser();
   } catch (error) {
     console.log("reached catch block");
     dispatch({
       type: USER_ERROR,
-      payload: error.response.message
+      payload: error
     });
   }
 };

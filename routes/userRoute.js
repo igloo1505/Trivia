@@ -31,11 +31,12 @@ router.post(
     console.log("reached server");
     console.log({ name, password, email, organizationString, city, state });
     try {
-      let user = await User.findOne({ email: email });
+      // let user = await User.findOne({ email: email });
+      // !! Add if statement to return error if user exists after development
 
-      if (user) {
-        return res.status(400).json({ msg: "User already exists" });
-      }
+      // if (user) {
+      //   return res.status(400).json({ msg: 'User already exists' });
+      // }
 
       let organizationId = await Organization.find({
         $or: [
@@ -43,19 +44,17 @@ router.post(
           { organizationUserPassword: organizationString }
         ]
       });
-      let xy = JSON.parse(organizationId);
-      console.log("to object returns: ", xy);
-      delete xy._id;
-      console.log("second to object after mutation : " + xy);
       const {
-        id,
+        _id,
         organizationName,
         organizationAdminPassword,
         organizationUserPassword
       } = organizationId[0]; //
-      console.log("organizationAdminPassword", organizationAdminPassword);
+      console.log("organizationId[0]", organizationId[0]);
+      console.log("organizationId[0]", typeof organizationId[0]._id);
+      console.log("organizationId[0]", typeof organizationId[0]._id.toString());
+      console.log("organizationId[0]", organizationId[0]._id);
 
-      console.log("organizationId as : " + organizationId[0]);
       console.log("organizationName", organizationName);
       let AdminStatus;
       if (organizationAdminPassword === organizationString) {
@@ -63,29 +62,23 @@ router.post(
       } else if (organizationUserPassword === organizationString) {
         AdminStatus = false;
       }
-      console.log("AdminStatus " + AdminStatus);
-      console.log("organizationId: " + organizationId);
 
-      if (organizationId == null && organizationString !== "") {
+      if (organizationId == null && organization !== "") {
         res
           .status(500)
           .send(
             "If you're not an admin, do not submit an organization password"
           );
       }
-      console.log("id as " + organizationId[0].id);
-      // let organizationInput = {
-      //   organizationID: ,
-      //   organizationName: organizationName
-      // };
-      // console.log("organizationInput", organizationInput);
+      let organizationReference = organizationId[0]._id.toString();
+
       user = new User({
         name,
         password,
         email,
         adminStatus: AdminStatus,
-        organizationReference: organizationId[0].id,
-        organizationName: organizationId[0].organizationName,
+        organizationReference,
+        organizationName,
         city,
         state
       });
@@ -110,7 +103,7 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.json({ token });
+          res.json({ token, user });
         }
       );
     } catch (err) {
