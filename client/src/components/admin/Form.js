@@ -9,7 +9,7 @@ const QuestionForm = ({
   user: {
     loggedIn,
     loading,
-    user: { name, email, organization, city }
+    user: { name, email, organizationName, organizationReference, city }
   },
   addQuestion
 }) => {
@@ -33,7 +33,7 @@ const QuestionForm = ({
     wrongAnswerOne: "",
     wrongAnswerTwo: "",
     wrongAnswerThree: "",
-    submittedBy: { name, email, organization }
+    submittedBy: { name, email, organizationName, organizationReference }
   });
 
   const onChange = e =>
@@ -50,7 +50,7 @@ const QuestionForm = ({
       wrongAnswerOne: "",
       wrongAnswerTwo: "",
       wrongAnswerThree: "",
-      submittedBy: { name, email, organization }
+      submittedBy: { name, email, organizationName, organizationReference }
     });
   };
   const RowStyle = {
@@ -76,7 +76,7 @@ const QuestionForm = ({
             as="select"
             multiple
             name="difficulty"
-            defaultValue={question.difficulty}
+            defaultValue={[question.difficulty]}
             onChange={onChange}
           >
             <option value="100">Trump</option>
