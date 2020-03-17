@@ -88,7 +88,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
             />
           </Col>
         </Row>
-        <Form.Row style={RowStyle}>
+        <Row style={RowStyle}>
           <Form.Group as={Col} controlId="formGridCity" xs={12} md={6}>
             <Form.Label>City</Form.Label>
             <Form.Control value={user.city} name="city" onChange={onChange} />
@@ -110,7 +110,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
               ))}
             </Form.Control>
           </Form.Group>
-        </Form.Row>
+        </Row>
         <Button type="submit" style={buttonStyle} onClick={e => onSubmit(e)}>
           Register
         </Button>

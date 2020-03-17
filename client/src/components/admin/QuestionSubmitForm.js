@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import "../../assets/app.css";
 import { Form, Col, Row, Button, Modal, Tabs, Tab } from "react-bootstrap";
+import store from "../../store";
 import { getQuestions } from "../../actions/questionActions";
 import QuestionForm from "./Form";
 import ListView from "./ListView";
@@ -9,9 +10,6 @@ import { connect } from "react-redux";
 import uuid from "uuid";
 
 const QuestionSubmitForm = () => {
-  useEffect(() => {
-    getQuestions();
-  }, []);
   const [key, setKey] = useState("Submit");
 
   return (

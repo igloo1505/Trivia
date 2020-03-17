@@ -47,15 +47,15 @@ router.post(
       if (!match) {
         return res.status(400).json({ msg: "invalid password" });
       }
-      if (match) {
-        user = {
-          name: user.name,
-          email: user.email,
-          organization: user.organization,
-          city: user.city,
-          state: user.state
-        };
-      }
+      // if (match) {
+      //   user = {
+      //     name: user.name,
+      //     email: user.email,
+      //     organization: user.organization,
+      //     city: user.city,
+      //     state: user.state
+      //   };
+      // }
       const payload = {
         user: {
           id: user.id

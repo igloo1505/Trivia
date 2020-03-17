@@ -12,7 +12,7 @@ router.post("/", auth, async (req, res) => {
     wrongAnswerOne,
     wrongAnswerTwo,
     wrongAnswerThree,
-    submittedBy: { name, email, organization }
+    submittedBy: { name, email, organizationName, organizationReference }
   } = req.body;
   try {
     const newQuestion = new Question({
@@ -25,21 +25,26 @@ router.post("/", auth, async (req, res) => {
       submittedBy: {
         name,
         email,
-        organization
+        organizationName,
+        organizationReference
       }
     });
     const addQuestion = await newQuestion.save();
     console.log(addQuestion);
-    res.json(addQuestion);
+    return res.json({ addQuestion });
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Error at question POST");
   }
 });
 
-router.get("/:organization", auth, async (req, res) => {
+router.get("/:organizationReference", auth, async (req, res) => {
   try {
-    const questions = await Question.find();
+    let ref = req.params.organizationReference;
+    console.log("ref : ", ref);
+    const questions = await Question.find({
+      "submittedBy.organizationReference": ref
+    }).sort({ date: -1 });
     res.json(questions);
   } catch (error) {
     console.error(error.message);

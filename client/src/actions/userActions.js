@@ -37,15 +37,13 @@ export const loadUser = () => async dispatch => {
 export const setNewUser = user => async dispatch => {
   setLoading();
 
-  console.log("reached function");
-  console.log(user);
   try {
     console.log("reached try block");
     const res = await axios.post("/users", user, config);
-    console.log(res);
+
     dispatch({
       type: REGISTER_ADMIN,
-      payload: res.data
+      payload: res
     });
     loadUser();
   } catch (error) {

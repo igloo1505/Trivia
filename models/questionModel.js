@@ -32,7 +32,11 @@ const QuestionSchema = mongoose.Schema({
     email: {
       type: String
     },
-    organization: {
+    organizationName: {
+      type: String,
+      required: true
+    },
+    organizationReference: {
       type: String,
       required: true
     }
