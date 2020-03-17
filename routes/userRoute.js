@@ -31,12 +31,11 @@ router.post(
     console.log("reached server");
     console.log({ name, password, email, organizationString, city, state });
     try {
-      // let user = await User.findOne({ email: email });
-      // !! Add if statement to return error if user exists after development
+      let user = await User.findOne({ email: email });
 
-      // if (user) {
-      //   return res.status(400).json({ msg: 'User already exists' });
-      // }
+      if (user) {
+        return res.status(400).json({ msg: "User already exists" });
+      }
 
       let organizationId = await Organization.find({
         $or: [
@@ -44,14 +43,19 @@ router.post(
           { organizationUserPassword: organizationString }
         ]
       });
+      let xy = JSON.parse(organizationId);
+      console.log("to object returns: ", xy);
+      delete xy._id;
+      console.log("second to object after mutation : " + xy);
       const {
-        _id,
+        id,
         organizationName,
         organizationAdminPassword,
         organizationUserPassword
       } = organizationId[0]; //
-      let idHolder = _id;
       console.log("organizationAdminPassword", organizationAdminPassword);
+
+      console.log("organizationId as : " + organizationId[0]);
       console.log("organizationName", organizationName);
       let AdminStatus;
       if (organizationAdminPassword === organizationString) {
@@ -60,25 +64,28 @@ router.post(
         AdminStatus = false;
       }
       console.log("AdminStatus " + AdminStatus);
-      console.log("organizationID: " + organizationId);
-      if (organizationId == null && organization !== "") {
+      console.log("organizationId: " + organizationId);
+
+      if (organizationId == null && organizationString !== "") {
         res
           .status(500)
           .send(
             "If you're not an admin, do not submit an organization password"
           );
       }
-
+      console.log("id as " + organizationId[0].id);
+      // let organizationInput = {
+      //   organizationID: ,
+      //   organizationName: organizationName
+      // };
+      // console.log("organizationInput", organizationInput);
       user = new User({
         name,
         password,
         email,
         adminStatus: AdminStatus,
-        organization: {
-          _id: uuid(),
-          organizationID: idHolder,
-          organizationName
-        },
+        organizationReference: organizationId[0].id,
+        organizationName: organizationId[0].organizationName,
         city,
         state
       });

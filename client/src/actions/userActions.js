@@ -95,4 +95,4 @@ export const setLoading = () => {
     type: SET_LOADING
   };
 };
-export const logoutUser = () => async dispatch => dispatch({ type: LOGOUT });
+export const logOut = () => async dispatch => dispatch({ type: LOGOUT });

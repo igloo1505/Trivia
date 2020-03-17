@@ -5,7 +5,6 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-
   password: {
     type: String,
     required: true
@@ -17,17 +16,11 @@ const UserSchema = mongoose.Schema({
   adminStatus: {
     type: Boolean
   },
-  organization: {
-    _id: {
-      type: String
-    },
-    organizationID: {
-      type: String,
-      unique: true
-    },
-    organizationName: {
-      type: String
-    }
+  organizationReference: {
+    type: String
+  },
+  organizationName: {
+    type: String
   },
 
   city: {

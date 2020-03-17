@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { logOut } from "../actions/userActions";
 
 import Smiley from "../assets/smiley.svg";
 
-const NavBar = ({ user: { loggedIn } }) => {
+const NavBar = ({ user: { loggedIn }, logOut }) => {
   const NavLinkStyle = {
     marginRight: "10px",
     marginLeft: "auto"
@@ -26,7 +27,7 @@ const NavBar = ({ user: { loggedIn } }) => {
       <Nav style={NavLinkStyle}>
         {loggedIn ? (
           <Nav>
-            <Link to="/admin">Admin</Link> <Link to="/admin">Log Out</Link>
+            <Link to="/admin">Admin</Link> <Link onClick={logOut}>Log Out</Link>
           </Nav>
         ) : (
           ""
@@ -47,4 +48,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps, { logOut })(NavBar);

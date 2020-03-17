@@ -42,7 +42,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loggedIn: true,
-        admin: true,
         user: JSON.parse(action.payload.config.data),
         loading: false
       };
@@ -61,6 +60,15 @@ export default (state = initialState, action) => {
         ...state,
         ...action.payload,
         loggedIn: true,
+        loading: false
+      };
+    case LOGOUT:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        loggedIn: false,
+        user: null,
+        admin: false,
         loading: false
       };
 
