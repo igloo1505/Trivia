@@ -36,6 +36,15 @@ a:hover {
     margin-right: auto;
 }
 
+.mobileEditButtons {
+
+    margin-right: 20px
+}
+
+.mobileEditRow {
+    margin: 50px auto;
+}
+
 
 @media only screen and (max-width: 600px) {
     .navbar {
@@ -47,9 +56,25 @@ a:hover {
         justify-content: center;
     }
 
+    .desktopSubmittedBy {
+        display: none;
+    }
+
+    .mobileEditButtons {
+        display: block;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto !important;
+    }
+
     .row {
         justify-content: center;
         margin: auto 20px;
+    }
+
+    .mobileEditRow {
+        margin-top: auto;
+        margin-bottom: 50px;
     }
 
 

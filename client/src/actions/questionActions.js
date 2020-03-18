@@ -23,6 +23,7 @@ const config = {
 let state = store.getState();
 
 export const addQuestion = question => async dispatch => {
+  debugger;
   console.log(question);
 
   setLoading();
@@ -32,7 +33,7 @@ export const addQuestion = question => async dispatch => {
     console.log("res", res);
     dispatch({
       type: ADD_QUESTION,
-      payload: res
+      payload: res.data
     });
   } catch (err) {
     dispatch({

@@ -57,21 +57,21 @@ const ListView = ({
             {filtered !== null
               ? filtered.map(ques => (
                   <tr key={ques._id}>
-                    <td>{ques.difficulty}</td>
+                    <td value={ques._id}>{ques.difficulty}</td>
                     <td value={ques._id}>{ques.question}</td>
-                    <td>{ques.submittedBy}</td>
+                    <td value={ques._id}>{ques.submittedBy}</td>
                   </tr>
                 ))
               : questions.map(ques => (
                   <tr key={ques._id}>
-                    <td>{ques.difficulty}</td>
+                    <td value={ques._id}>{ques.difficulty}</td>
                     <td value={ques._id}>{ques.question}</td>
-                    <td>{ques.submittedBy.name}</td>
+                    <td value={ques._id}>{ques.submittedBy.name}</td>
                   </tr>
                 ))}
           </tbody>
         ) : (
-          ""
+          <Fragment></Fragment>
         )}
       </Table>
     </Fragment>

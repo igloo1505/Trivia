@@ -30,9 +30,11 @@ export default (state = initialState, action) => {
         loading: false
       };
     case ADD_QUESTION:
+      console.log("payload received as :", action.payload);
+      const { addQuestion } = action.payload;
       return {
         ...state,
-        questions: [action.payload, ...state.questions],
+        questions: [addQuestion, ...state.questions],
         loading: false
       };
 
