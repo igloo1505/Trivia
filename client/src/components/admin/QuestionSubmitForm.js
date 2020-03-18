@@ -9,16 +9,19 @@ import dataListArray from "../../assets/datalist";
 import { connect } from "react-redux";
 import uuid from "uuid";
 
-const QuestionSubmitForm = () => {
-  const [key, setKey] = useState("Submit");
+const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
+  useEffect(() => {
+    setKey(menuKey);
+  }, [menuKey]);
+  const [key, setKey] = useState(menuKey);
 
   return (
     <Tabs id="admin-key-form" activeKey={key} onSelect={k => setKey(k)}>
       <Tab eventKey="Submit" title="Input">
-        <QuestionForm />
+        <QuestionForm onSelect={k => setKey(k)} />
       </Tab>
       <Tab eventKey="View" title="View" style={{ color: "black" }}>
-        <ListView />
+        <ListView onSelect={k => setKey(k)} />
       </Tab>
       <Tab eventKey="Access" title="Access">
         <h1>Header Three Here</h1>
@@ -27,4 +30,8 @@ const QuestionSubmitForm = () => {
   );
 };
 
-export default QuestionSubmitForm;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(QuestionSubmitForm);

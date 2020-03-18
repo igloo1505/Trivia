@@ -68,9 +68,9 @@ export const deleteQuestion = id => async dispatch => {
   }
 };
 
-export const editQuestion = question => async dispatch => {
+export const editQuestion = (id, question) => async dispatch => {
   try {
-    const res = await axios.put(`/questions/${question._id}`, question, config);
+    const res = await axios.put(`/questions/${id}`, question, config);
     dispatch({
       type: EDIT_QUESTION,
       payload: res.data

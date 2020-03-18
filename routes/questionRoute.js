@@ -69,7 +69,6 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 router.put("/:id", auth, async (req, res) => {
-  const { question, answer } = req.body;
   console.log(req);
 
   // try {

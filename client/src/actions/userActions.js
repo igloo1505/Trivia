@@ -8,6 +8,7 @@ import {
   USER_ERROR,
   LOGIN,
   REGISTER_ADMIN,
+  CHANGE_VIEW,
   LOGOUT,
   AUTHENTICATED
 } from "./Types";
@@ -55,22 +56,6 @@ export const setNewUser = user => async dispatch => {
   }
 };
 
-// export const getSales = () => {
-//   return async dispatch => {
-//     setLoading();
-//     try {
-//       const res = await Axios.get("/Sale");
-
-//       dispatch({
-//         type: GET_SALES,
-//         payload: res.data
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// }
-
 export const loginUser = user => async dispatch => {
   try {
     console.log("reached actions as " + user);
@@ -87,6 +72,11 @@ export const loginUser = user => async dispatch => {
     });
   }
 };
+export const setMenuView = key => dispatch =>
+  dispatch({
+    type: CHANGE_VIEW,
+    payload: key
+  });
 
 export const setLoading = () => {
   return {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ const NavBar = ({ user: { loggedIn }, logOut }) => {
     marginRight: "10px",
     marginLeft: "auto"
   };
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand>

@@ -16,3 +16,4 @@ export const DELETE_QUESTION = "DELETE_QUESTION";
 export const EDIT_QUESTION = "EDIT_QUESTION";
 export const SET_CURRENT = "SET_CURRENT";
 export const CLEAR_CURRENT = "CLEAR_CURRENT";
+export const CHANGE_VIEW = "CHANGE_VIEW";

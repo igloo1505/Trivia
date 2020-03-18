@@ -8,6 +8,7 @@ import {
   USER_ERROR,
   LOGIN,
   REGISTER_ADMIN,
+  CHANGE_VIEW,
   LOGOUT,
   AUTHENTICATED
 } from "./Types";
@@ -19,6 +20,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   leaders: null,
   loading: false,
+  menuKey: "View",
   admin: false,
   user: null,
   error: null
@@ -30,6 +32,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true
+      };
+    case CHANGE_VIEW:
+      return {
+        ...state,
+        menuKey: action.payload
       };
     case GET_LEADERS:
       return {

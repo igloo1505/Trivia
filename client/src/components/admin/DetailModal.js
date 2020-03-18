@@ -1,8 +1,11 @@
 import React, { Fragment, useState } from "react";
 import { Col, Row, Modal, Button, Table } from "react-bootstrap";
 import store from "../../store";
+import { Route, Redirect } from "react-router-dom";
 import { deleteQuestion, editQuestion } from "../../actions/questionActions";
+import { setMenuView } from "../../actions/userActions";
 import { connect } from "react-redux";
+import { set } from "mongoose";
 
 const DetailModal = ({
   user: {
@@ -14,18 +17,29 @@ const DetailModal = ({
   clearCurrent,
   show,
   setShow,
+  setKey,
   onHide,
   deleteQuestion,
+  key,
+  reRoute,
+  onSelect,
+  onEdit,
   editQuestion
 }) => {
   const state = store.getState();
   const onDelete = e => {
     e.preventDefault();
-    // debugger;
+
     let id = current[0]._id;
     setShow();
     deleteQuestion(id);
     clearCurrent();
+  };
+  onEdit = e => {
+    e.preventDefault();
+    console.log("reRoute Here");
+    onSelect("Submit");
+    setShow();
   };
 
   return (
@@ -107,6 +121,7 @@ const DetailModal = ({
                 type="submit"
                 variant="warning"
                 className="mobileEditButtons"
+                onClick={e => onEdit(e)}
               >
                 Edit
               </Button>
@@ -137,6 +152,8 @@ const mapStateToProps = state => ({
   question: state.question
 });
 
-export default connect(mapStateToProps, { editQuestion, deleteQuestion })(
-  DetailModal
-);
+export default connect(mapStateToProps, {
+  editQuestion,
+  deleteQuestion,
+  setMenuView
+})(DetailModal);

@@ -2,7 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import { Form, Col, Row, Button, Modal } from "react-bootstrap";
 import dataListArray from "../../assets/datalist";
 import { connect } from "react-redux";
-import { addQuestion } from "../../actions/questionActions";
+import {
+  addQuestion,
+  editQuestion,
+  clearCurrent
+} from "../../actions/questionActions";
+
 import uuid from "uuid";
 
 const QuestionForm = ({
@@ -11,8 +16,27 @@ const QuestionForm = ({
     loading,
     user: { name, email, organizationName, organizationReference, city }
   },
-  addQuestion
+  question: { questions, current },
+  addQuestion,
+  editQuestion,
+  clearCurrent
 }) => {
+  useEffect(() => {
+    console.log(current);
+    if (current !== null) {
+      setQuestion(current[0]);
+    } else {
+      setQuestion({
+        question: "",
+        difficulty: "",
+        correctAnswer: "",
+        wrongAnswerOne: "",
+        wrongAnswerTwo: "",
+        wrongAnswerThree: "",
+        submittedBy: { name, email, organizationName, organizationReference }
+      });
+    }
+  }, [current]);
   const [question, setQuestion] = useState({
     question: "",
     difficulty: "",
@@ -22,6 +46,11 @@ const QuestionForm = ({
     wrongAnswerThree: "",
     submittedBy: { name, email, organizationName, organizationReference }
   });
+  const onEdit = e => {
+    e.preventDefault();
+    let id = current[0]._id;
+    editQuestion(id, question);
+  };
 
   const onChange = e =>
     setQuestion({ ...question, [e.target.name]: e.target.value });
@@ -40,6 +69,14 @@ const QuestionForm = ({
       submittedBy: { name, email, organizationName, organizationReference }
     });
   };
+
+  const {
+    difficulty,
+    correctAnswer,
+    wrongAnswerOne,
+    wrongAnswerTwo,
+    wrongAnswerThree
+  } = question;
 
   return (
     <div>
@@ -60,8 +97,9 @@ const QuestionForm = ({
             as="select"
             multiple
             name="difficulty"
-            defaultValue={[question.difficulty]}
+            defaultValue={[difficulty]}
             onChange={onChange}
+            style={{ height: "7rem" }}
           >
             <option value="100">Trump</option>
             <option value="200">Well trained monkey</option>
@@ -75,7 +113,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Correct Answer"
               name="correctAnswer"
-              value={question.correctAnswer}
+              value={correctAnswer}
               onChange={onChange}
             />
           </Col>
@@ -83,7 +121,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerOne"
-              value={question.wrongAnswerOne}
+              value={wrongAnswerOne}
               onChange={onChange}
             />
           </Col>
@@ -93,7 +131,7 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerTwo"
-              value={question.wrongAnswerTwo}
+              value={wrongAnswerTwo}
               onChange={onChange}
             />
           </Col>
@@ -101,27 +139,57 @@ const QuestionForm = ({
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerThree"
-              value={question.wrongAnswerThree}
+              value={wrongAnswerThree}
               onChange={onChange}
             />
           </Col>
         </Row>
-        <Button
-          variant="primary"
-          size="lg"
-          block
-          onClick={e => onSubmit(e)}
-          className="submitFormButton"
-        >
-          Submit
-        </Button>
+        {current === null ? (
+          <Button
+            variant="primary"
+            size="lg"
+            block
+            onClick={e => onSubmit(e)}
+            className="submitFormButton"
+          >
+            Submit
+          </Button>
+        ) : (
+          <Button
+            variant="warning"
+            size="lg"
+            block
+            onClick={e => onEdit(e)}
+            className="submitFormButton"
+          >
+            Edit
+          </Button>
+        )}
+        {current ? (
+          <Button
+            variant="info"
+            size="lg"
+            block
+            onClick={e => clearCurrent()}
+            className="submitFormButton"
+          >
+            Clear
+          </Button>
+        ) : (
+          ""
+        )}
       </Form>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  question: state.question
 });
 
-export default connect(mapStateToProps, { addQuestion })(QuestionForm);
+export default connect(mapStateToProps, {
+  addQuestion,
+  editQuestion,
+  clearCurrent
+})(QuestionForm);

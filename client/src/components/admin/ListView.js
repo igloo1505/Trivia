@@ -16,7 +16,8 @@ const ListView = ({
   question: { questions, filtered, current },
   getQuestions,
   setCurrent,
-  clearCurrent
+  clearCurrent,
+  onSelect
 }) => {
   console.log(adminStatus, organizationName, organizationReference);
   useEffect(() => {
@@ -41,6 +42,7 @@ const ListView = ({
         show={show}
         setShow={() => setShow()}
         onHide={() => onHide}
+        onSelect={onSelect}
       />
       <Table
         striped
