@@ -33,7 +33,6 @@ const DetailModal = ({
     let id = current[0]._id;
     setShow();
     deleteQuestion(id);
-    clearCurrent();
   };
   onEdit = e => {
     e.preventDefault();

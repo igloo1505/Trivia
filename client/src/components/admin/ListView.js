@@ -44,13 +44,7 @@ const ListView = ({
         onHide={() => onHide}
         onSelect={onSelect}
       />
-      <Table
-        striped
-        bordered
-        hover
-        style={{ marginTop: "20px" }}
-        onClick={e => triggerDetail(e.target)}
-      >
+      <Table striped bordered hover style={{ marginTop: "20px" }}>
         <thead>
           <tr>
             <th>Difficulty</th>
@@ -69,7 +63,7 @@ const ListView = ({
                   </tr>
                 ))
               : questions.map(ques => (
-                  <tr key={ques._id}>
+                  <tr key={ques._id} onClick={e => triggerDetail(e.target)}>
                     <td value={ques._id}>{ques.difficulty}</td>
                     <td value={ques._id}>{ques.question}</td>
                     <td value={ques._id}>{ques.submittedBy.name}</td>

@@ -70,24 +70,45 @@ router.delete("/:id", auth, async (req, res) => {
 
 router.put("/:id", auth, async (req, res) => {
   console.log(req);
+  const {
+    submittedBy: { name, email, organizationName, organizationReference },
+    _id,
+    question,
+    correctAnswer,
+    wrongAnswerOne,
+    wrongAnswerTwo,
+    wrongAnswerThree
+  } = req.body;
 
-  // try {
-  //   let question = await Question.findById(req.params.id);
+  try {
+    let ques = await Question.findById(req.params.id);
 
-  //   if (!question)
-  //     return res.status(404).json({ msg: "Question id not valid" });
+    if (!ques) return res.status(404).json({ msg: "Question id not valid" });
+    let FieldHolder = {};
 
-  //   question = await Question.findByIdAndUpdate(
-  //     req.params.id,
-  //     { $set: questionFields },
-  //     { new: true }
-  //   );
+    if (name) FieldHolder.name = name;
+    if (email) FieldHolder.email = email;
+    if (organizationName) FieldHolder.organizationName = organizationName;
+    if (organizationReference)
+      FieldHolder.organizationReference = organizationReference;
 
-  //   res.json(question);
-  // } catch (err) {
-  //   console.error(err.message);
-  //   res.status(500).send("Server Error: question update failed");
-  // }
+    if (question) FieldHolder.question = question;
+    if (correctAnswer) FieldHolder.correctAnswer = correctAnswer;
+    if (wrongAnswerOne) FieldHolder.wrongAnswerOne = wrongAnswerOne;
+    if (wrongAnswerTwo) FieldHolder.wrongAnswerTwo = wrongAnswerTwo;
+    if (wrongAnswerThree) FieldHolder.wrongAnswerThree = wrongAnswerThree;
+
+    ques = await Question.findByIdAndUpdate(
+      req.params.id,
+      { $set: FieldHolder },
+      { new: true }
+    );
+
+    res.json(ques);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error: question update failed");
+  }
 });
 
 module.exports = router;

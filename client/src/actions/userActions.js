@@ -7,6 +7,7 @@ import {
   SET_LOADING,
   USER_ERROR,
   LOGIN,
+  EDIT_ACCESS,
   REGISTER_ADMIN,
   CHANGE_VIEW,
   LOGOUT,
@@ -49,6 +50,28 @@ export const setNewUser = user => async dispatch => {
     loadUser();
   } catch (error) {
     console.log("reached catch block");
+    dispatch({
+      type: USER_ERROR,
+      payload: error
+    });
+  }
+};
+export const editUserAccess = ({ orgInfo }) => async dispatch => {
+  debugger;
+  console.log("sending organization as ", orgInfo);
+
+  const res = await axios.put(
+    `/organizations/${orgInfo.organizationReference}`,
+    orgInfo,
+    config
+  );
+  console.log(res);
+  try {
+    dispatch({
+      type: EDIT_ACCESS,
+      payload: res.data
+    });
+  } catch (error) {
     dispatch({
       type: USER_ERROR,
       payload: error

@@ -12,16 +12,6 @@ const Admin = () => {
     loadUser();
     // eslint-disable-next-line
   }, []);
-
-  //   let DynamicArray = [];
-  //   if (questions) {
-  //     for (var i = 0; i < questions.length; i++) {
-  //       var catOutput = questions[i].category;
-  //       if (DynamicArray.indexOf(catOutput) === -1) {
-  //         DynamicArray.push(catOutput);
-  //       }
-  //     }
-  //   }
   const AdminDisplay = {
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)",

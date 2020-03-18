@@ -23,7 +23,6 @@ const config = {
 let state = store.getState();
 
 export const addQuestion = question => async dispatch => {
-  debugger;
   console.log(question);
 
   setLoading();

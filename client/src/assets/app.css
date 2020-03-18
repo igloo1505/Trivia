@@ -22,12 +22,7 @@ a:hover {
     padding-bottom: .5rem;
 }
 
-/* const RowStyle= {
-    marginTop: "25px",
-        marginBottom: "25px",
-        marginLeft: "50px",
-        marginRight: "50px"
-} */
+
 
 
 .submitFormButton {
@@ -58,11 +53,20 @@ a:hover {
         display: none;
     }
 
+    .mobileHeadline {
+        display: none;
+    }
+
     .mobileEditButtons {
         display: block;
         margin-top: 10px;
         margin-left: auto;
         margin-right: auto !important;
+    }
+
+    .editAccessInput {
+        margin: 15px auto;
+        width: 80%;
     }
 
     .row {
@@ -108,7 +112,7 @@ a:hover {
 
     .topMobileRow {
 
-        margin-top: 50px
+        margin-top: 20px
     }
 
     .deleteButton {

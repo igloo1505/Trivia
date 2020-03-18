@@ -6,6 +6,7 @@ import {
   SET_USER,
   SET_LOADING,
   USER_ERROR,
+  EDIT_ACCESS,
   LOGIN,
   REGISTER_ADMIN,
   CHANGE_VIEW,
@@ -20,7 +21,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   leaders: null,
   loading: false,
-  menuKey: "View",
+  menuKey: "Submit",
   admin: false,
   user: null,
   error: null
@@ -70,6 +71,12 @@ export default (state = initialState, action) => {
         ...state,
         ...action.payload,
         loggedIn: true,
+        loading: false
+      };
+    case EDIT_ACCESS:
+      console.log("add toast here if successfully changed");
+      return {
+        ...state,
         loading: false
       };
     case LOGOUT:

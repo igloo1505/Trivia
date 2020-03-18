@@ -4,6 +4,7 @@ import { Form, Col, Row, Button, Modal, Tabs, Tab } from "react-bootstrap";
 import store from "../../store";
 import { getQuestions } from "../../actions/questionActions";
 import QuestionForm from "./Form";
+import AccessPanel from "./AccessPanel";
 import ListView from "./ListView";
 import dataListArray from "../../assets/datalist";
 import { connect } from "react-redux";
@@ -24,7 +25,7 @@ const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
         <ListView onSelect={k => setKey(k)} />
       </Tab>
       <Tab eventKey="Access" title="Access">
-        <h1>Header Three Here</h1>
+        <AccessPanel />
       </Tab>
     </Tabs>
   );

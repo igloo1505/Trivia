@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const OrganizationSchema = mongoose.Schema({
+  referenceID: {
+    type: String,
+    required: true
+  },
   organizationName: {
     type: String,
     required: true

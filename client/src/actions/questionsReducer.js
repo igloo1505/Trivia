@@ -55,7 +55,7 @@ export default (state = initialState, action) => {
         ...state,
         current: null,
         questions: state.questions.map(question =>
-          question._id === action.payload ? action.payload : question
+          question._id === action.payload._id ? action.payload : question
         ),
         loading: false
       };
@@ -63,6 +63,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         questions: state.questions.filter(que => que._id !== action.payload),
+        current: null,
         loading: false
       };
     }

@@ -19,6 +19,7 @@ app.use(morgan("combined", { stream: accessLogStream }));
 app.use("/users", require("./routes/userRoute"));
 app.use("/auth", require("./routes/authRoute"));
 app.use("/questions", require("./routes/questionRoute"));
+app.use("/organizations", require("./routes/organizationRoute"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

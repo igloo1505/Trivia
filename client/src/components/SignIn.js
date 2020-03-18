@@ -36,7 +36,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
     setNewUser(user);
   };
   const RowStyle = {
-    margin: "50px"
+    margin: "30px"
   };
   const buttonStyle = {
     marginLeft: "50%",
