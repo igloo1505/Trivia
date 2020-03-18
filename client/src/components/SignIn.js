@@ -51,7 +51,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
   return (
     <div>
       <SignInModal show={modalShow} onHide={() => setModalShow(false)} />
-      <Form style={{ marginTop: "20px", marginBottom: "20px" }}>
+      <Form style={{ marginTop: "20px", marginBottom: "50px" }}>
         <Row style={RowStyle}>
           <Col xs={12} md={6} style={{ marginTop: "20px" }}>
             <Form.Control
@@ -69,7 +69,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
           </Col>
         </Row>
         <Row style={RowStyle}>
-          <Col style={{ marginTop: "20px" }}>
+          <Col xs={12} md={6} style={{ marginTop: "20px" }}>
             <Form.Label>Organization Code</Form.Label>
             <Form.Control
               type="text"
@@ -78,7 +78,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
               placeholder="Org. code (required only for admins)"
             />
           </Col>
-          <Col style={{ marginTop: "20px" }}>
+          <Col xs={12} md={6} style={{ marginTop: "20px" }}>
             <Form.Label>Personal Password</Form.Label>
             <Form.Control
               type="password"

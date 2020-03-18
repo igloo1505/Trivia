@@ -13,19 +13,6 @@ const QuestionForm = ({
   },
   addQuestion
 }) => {
-  //   useEffect(() => {
-  //     if (current !== null) {
-  //       setQuestion(current);
-  //     } else {
-  //       setQuestion({
-  //         question: "",
-  //         answer: "",
-  //         category: "",
-  //         points: ""
-  //       });
-  //     }
-  //   }, [questionContext, current]);
-
   const [question, setQuestion] = useState({
     question: "",
     difficulty: "",
@@ -52,9 +39,6 @@ const QuestionForm = ({
       wrongAnswerThree: "",
       submittedBy: { name, email, organizationName, organizationReference }
     });
-  };
-  const RowStyle = {
-    margin: "50px"
   };
 
   return (
@@ -86,8 +70,8 @@ const QuestionForm = ({
             <option value="500">Einstein</option>
           </Form.Control>
         </Form.Group>
-        <Row style={RowStyle}>
-          <Col xs={12} md={6} style={{ marginTop: "5px" }}>
+        <Row className="mobileInputRow">
+          <Col xs={12} md={6} className="mobileInput">
             <Form.Control
               placeholder="Correct Answer"
               name="correctAnswer"
@@ -95,7 +79,7 @@ const QuestionForm = ({
               onChange={onChange}
             />
           </Col>
-          <Col xs={12} md={6} style={{ marginTop: "5px" }}>
+          <Col xs={12} md={6} className="mobileInput">
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerOne"
@@ -104,8 +88,8 @@ const QuestionForm = ({
             />
           </Col>
         </Row>
-        <Row style={RowStyle}>
-          <Col xs={12} md={6} style={{ marginTop: "5px" }}>
+        <Row className="mobileInputRow">
+          <Col xs={12} md={6} className="mobileInput">
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerTwo"
@@ -113,7 +97,7 @@ const QuestionForm = ({
               onChange={onChange}
             />
           </Col>
-          <Col xs={12} md={6} style={{ marginTop: "5px" }}>
+          <Col xs={12} md={6} className="mobileInput">
             <Form.Control
               placeholder="Wrong Answer"
               name="wrongAnswerThree"
@@ -127,7 +111,7 @@ const QuestionForm = ({
           size="lg"
           block
           onClick={e => onSubmit(e)}
-          style={{ width: "70%", margin: "auto" }}
+          className="submitFormButton"
         >
           Submit
         </Button>

@@ -18,8 +18,60 @@ a:hover {
 
 .navbar-nav a {
     padding-right: 20px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
 
-.playButton {
-    float: right
+/* const RowStyle= {
+    marginTop: "25px",
+        marginBottom: "25px",
+        marginLeft: "50px",
+        marginRight: "50px"
+} */
+
+
+.submitFormButton {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        background-color: #dee2e6;
+    }
+
+    .mobileInput {
+        margin: 25px 50px;
+        justify-content: center;
+    }
+
+    .row {
+        justify-content: center;
+        margin: auto 20px;
+    }
+
+
+    .mobileInputRow {
+        justify-content: center;
+    }
+
+    .submitFormButton {
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 2rem
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .playButton {
+        float: right;
+    }
+
+    .mobileInputRow {
+        margin: 50px auto;
+    }
 }

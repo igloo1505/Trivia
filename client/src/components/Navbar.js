@@ -12,7 +12,7 @@ const NavBar = ({ user: { loggedIn }, logOut }) => {
     marginLeft: "auto"
   };
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand>
         <img
           alt=""
@@ -24,26 +24,29 @@ const NavBar = ({ user: { loggedIn }, logOut }) => {
         />{" "}
         <Link to="/">Javascript Trivia</Link>
       </Navbar.Brand>
-      <Nav style={NavLinkStyle}>
-        {loggedIn ? (
-          <Nav>
-            <Link to="/">Home</Link> <Link to="/admin">Admin</Link>{" "}
-            <Link to="/" onClick={logOut}>
-              Log Out
-            </Link>
-          </Nav>
-        ) : (
-          ""
-        )}
-        {loggedIn ? (
-          ""
-        ) : (
-          <Nav>
-            {" "}
-            <Link to="/signIn">Sign In</Link>
-          </Nav>
-        )}
-      </Nav>
+      <Navbar.Toggle aria-controls="mobileHamburger" />
+      <Navbar.Collapse id="mobileHamburger">
+        <Nav style={NavLinkStyle}>
+          {loggedIn ? (
+            <Nav>
+              <Link to="/">Home</Link> <Link to="/admin">Admin</Link>{" "}
+              <Link to="/" onClick={logOut}>
+                Log Out
+              </Link>
+            </Nav>
+          ) : (
+            ""
+          )}
+          {loggedIn ? (
+            ""
+          ) : (
+            <Nav>
+              {" "}
+              <Link to="/signIn">Sign In</Link>
+            </Nav>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
