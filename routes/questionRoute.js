@@ -52,42 +52,43 @@ router.get("/:organizationReference", auth, async (req, res) => {
   }
 });
 
-// router.delete("/:id", auth, async (req, res) => {
-//   try {
-//     let question = await Question.findById(req.params.id);
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    let question = await Question.findById(req.params.id);
 
-//     if (!question)
-//       return res.status(404).json({ msg: "Question ID not found" });
+    if (!question)
+      return res.status(404).json({ msg: "Question ID not found" });
 
-//     await Question.findByIdAndRemove(req.params.id);
+    await Question.findByIdAndRemove(req.params.id);
 
-//     res.json({ msg: "Successfully removed" });
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send("Server Error");
-//   }
-// });
+    res.json({ msg: "Successfully removed" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
 
-// router.put("/:id", auth, async (req, res) => {
-//   const { question, answer, } = req.body;
+router.put("/:id", auth, async (req, res) => {
+  const { question, answer } = req.body;
+  console.log(req);
 
-//   try {
-//     let question = await Question.findById(req.params.id);
+  // try {
+  //   let question = await Question.findById(req.params.id);
 
-//     if (!question)
-//       return res.status(404).json({ msg: "Question id not valid" });
+  //   if (!question)
+  //     return res.status(404).json({ msg: "Question id not valid" });
 
-//     question = await Question.findByIdAndUpdate(
-//       req.params.id,
-//       { $set: questionFields },
-//       { new: true }
-//     );
+  //   question = await Question.findByIdAndUpdate(
+  //     req.params.id,
+  //     { $set: questionFields },
+  //     { new: true }
+  //   );
 
-//     res.json(question);
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send("Server Error: question update failed");
-//   }
-// });
+  //   res.json(question);
+  // } catch (err) {
+  //   console.error(err.message);
+  //   res.status(500).send("Server Error: question update failed");
+  // }
+});
 
 module.exports = router;

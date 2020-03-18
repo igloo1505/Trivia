@@ -48,6 +48,22 @@ export default (state = initialState, action) => {
         current: state.questions.filter(que => que._id == action.payload),
         loading: false
       };
+    case EDIT_QUESTION:
+      return {
+        ...state,
+        current: null,
+        questions: state.questions.map(question =>
+          question._id === action.payload ? action.payload : question
+        ),
+        loading: false
+      };
+    case DELETE_QUESTION: {
+      return {
+        ...state,
+        questions: state.questions.filter(que => que._id !== action.payload),
+        loading: false
+      };
+    }
     case CLEAR_CURRENT:
       return {
         ...state,

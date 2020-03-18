@@ -52,6 +52,35 @@ export const getQuestions = reference => async dispatch => {
     dispatch({ type: QUESTION_ERROR, payload: err });
   }
 };
+export const deleteQuestion = id => async dispatch => {
+  try {
+    await axios.delete(`/questions/${id}`);
+    dispatch({
+      type: DELETE_QUESTION,
+      payload: id
+    });
+  } catch (error) {
+    dispatch({
+      type: QUESTION_ERROR,
+      payload: error
+    });
+  }
+};
+
+export const editQuestion = question => async dispatch => {
+  try {
+    const res = await axios.put(`/questions/${question._id}`, question, config);
+    dispatch({
+      type: EDIT_QUESTION,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: QUESTION_ERROR,
+      payload: error
+    });
+  }
+};
 
 export const setCurrent = id => dispatch => {
   dispatch({ type: SET_CURRENT, payload: id });

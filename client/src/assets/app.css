@@ -19,3 +19,7 @@ a:hover {
 .navbar-nav a {
     padding-right: 20px;
 }
+
+.playButton {
+    float: right
+}
