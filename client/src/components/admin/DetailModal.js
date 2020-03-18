@@ -13,9 +13,20 @@ const DetailModal = ({
   setCurrent,
   clearCurrent,
   show,
-  onHide
+  setShow,
+  onHide,
+  deleteQuestion,
+  editQuestion
 }) => {
   const state = store.getState();
+  const onDelete = e => {
+    e.preventDefault();
+    // debugger;
+    let id = current[0]._id;
+    setShow();
+    deleteQuestion(id);
+    clearCurrent();
+  };
 
   return (
     <Fragment>
@@ -32,7 +43,7 @@ const DetailModal = ({
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Row style={{ marginTop: "50px" }}>
+            <Row className="topMobileRow">
               <Col
                 xs={12}
                 md={6}
@@ -41,6 +52,7 @@ const DetailModal = ({
                   fontSize: "1.5rem",
                   textDecoration: "underline"
                 }}
+                className="mobilePadding"
               >
                 {current ? current[0].correctAnswer : ""}
               </Col>
@@ -48,6 +60,7 @@ const DetailModal = ({
                 xs={12}
                 md={6}
                 style={{ textAlign: "center", fontSize: "1.2rem" }}
+                className="mobilePadding"
               >
                 {current ? current[0].wrongAnswerOne : ""}
               </Col>
@@ -57,6 +70,7 @@ const DetailModal = ({
                 xs={12}
                 md={6}
                 style={{ textAlign: "center", fontSize: "1.2rem" }}
+                className="mobilePadding"
               >
                 {current ? current[0].wrongAnswerTwo : ""}
               </Col>
@@ -64,6 +78,7 @@ const DetailModal = ({
                 xs={12}
                 md={6}
                 style={{ textAlign: "center", fontSize: "1.2rem" }}
+                className="mobilePadding"
               >
                 {current ? current[0].wrongAnswerThree : ""}
               </Col>
@@ -83,7 +98,8 @@ const DetailModal = ({
               <Button
                 type="submit"
                 variant="danger"
-                className="mobileEditButtons"
+                className="mobileEditButtons deleteButton"
+                onClick={e => onDelete(e)}
               >
                 Delete!
               </Button>

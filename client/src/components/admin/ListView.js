@@ -37,7 +37,11 @@ const ListView = ({
 
   return (
     <Fragment>
-      <DetailModal show={show} onHide={() => onHide} />
+      <DetailModal
+        show={show}
+        setShow={() => setShow()}
+        onHide={() => onHide}
+      />
       <Table
         striped
         bordered

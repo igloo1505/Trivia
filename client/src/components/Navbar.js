@@ -29,7 +29,8 @@ const NavBar = ({ user: { loggedIn }, logOut }) => {
         <Nav style={NavLinkStyle}>
           {loggedIn ? (
             <Nav>
-              <Link to="/">Home</Link> <Link to="/admin">Admin</Link>{" "}
+              <Link to="/">Home</Link> <Link to="/">LeaderBoard</Link>{" "}
+              <Link to="/admin">Admin</Link>{" "}
               <Link to="/" onClick={logOut}>
                 Log Out
               </Link>

@@ -41,9 +41,7 @@ a:hover {
     margin-right: 20px
 }
 
-.mobileEditRow {
-    margin: 50px auto;
-}
+
 
 
 @media only screen and (max-width: 600px) {
@@ -86,6 +84,18 @@ a:hover {
         margin-top: 30px;
     }
 
+    .modal-title {
+        font-size: 1rem;
+    }
+
+    .mobileEditRow {
+        margin-bottom: 20px;
+    }
+
+    .mobilePadding {
+        margin-bottom: 15px;
+    }
+
     h1 {
         font-size: 2rem
     }
@@ -94,6 +104,23 @@ a:hover {
 @media only screen and (min-width: 600px) {
     .playButton {
         float: right;
+    }
+
+    .topMobileRow {
+
+        margin-top: 50px
+    }
+
+    .deleteButton {
+        margin-left: auto;
+    }
+
+    .mobileEditRow {
+        margin: 50px auto;
+    }
+
+    .mobileSubmittedBy {
+        display: none;
     }
 
     .mobileInputRow {
