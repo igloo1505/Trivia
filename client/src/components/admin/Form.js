@@ -100,7 +100,7 @@ const QuestionForm = ({
             onChange={onChange}
             style={{ height: "7rem" }}
           >
-            <option value="100">Trump</option>
+            <option value="100">The President</option>
             <option value="200">Well trained monkey</option>
             <option value="300">C student</option>
             <option value="400">"Chad" from accounting</option>

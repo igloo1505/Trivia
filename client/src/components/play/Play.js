@@ -8,7 +8,7 @@ const Play = ({
     user: { organizationReference }
   },
   question: { questions, current, loading },
-  play: { active, score, totalCorrect, totalIncorrect },
+  play: { questionArray, active, score, totalCorrect, totalIncorrect },
   getQuestions,
   correctAnswer,
   wrongAnswer

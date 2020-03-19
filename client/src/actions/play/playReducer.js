@@ -9,6 +9,7 @@ import {
   CLEAR_PLAY
 } from "../Types";
 import store from "../../store";
+import { Route, Redirect } from "react-router-dom";
 
 const initialState = {
   questionArray: null,
@@ -16,6 +17,7 @@ const initialState = {
   active: null,
   totalCorrect: [],
   totalIncorrect: [],
+  totalQuestions: null,
   loading: false
 };
 
@@ -27,12 +29,14 @@ export default (state = initialState, action) => {
         ...state,
         questionArray: action.payload,
         active: action.payload[0],
+        totalQuestions: action.payload.length,
         loading: false
       };
     case CORRECT_ANSWER:
       let newArray = state.questionArray.filter(
         que => que._id !== action.payload._id
       );
+      console.log("total count at ", state.totalQuestions);
       return {
         ...state,
         totalCorrect: [action.payload, ...state.totalCorrect],
@@ -40,6 +44,7 @@ export default (state = initialState, action) => {
           que => que._id !== action.payload._id
         ),
         active: newArray[0],
+        totalQuestions: state.totalQuestions - 1,
         loading: false
       };
 

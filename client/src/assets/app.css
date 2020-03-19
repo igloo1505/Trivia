@@ -1,148 +1,179 @@
 a {
-  text-decoration: none;
-  color: #ffff;
+    text-decoration: none;
+    color: #ffff;
 }
 
 a:hover {
-  color: #ffff;
-  text-decoration: none;
+    color: #ffff;
+    text-decoration: none;
 }
 
 .nav-tabs a {
-  color: #495057;
-  border-color: #dee2e6;
-  border: 1px solid transparent;
-  border-top-right-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
+    color: #495057;
+    border-color: #dee2e6;
+    border: 1px solid transparent;
+    border-top-right-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
 }
+
 .QuestionContainer {
-  margin: auto;
-  margin-top: 80px;
-  text-align: center;
+    margin: auto;
+    margin-top: 80px;
+    text-align: center;
 }
+
 .answerGrid {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
+
 .answerContainer {
-  text-align: center;
-  padding: 80px;
-  margin: 20px;
-  background-color: #007bff;
-  border-radius: 20px;
+    text-align: center;
+    padding: 80px;
+    margin: 20px;
+    background-color: #007bff;
+    border-radius: 20px;
 }
+
 .answerContainer:hover {
-  transition: 0.2s;
-  background-color: rgba(0, 123, 255, 0.8);
+    transition: 0.2s;
+    background-color: rgba(0, 123, 255, 0.8);
 }
+
 .answerText {
-  color: #ffff;
+    color: #ffff;
 }
 
 .navbar-nav a {
-  padding-right: 20px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+    padding-right: 20px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .submitFormButton {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mobileEditButtons {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 @media only screen and (max-width: 760px) {
-  .navbar {
-    background-color: #dee2e6;
-  }
+    .navbar {
+        background-color: #dee2e6;
+    }
 
-  .mobileInput {
-    margin: 25px 50px;
-    justify-content: center;
-  }
+    .QuestionContainer {
+        display: flex;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        flex-direction: column;
+    }
 
-  .desktopSubmittedBy {
-    display: none;
-  }
+    .answerGrid {
+        display: block;
+        margin-top: 30px;
 
-  .mobileHeadline {
-    display: none;
-  }
+    }
 
-  .mobileEditButtons {
-    display: block;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto !important;
-  }
+    .answerText {
+        font-size: 1rem;
+    }
 
-  .editAccessInput {
-    margin: 15px auto;
-    width: 80%;
-  }
+    .answerContainer {
+        text-align: center;
+        padding: 20px;
+    }
 
-  .row {
-    justify-content: center;
-    margin: auto 20px;
-  }
+    .mobileInput {
+        margin: 25px 50px;
+        justify-content: center;
+    }
 
-  .mobileEditRow {
-    margin-top: auto;
-    margin-bottom: 50px;
-  }
+    .answerContainer {
+        max-width: 90vw;
+    }
 
-  .mobileInputRow {
-    justify-content: center;
-  }
+    .desktopSubmittedBy {
+        display: none;
+    }
 
-  .submitFormButton {
-    margin-top: 30px;
-  }
+    .mobileHeadline {
+        display: none;
+    }
 
-  .modal-title {
-    font-size: 1rem;
-  }
+    .mobileEditButtons {
+        display: block;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto !important;
+    }
 
-  .mobileEditRow {
-    margin-bottom: 20px;
-  }
+    .editAccessInput {
+        margin: 15px auto;
+        width: 80%;
+    }
 
-  .mobilePadding {
-    margin-bottom: 15px;
-  }
+    .row {
+        justify-content: center;
+        margin: auto 20px;
+    }
 
-  h1 {
-    font-size: 2rem;
-  }
+    .mobileEditRow {
+        margin-top: auto;
+        margin-bottom: 50px;
+    }
+
+    .mobileInputRow {
+        justify-content: center;
+    }
+
+    .submitFormButton {
+        margin-top: 30px;
+    }
+
+    .modal-title {
+        font-size: 1rem;
+    }
+
+    .mobileEditRow {
+        margin-bottom: 20px;
+    }
+
+    .mobilePadding {
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }
 
 @media only screen and (min-width: 600px) {
-  .playButton {
-    float: right;
-  }
+    .playButton {
+        float: right;
+    }
 
-  .topMobileRow {
-    margin-top: 20px;
-  }
+    .topMobileRow {
+        margin-top: 20px;
+    }
 
-  .deleteButton {
-    margin-left: auto;
-  }
+    .deleteButton {
+        margin-left: auto;
+    }
 
-  .mobileEditRow {
-    margin: 50px auto;
-  }
+    .mobileEditRow {
+        margin: 50px auto;
+    }
 
-  .mobileSubmittedBy {
-    display: none;
-  }
+    .mobileSubmittedBy {
+        display: none;
+    }
 
-  .mobileInputRow {
-    margin: 50px auto;
-  }
+    .mobileInputRow {
+        margin: 50px auto;
+    }
 }

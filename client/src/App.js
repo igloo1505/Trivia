@@ -7,6 +7,7 @@ import store from "./store";
 import PrivateRoute from "./actions/auth/PrivateRoute";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import Main from "./components/play/Main";
 import { connect } from "react-redux";
 import Nav from "./components/Navbar";
 import Guest from "./components/Guest";
@@ -28,7 +29,7 @@ function App({ user: { loggedIn } }) {
               <PrivateRoute exact path="/" component={Guest} />
               <Route exact path="/signIn" component={SignIn} />
               <PrivateRoute exact path="/admin" component={Admin} />
-              <PrivateRoute exact path="/play" component={Play} />
+              <PrivateRoute exact path="/play" component={Main} />
             </Switch>
           </div>
         </Router>

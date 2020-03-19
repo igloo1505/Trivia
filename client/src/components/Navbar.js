@@ -9,6 +9,7 @@ import Smiley from "../assets/smiley.svg";
 const NavBar = ({
   user: {
     loggedIn,
+    user,
     organization: { organizationName, displayName }
   },
   organization,
@@ -42,7 +43,7 @@ const NavBar = ({
           {loggedIn ? (
             <Nav>
               <Link to="/">Home</Link> <Link to="/">LeaderBoard</Link>{" "}
-              <Link to="/admin">Admin</Link>{" "}
+              {user.adminStatus ? <Link to="/admin">Admin</Link> : ""}
               <Link to="/" onClick={logOut}>
                 Log Out
               </Link>
