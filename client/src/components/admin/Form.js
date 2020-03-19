@@ -97,7 +97,6 @@ const QuestionForm = ({
             as="select"
             multiple
             name="difficulty"
-            defaultValue={[difficulty]}
             onChange={onChange}
             style={{ height: "7rem" }}
           >

@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { Jumbotron, Container, Button } from "react-bootstrap";
+import { setPlayState } from "../actions/play/playActions";
 
 const Guest = ({
   user: {
     loggedIn,
-    user: { name }
-  }
+    user: { name, organizationReference }
+  },
+  setPlayState
 }) => {
+  useEffect(() => {
+    setPlayState(organizationReference);
+  }, []);
+  const handlePlay = e => {
+    console.log("call async randomize here");
+    // setPlayState(organizationReference);
+  };
   return (
     <div>
       <Jumbotron fluid>
@@ -20,9 +31,16 @@ const Guest = ({
             name to the leader board.
           </p>
           <p>
-            <Button variant="primary" size="lg" className="playButton">
-              Play
-            </Button>
+            <Link to="/play">
+              <Button
+                variant="primary"
+                size="lg"
+                className="playButton"
+                onClick={e => handlePlay(e)}
+              >
+                Play
+              </Button>
+            </Link>
           </p>
         </Container>
       </Jumbotron>
@@ -33,4 +51,4 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(Guest);
+export default connect(mapStateToProps, { setPlayState })(Guest);

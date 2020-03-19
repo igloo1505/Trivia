@@ -6,11 +6,13 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
+const Organization = require("../models/Organization");
 const User = require("../models/userModel");
 
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).isSelected("-password");
+
     res.json(user);
   } catch (error) {
     console.error(error.message);
@@ -43,6 +45,14 @@ router.post(
       if (!match) {
         return res.status(400).json({ msg: "invalid password" });
       }
+      let orgReturn = {};
+
+      let org = await Organization.findById(user.organizationReference);
+
+      orgReturn.referenceID = org.referenceID;
+      orgReturn.organizationName = org.organizationName;
+      orgReturn.organizationUserPassword = org.organizationUserPassword;
+      orgReturn.displayName = org.displayName;
 
       const payload = {
         user: {
@@ -58,7 +68,7 @@ router.post(
         },
         (err, token) => {
           if (err) throw err;
-          res.json({ token, user });
+          res.json({ token, user, orgReturn });
         }
       );
     } catch (error) {

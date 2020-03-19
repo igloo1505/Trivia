@@ -23,6 +23,11 @@ const initialState = {
   loading: false,
   menuKey: "Submit",
   admin: false,
+  organization: {
+    organizationName: null,
+    organizationUserPassword: null,
+    displayName: null
+  },
   user: null,
   error: null
 };
@@ -65,11 +70,13 @@ export default (state = initialState, action) => {
       };
     case LOGIN:
       console.log("logged in Reducer reached");
+      console.log("playload: ", action.payload);
       localStorage.setItem("token", action.payload.token);
       loadUser();
       return {
         ...state,
-        ...action.payload,
+        user: action.payload.user,
+        organization: action.payload.orgReturn,
         loggedIn: true,
         loading: false
       };
@@ -77,6 +84,7 @@ export default (state = initialState, action) => {
       console.log("add toast here if successfully changed");
       return {
         ...state,
+        organization: action.payload,
         loading: false
       };
     case LOGOUT:

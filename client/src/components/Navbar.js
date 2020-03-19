@@ -6,7 +6,14 @@ import { logOut } from "../actions/userActions";
 
 import Smiley from "../assets/smiley.svg";
 
-const NavBar = ({ user: { loggedIn }, logOut }) => {
+const NavBar = ({
+  user: {
+    loggedIn,
+    organization: { organizationName, displayName }
+  },
+  organization,
+  logOut
+}) => {
   const NavLinkStyle = {
     marginRight: "10px",
     marginLeft: "auto"
@@ -23,7 +30,11 @@ const NavBar = ({ user: { loggedIn }, logOut }) => {
           className="d-inline-block align-top"
           style={{ marginRight: "10px" }}
         />{" "}
-        <Link to="/">Javascript Trivia</Link>
+        {loggedIn ? (
+          <Link to="/"> {displayName}</Link>
+        ) : (
+          <Link to="/"> Javascript Trivia</Link>
+        )}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="mobileHamburger" />
       <Navbar.Collapse id="mobileHamburger">

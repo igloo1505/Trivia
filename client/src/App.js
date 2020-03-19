@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import Nav from "./components/Navbar";
 import Guest from "./components/Guest";
 import SignIn from "./components/SignIn";
+import Play from "./components/play/Play";
 import Admin from "./components/admin/Admin";
 
 function App({ user: { loggedIn } }) {
@@ -27,6 +28,7 @@ function App({ user: { loggedIn } }) {
               <PrivateRoute exact path="/" component={Guest} />
               <Route exact path="/signIn" component={SignIn} />
               <PrivateRoute exact path="/admin" component={Admin} />
+              <PrivateRoute exact path="/play" component={Play} />
             </Switch>
           </div>
         </Router>

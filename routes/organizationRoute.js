@@ -9,7 +9,12 @@ const bcrypt = require("bcryptjs");
 router.put("/:id", auth, async (req, res) => {
   console.log("received req as ", req.body);
 
-  const { referenceID, organizationName, organizationUserPassword } = req.body;
+  const {
+    referenceID,
+    organizationName,
+    organizationUserPassword,
+    DisplayName
+  } = req.body;
   console.log(req.body);
 
   let id = req.params.id;
@@ -27,6 +32,9 @@ router.put("/:id", auth, async (req, res) => {
     if (organizationUserPassword) {
       fieldHolder.organizationUserPassword = organizationUserPassword;
     }
+    if (DisplayName) {
+      fieldHolder.displayName = DisplayName;
+    }
 
     console.log("retrieved Organization to update as ", orgAccess);
     orgAccess = await Organization.findByIdAndUpdate(
@@ -34,7 +42,7 @@ router.put("/:id", auth, async (req, res) => {
       { $set: fieldHolder },
       { new: true }
     );
-    res.json(orgAccess);
+    res.json(fieldHolder);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Failed to update Organization");

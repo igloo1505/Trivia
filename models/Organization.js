@@ -16,6 +16,10 @@ const OrganizationSchema = mongoose.Schema({
   organizationUserPassword: {
     type: String
   },
+  displayName: {
+    type: String,
+    default: ""
+  },
   city: {
     type: String
   },

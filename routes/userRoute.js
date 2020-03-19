@@ -48,14 +48,10 @@ router.post(
         _id,
         organizationName,
         organizationAdminPassword,
-        organizationUserPassword
+        organizationUserPassword,
+        DisplayName
       } = organizationId[0]; //
-      console.log("organizationId[0]", organizationId[0]);
-      console.log("organizationId[0]", typeof organizationId[0]._id);
-      console.log("organizationId[0]", typeof organizationId[0]._id.toString());
-      console.log("organizationId[0]", organizationId[0]._id);
 
-      console.log("organizationName", organizationName);
       let AdminStatus;
       if (organizationAdminPassword === organizationString) {
         AdminStatus = true;
