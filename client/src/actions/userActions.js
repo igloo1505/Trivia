@@ -45,7 +45,7 @@ export const setNewUser = user => async dispatch => {
 
     dispatch({
       type: REGISTER_ADMIN,
-      payload: res
+      payload: res.data
     });
     loadUser();
   } catch (error) {
@@ -57,7 +57,6 @@ export const setNewUser = user => async dispatch => {
   }
 };
 export const editUserAccess = ({ orgInfo }) => async dispatch => {
-  debugger;
   console.log("sending organization as ", orgInfo);
 
   const res = await axios.put(
