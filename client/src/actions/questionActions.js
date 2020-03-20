@@ -20,7 +20,8 @@ const config = {
     "Content-Type": "application/json"
   }
 };
-let state = store.getState();
+const cloudinaryURL =
+  "cloudinary://456725152474713:z7z8DiL6Drwun5-AQGOOsnrSeII@iglooworks";
 
 export const addQuestion = question => async dispatch => {
   console.log(question);
@@ -65,6 +66,12 @@ export const deleteQuestion = id => async dispatch => {
       payload: error
     });
   }
+};
+export const addImage = async image => {
+  const fd = new FormData();
+  fd.append("image", image, image.name);
+  const res = await axios.post(`${cloudinaryURL}/upload`, fd);
+  console.log(res);
 };
 
 export const editQuestion = (id, question) => async dispatch => {

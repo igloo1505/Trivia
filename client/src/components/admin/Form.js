@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Form, Col, Row, Button, Modal } from "react-bootstrap";
 import dataListArray from "../../assets/datalist";
+import UploadModal from "./UploadModal";
+import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   addQuestion,
@@ -37,6 +39,7 @@ const QuestionForm = ({
       });
     }
   }, [current]);
+  const [showUpload, setShowUpload] = useState(false);
   const [question, setQuestion] = useState({
     question: "",
     difficulty: "",
@@ -80,6 +83,7 @@ const QuestionForm = ({
 
   return (
     <div>
+      <UploadModal show={showUpload} onHide={() => setShowUpload(false)} />
       <Form style={{ marginTop: "20px", marginBottom: "50px" }}>
         <Form.Group controlId="Question">
           <Form.Label>Trivia Question</Form.Label>
@@ -175,7 +179,16 @@ const QuestionForm = ({
             Clear
           </Button>
         ) : (
-          ""
+          <Button
+            variant="primary"
+            size="lg"
+            block
+            onClick={e => setShowUpload(true)}
+            style={{ marginTop: "20px" }}
+            className="submitFormButton"
+          >
+            Upload
+          </Button>
         )}
       </Form>
     </div>

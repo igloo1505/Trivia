@@ -14,6 +14,7 @@ import Guest from "./components/Guest";
 import SignIn from "./components/SignIn";
 import Play from "./components/play/Play";
 import Admin from "./components/admin/Admin";
+import UploadModal from "./components/admin/UploadModal";
 
 function App({ user: { loggedIn } }) {
   if (localStorage.token) {
@@ -30,6 +31,7 @@ function App({ user: { loggedIn } }) {
               <Route exact path="/signIn" component={SignIn} />
               <PrivateRoute exact path="/admin" component={Admin} />
               <PrivateRoute exact path="/play" component={Main} />
+              <PrivateRoute exact path="/upload" component={UploadModal} />
             </Switch>
           </div>
         </Router>
