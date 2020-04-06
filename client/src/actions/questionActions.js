@@ -11,6 +11,7 @@ import {
   ADD_IMAGE,
   EDIT_QUESTION,
   CLEAR_CURRENT,
+  CLEAR_IMAGE,
 } from "./Types";
 import axios from "axios";
 import store from "../store";
@@ -67,7 +68,6 @@ export const deleteQuestion = (id) => async (dispatch) => {
   }
 };
 export const addImage = (image, questionID) => async (dispatch) => {
-  debugger;
   var storage = firebase.storage().ref();
   var imageRef = storage.child(questionID);
   try {
@@ -99,6 +99,11 @@ export const editQuestion = (id, question) => async (dispatch) => {
       payload: error,
     });
   }
+};
+export const clearImageState = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_IMAGE,
+  });
 };
 
 export const setCurrent = (id) => (dispatch) => {

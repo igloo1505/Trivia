@@ -7,7 +7,8 @@ import { connect } from "react-redux";
 import {
   addQuestion,
   editQuestion,
-  clearCurrent
+  clearCurrent,
+  clearImageState
 } from "../../actions/questionActions";
 
 import uuid from "uuid";
@@ -16,15 +17,16 @@ const QuestionForm = ({
   user: {
     loggedIn,
     loading,
-    user: { name, email, organizationName, organizationReference, city }
+    user: { name, email, organizationName, organizationReference, city },
   },
-  question: { questions, current },
+  question: { questions, current, imageHolder },
   addQuestion,
   editQuestion,
-  clearCurrent
+  clearCurrent,
+  clearImageState,
 }) => {
   useEffect(() => {
-    console.log(current);
+    console.log("current", current);
     if (current !== null) {
       setQuestion(current[0]);
     } else {
@@ -35,10 +37,36 @@ const QuestionForm = ({
         wrongAnswerOne: "",
         wrongAnswerTwo: "",
         wrongAnswerThree: "",
-        submittedBy: { name, email, organizationName, organizationReference }
+        submittedBy: { name, email, organizationName, organizationReference },
       });
     }
   }, [current]);
+  //! Setting form for question select with image
+  useEffect(() => {
+    console.log("imageholder", imageHolder);
+    if (imageHolder !== null) {
+      setQuestion({
+        question:
+          "An image has been uploaded, only fill out the answer portion, or select 'clear image'",
+        difficulty: "",
+        correctAnswer: "",
+        wrongAnswerOne: "",
+        wrongAnswerTwo: "",
+        wrongAnswerThree: "",
+        submittedBy: { name, email, organizationName, organizationReference },
+      });
+    } else {
+      setQuestion({
+        question: "",
+        difficulty: "",
+        correctAnswer: "",
+        wrongAnswerOne: "",
+        wrongAnswerTwo: "",
+        wrongAnswerThree: "",
+        submittedBy: { name, email, organizationName, organizationReference },
+      });
+    }
+  }, [imageHolder]);
   const [showUpload, setShowUpload] = useState(false);
   const [question, setQuestion] = useState({
     question: "",
@@ -47,18 +75,19 @@ const QuestionForm = ({
     wrongAnswerOne: "",
     wrongAnswerTwo: "",
     wrongAnswerThree: "",
-    submittedBy: { name, email, organizationName, organizationReference }
+    submittedBy: { name, email, organizationName, organizationReference },
   });
-  const onEdit = e => {
+  const onEdit = (e) => {
     e.preventDefault();
     let id = current[0]._id;
     editQuestion(id, question);
   };
+  const clearImage = () => clearImageState()
 
-  const onChange = e =>
+  const onChange = (e) =>
     setQuestion({ ...question, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     console.log(question);
     addQuestion(question);
@@ -69,7 +98,7 @@ const QuestionForm = ({
       wrongAnswerOne: "",
       wrongAnswerTwo: "",
       wrongAnswerThree: "",
-      submittedBy: { name, email, organizationName, organizationReference }
+      submittedBy: { name, email, organizationName, organizationReference },
     });
   };
 
@@ -78,7 +107,7 @@ const QuestionForm = ({
     correctAnswer,
     wrongAnswerOne,
     wrongAnswerTwo,
-    wrongAnswerThree
+    wrongAnswerThree,
   } = question;
 
   return (
@@ -152,7 +181,7 @@ const QuestionForm = ({
             variant="primary"
             size="lg"
             block
-            onClick={e => onSubmit(e)}
+            onClick={(e) => onSubmit(e)}
             className="submitFormButton"
           >
             Submit
@@ -162,7 +191,7 @@ const QuestionForm = ({
             variant="warning"
             size="lg"
             block
-            onClick={e => onEdit(e)}
+            onClick={(e) => onEdit(e)}
             className="submitFormButton"
           >
             Edit
@@ -173,7 +202,7 @@ const QuestionForm = ({
             variant="info"
             size="lg"
             block
-            onClick={e => clearCurrent()}
+            onClick={(e) => clearCurrent()}
             className="submitFormButton"
           >
             Clear
@@ -183,25 +212,36 @@ const QuestionForm = ({
             variant="primary"
             size="lg"
             block
-            onClick={e => setShowUpload(true)}
+            onClick={(e) => setShowUpload(true)}
             style={{ marginTop: "20px" }}
             className="submitFormButton"
           >
             Upload
           </Button>
         )}
+        {imageHolder ?  <Button
+          variant="info"
+          size="lg"
+          block
+          onClick={(e) => clearImage(e)}
+          style={{ marginTop: "20px" }}
+          className="submitFormButton"
+        >
+          Clear Image
+        </Button> : ""}
       </Form>
     </div>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  question: state.question
+  question: state.question,
 });
 
 export default connect(mapStateToProps, {
   addQuestion,
   editQuestion,
-  clearCurrent
+  clearCurrent,
+  clearImageState
 })(QuestionForm);

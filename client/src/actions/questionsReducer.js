@@ -11,6 +11,7 @@ import {
   EDIT_QUESTION,
   SET_CURRENT,
   CLEAR_CURRENT,
+  CLEAR_IMAGE,
 } from "./Types";
 import axios from "axios";
 import setAuth from "../setToken";
@@ -52,6 +53,11 @@ export default (state = initialState, action) => {
         ...state,
         current: state.questions.filter((que) => que._id == action.payload),
         loading: false,
+      };
+    case CLEAR_IMAGE:
+      return {
+        ...state,
+        imageHolder: null,
       };
     case ADD_IMAGE:
       return {
