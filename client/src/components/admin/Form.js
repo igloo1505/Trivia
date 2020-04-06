@@ -90,7 +90,11 @@ const QuestionForm = ({
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(question);
-    addQuestion(question);
+    {imageHolder?
+    
+      addQuestion({question: "", imageHolder, difficulty, correctAnswer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree}):
+      addQuestion(question);
+    }
     setQuestion({
       question: "",
       difficulty: "",

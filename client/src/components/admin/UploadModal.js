@@ -9,9 +9,8 @@ const UploadModal = ({ addImage, ...props }) => {
   const [toUpload, setToUpload] = useState(null);
   let id = uuid();
   const submitPhoto = (e) => {
-    e.preventDefault();
-    debugger;
     addImage(toUpload, id);
+    props.onHide()
   };
   const handleChoose = (e) => {
     console.log(e.target.files[0]);

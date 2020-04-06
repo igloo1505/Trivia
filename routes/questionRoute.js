@@ -5,8 +5,10 @@ const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
 
 router.post("/", auth, async (req, res) => {
+  console.log(req)
   const {
     question,
+    imageHolder,
     difficulty,
     correctAnswer,
     wrongAnswerOne,
@@ -14,9 +16,11 @@ router.post("/", auth, async (req, res) => {
     wrongAnswerThree,
     submittedBy: { name, email, organizationName, organizationReference }
   } = req.body;
+  console.log("body", req.body)
   try {
     const newQuestion = new Question({
       question,
+      imageHolder,
       difficulty,
       correctAnswer,
       wrongAnswerOne,
@@ -29,8 +33,9 @@ router.post("/", auth, async (req, res) => {
         organizationReference
       }
     });
+    console.log("newQuestion",newQuestion)
     const addQuestion = await newQuestion.save();
-    console.log(addQuestion);
+    console.log("addquestion ", addQuestion);
     return res.json({ addQuestion });
   } catch (error) {
     console.error(error.message);
