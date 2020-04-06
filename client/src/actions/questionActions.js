@@ -8,6 +8,7 @@ import {
   QUESTION_ERROR,
   SET_CURRENT,
   DELETE_QUESTION,
+  ADD_IMAGE,
   EDIT_QUESTION,
   CLEAR_CURRENT,
 } from "./Types";
@@ -65,15 +66,24 @@ export const deleteQuestion = (id) => async (dispatch) => {
     });
   }
 };
-export const addImage = async (image, questionID) => {
+export const addImage = (image, questionID) => async (dispatch) => {
   debugger;
   var storage = firebase.storage().ref();
   var imageRef = storage.child(questionID);
-  imageRef.put(image).then(function (snapshot) {
-    console.log("Uploaded");
-  });
-  const res = firebase.database().ref().set(image);
-  console.log(res);
+  try {
+    await imageRef.put(image).then(function (snapshot) {
+      console.log("Uploaded");
+    });
+    dispatch({
+      type: ADD_IMAGE,
+      payload: questionID,
+    });
+  } catch (error) {
+    dispatch({
+      type: QUESTION_ERROR,
+      payload: error,
+    });
+  }
 };
 
 export const editQuestion = (id, question) => async (dispatch) => {

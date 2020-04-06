@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import uuid from "uuid";
+import { connect } from "react-redux";
 
 import { Modal, Button } from "react-bootstrap";
 import { addImage } from "../../actions/questionActions";
 
-const UploadModal = (props) => {
+const UploadModal = ({ addImage, ...props }) => {
   const [toUpload, setToUpload] = useState(null);
+  let id = uuid();
   const submitPhoto = (e) => {
-    let id = uuid();
+    e.preventDefault();
+    debugger;
     addImage(toUpload, id);
   };
   const handleChoose = (e) => {
     console.log(e.target.files[0]);
+
     setToUpload(e.target.files[0]);
   };
   return (
@@ -44,4 +48,8 @@ const UploadModal = (props) => {
   );
 };
 
-export default UploadModal;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+export default connect(mapStateToProps, { addImage })(UploadModal);

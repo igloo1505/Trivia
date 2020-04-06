@@ -26,3 +26,4 @@ export const PLAY_ERROR = "PLAY_ERROR";
 export const CLEAR_PLAY = "CLEAR_PLAY";
 export const NEXT_QUESTION = "NEXT_QUESTION";
 export const PLAY_LOADING = "PLAY_LOADING";
+export const ADD_IMAGE = "ADD_IMAGE";
