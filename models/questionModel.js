@@ -3,48 +3,51 @@ const mongoose = require("mongoose");
 const QuestionSchema = mongoose.Schema({
   question: {
     type: String,
-    required: true
+    required: true,
+  },
+  imageID: {
+    type: String,
   },
   difficulty: {
     type: Number,
-    required: true
+    required: true,
   },
   correctAnswer: {
     type: String,
-    required: true
+    required: true,
   },
   wrongAnswerOne: {
     type: String,
-    required: true
+    required: true,
   },
   wrongAnswerTwo: {
     type: String,
-    required: true
+    required: true,
   },
   wrongAnswerThree: {
     type: String,
-    required: true
+    required: true,
   },
   submittedBy: {
     name: {
-      type: String
+      type: String,
     },
     email: {
-      type: String
+      type: String,
     },
     organizationName: {
       type: String,
-      required: true
+      required: true,
     },
     organizationReference: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Question", QuestionSchema);

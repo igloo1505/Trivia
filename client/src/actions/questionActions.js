@@ -9,21 +9,19 @@ import {
   SET_CURRENT,
   DELETE_QUESTION,
   EDIT_QUESTION,
-  CLEAR_CURRENT
+  CLEAR_CURRENT,
 } from "./Types";
 import axios from "axios";
 import store from "../store";
-import setAuth from "../setToken";
+import firebase from "../firebase";
 
 const config = {
   headers: {
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 };
-const cloudinaryURL =
-  "cloudinary://456725152474713:z7z8DiL6Drwun5-AQGOOsnrSeII@iglooworks";
 
-export const addQuestion = question => async dispatch => {
+export const addQuestion = (question) => async (dispatch) => {
   console.log(question);
 
   setLoading();
@@ -33,16 +31,16 @@ export const addQuestion = question => async dispatch => {
     console.log("res", res);
     dispatch({
       type: ADD_QUESTION,
-      payload: res.data
+      payload: res.data,
     });
   } catch (err) {
     dispatch({
       type: QUESTION_ERROR,
-      payload: err
+      payload: err,
     });
   }
 };
-export const getQuestions = reference => async dispatch => {
+export const getQuestions = (reference) => async (dispatch) => {
   console.log("calling getQuestions");
   try {
     const res = await axios.get(`/questions/${reference}`);
@@ -53,51 +51,55 @@ export const getQuestions = reference => async dispatch => {
     dispatch({ type: QUESTION_ERROR, payload: err });
   }
 };
-export const deleteQuestion = id => async dispatch => {
+export const deleteQuestion = (id) => async (dispatch) => {
   try {
     await axios.delete(`/questions/${id}`);
     dispatch({
       type: DELETE_QUESTION,
-      payload: id
+      payload: id,
     });
   } catch (error) {
     dispatch({
       type: QUESTION_ERROR,
-      payload: error
+      payload: error,
     });
   }
 };
-export const addImage = async image => {
-  const fd = new FormData();
-  fd.append("image", image, image.name);
-  const res = await axios.post(`${cloudinaryURL}/upload`, fd);
+export const addImage = async (image, questionID) => {
+  debugger;
+  var storage = firebase.storage().ref();
+  var imageRef = storage.child(questionID);
+  imageRef.put(image).then(function (snapshot) {
+    console.log("Uploaded");
+  });
+  const res = firebase.database().ref().set(image);
   console.log(res);
 };
 
-export const editQuestion = (id, question) => async dispatch => {
+export const editQuestion = (id, question) => async (dispatch) => {
   try {
     const res = await axios.put(`/questions/${id}`, question, config);
     dispatch({
       type: EDIT_QUESTION,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     dispatch({
       type: QUESTION_ERROR,
-      payload: error
+      payload: error,
     });
   }
 };
 
-export const setCurrent = id => dispatch => {
+export const setCurrent = (id) => (dispatch) => {
   dispatch({ type: SET_CURRENT, payload: id });
 };
-export const clearCurrent = () => dispatch => {
+export const clearCurrent = () => (dispatch) => {
   dispatch({ type: CLEAR_CURRENT });
 };
 
 export const setLoading = () => {
   return {
-    type: SET_LOADING
+    type: SET_LOADING,
   };
 };

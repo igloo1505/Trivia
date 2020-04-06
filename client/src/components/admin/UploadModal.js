@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import Dropzone from "react-dropzone";
-import {
-  Image,
-  Video,
-  Transformation,
-  CloudinaryContext
-} from "cloudinary-react";
+import uuid from "uuid";
+
 import { Modal, Button } from "react-bootstrap";
 import { addImage } from "../../actions/questionActions";
 
-const UploadModal = props => {
+const UploadModal = (props) => {
   const [toUpload, setToUpload] = useState(null);
-  const submitPhoto = e => {
-    addImage(toUpload);
+  const submitPhoto = (e) => {
+    let id = uuid();
+    addImage(toUpload, id);
   };
-  const handleChoose = e => {
+  const handleChoose = (e) => {
     console.log(e.target.files[0]);
     setToUpload(e.target.files[0]);
   };
@@ -34,14 +30,14 @@ const UploadModal = props => {
         <input
           name="file"
           type="file"
-          class="file-upload"
+          className="file-upload"
           data-cloudinary-field="image_id"
           data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
-          onChange={e => handleChoose(e)}
+          onChange={(e) => handleChoose(e)}
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={e => submitPhoto(e)}>Submit</Button>
+        <Button onClick={(e) => submitPhoto(e)}>Submit</Button>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>

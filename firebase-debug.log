@@ -1,0 +1,574 @@
+[debug] [2020-03-20T20:29:33.433Z] ----------------------------------------------------------------------
+[debug] [2020-03-20T20:29:33.435Z] Command:       /usr/local/Cellar/node/13.8.0/bin/node /usr/local/Cellar/node/13.8.0/bin/firebase emulators:start
+[debug] [2020-03-20T20:29:33.435Z] CLI Version:   7.15.1
+[debug] [2020-03-20T20:29:33.435Z] Platform:      darwin
+[debug] [2020-03-20T20:29:33.435Z] Node Version:  v13.8.0
+[debug] [2020-03-20T20:29:33.436Z] Time:          Fri Mar 20 2020 15:29:33 GMT-0500 (Central Daylight Time)
+[debug] [2020-03-20T20:29:33.436Z] ----------------------------------------------------------------------
+[debug] [2020-03-20T20:29:33.436Z] 
+[debug] [2020-03-20T20:29:33.450Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-20T20:29:33.452Z] > authorizing via signed-in user
+[info] i  emulators: Starting emulators: functions, database
+[debug] [2020-03-20T20:29:33.504Z] [hub] writing locator at /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/hub-trivia-1ca7c.json
+[info] ✔  hub: emulator hub started at http://localhost:4400
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "13"
+[info] ✔  functions: functions emulator started at http://localhost:5001
+[warn] ⚠  database: Did not find a Realtime Database rules file specified in a firebase.json config file.
+[warn] ⚠  database: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration.
+[debug] [2020-03-20T20:29:33.561Z] Ignoring unsupported arg: projectId
+[debug] [2020-03-20T20:29:33.561Z] Ignoring unsupported arg: auto_download
+[debug] [2020-03-20T20:29:33.561Z] Starting database emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/amueller/.cache/firebase/emulators/firebase-database-emulator-v4.4.0.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false}
+[info] i  database: database emulator logging to database-debug.log
+[debug] [2020-03-20T20:29:35.593Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/amueller/.cache/firebase/emulators/firebase-database-emulator-v4.4.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[debug] [2020-03-20T20:29:36.895Z] 15:29:36.893 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+
+[debug] [2020-03-20T20:29:37.170Z] 15:29:37.170 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+
+[info] ✔  database: database emulator started at http://localhost:9000
+[info] i  database: For testing set FIREBASE_DATABASE_EMULATOR_HOST=localhost:9000
+[info] i  functions: Watching "/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions" for Cloud Functions...
+[debug] [2020-03-20T20:29:37.466Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:29:37.466Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:29:37.466Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:29:37.467Z] [worker-~diagnostic~-ba001f51-5bc6-4980-89a2-067c8acded80]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_87438.sock
+[debug] [2020-03-20T20:29:37.467Z] [worker-~diagnostic~-ba001f51-5bc6-4980-89a2-067c8acded80]: BUSY
+[debug] [2020-03-20T20:29:38.013Z] [runtime-status] [87438] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:29:38.015Z] [runtime-status] [87438] Disabled runtime features: undefined
+[debug] [2020-03-20T20:29:38.020Z] [runtime-status] [87438] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:29:38.022Z] [runtime-status] [87438] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:29:38.386Z] [runtime-status] [87438] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:29:38.386Z] [runtime-status] [87438] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:29:38.438Z] [runtime-status] [87438] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:29:38.439Z] [runtime-status] [87438] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:29:38.440Z] [runtime-status] [87438] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:29:38.440Z] [runtime-status] [87438] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:29:38.511Z] [runtime-status] [87438] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: firebase.storage is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:28:22)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:29:38.708Z] [worker-~diagnostic~-ba001f51-5bc6-4980-89a2-067c8acded80]: exited
+[debug] [2020-03-20T20:29:38.709Z] [worker-~diagnostic~-ba001f51-5bc6-4980-89a2-067c8acded80]: FINISHED
+[debug] [2020-03-20T20:31:33.523Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:31:34.529Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T20:31:34.533Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:31:34.533Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:31:34.533Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:31:34.534Z] [worker-~diagnostic~-46419665-38a9-4fd5-ab4f-74552fdfe427]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_92031.sock
+[debug] [2020-03-20T20:31:34.534Z] [worker-~diagnostic~-46419665-38a9-4fd5-ab4f-74552fdfe427]: BUSY
+[debug] [2020-03-20T20:31:34.931Z] [runtime-status] [92031] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:31:34.932Z] [runtime-status] [92031] Disabled runtime features: undefined
+[debug] [2020-03-20T20:31:34.934Z] [runtime-status] [92031] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:31:34.937Z] [runtime-status] [92031] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:31:35.224Z] [runtime-status] [92031] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:31:35.224Z] [runtime-status] [92031] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:31:35.272Z] [runtime-status] [92031] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:31:35.272Z] [runtime-status] [92031] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:31:35.273Z] [runtime-status] [92031] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:31:35.274Z] [runtime-status] [92031] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:31:35.343Z] [runtime-status] [92031] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: cloud.ref is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:30:22)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:31:35.534Z] [worker-~diagnostic~-46419665-38a9-4fd5-ab4f-74552fdfe427]: exited
+[debug] [2020-03-20T20:31:35.534Z] [worker-~diagnostic~-46419665-38a9-4fd5-ab4f-74552fdfe427]: FINISHED
+[debug] [2020-03-20T20:33:19.914Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:33:20.918Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T20:33:20.923Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:33:20.923Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:33:20.923Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:33:20.924Z] [worker-~diagnostic~-c3f58b9f-7dd0-43fc-9ca8-fc370acffb1e]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_96183.sock
+[debug] [2020-03-20T20:33:20.924Z] [worker-~diagnostic~-c3f58b9f-7dd0-43fc-9ca8-fc370acffb1e]: BUSY
+[debug] [2020-03-20T20:33:21.399Z] [runtime-status] [96183] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:33:21.400Z] [runtime-status] [96183] Disabled runtime features: undefined
+[debug] [2020-03-20T20:33:21.402Z] [runtime-status] [96183] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:33:21.405Z] [runtime-status] [96183] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:33:21.715Z] [runtime-status] [96183] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:33:21.716Z] [runtime-status] [96183] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:33:21.766Z] [runtime-status] [96183] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:33:21.766Z] [runtime-status] [96183] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:33:21.767Z] [runtime-status] [96183] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:33:21.767Z] [runtime-status] [96183] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:33:21.839Z] [runtime-status] [96183] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: cloud.child is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:30:21)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:33:22.038Z] [worker-~diagnostic~-c3f58b9f-7dd0-43fc-9ca8-fc370acffb1e]: exited
+[debug] [2020-03-20T20:33:22.039Z] [worker-~diagnostic~-c3f58b9f-7dd0-43fc-9ca8-fc370acffb1e]: FINISHED
+[debug] [2020-03-20T20:33:40.177Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:33:41.178Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T20:33:41.182Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:33:41.182Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:33:41.182Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:33:41.183Z] [worker-~diagnostic~-fed3757d-26d1-42b1-b8ad-a6d6259c4b04]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_96937.sock
+[debug] [2020-03-20T20:33:41.183Z] [worker-~diagnostic~-fed3757d-26d1-42b1-b8ad-a6d6259c4b04]: BUSY
+[debug] [2020-03-20T20:33:41.465Z] [runtime-status] [96937] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:33:41.468Z] [runtime-status] [96937] Disabled runtime features: undefined
+[debug] [2020-03-20T20:33:41.476Z] [runtime-status] [96937] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:33:41.480Z] [runtime-status] [96937] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:33:41.812Z] [runtime-status] [96937] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:33:41.812Z] [runtime-status] [96937] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:33:41.869Z] [runtime-status] [96937] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:33:41.870Z] [runtime-status] [96937] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:33:41.873Z] [runtime-status] [96937] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:33:41.874Z] [runtime-status] [96937] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:33:41.958Z] [runtime-status] [96937] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2020-03-20T20:33:42.149Z] [worker-~diagnostic~-fed3757d-26d1-42b1-b8ad-a6d6259c4b04]: IDLE
+[debug] [2020-03-20T20:53:33.382Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:53:34.407Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-03-20T20:53:34.409Z] [worker-~diagnostic~-fed3757d-26d1-42b1-b8ad-a6d6259c4b04]: FINISHING
+[debug] [2020-03-20T20:53:34.431Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:53:34.436Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-03-20T20:53:34.436Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:53:34.442Z] [worker-~diagnostic~-b17009f8-1f99-4ca0-a11b-77e0a9245f29]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_44301.sock
+[debug] [2020-03-20T20:53:34.442Z] [worker-~diagnostic~-b17009f8-1f99-4ca0-a11b-77e0a9245f29]: BUSY
+[debug] [2020-03-20T20:53:34.444Z] [worker-~diagnostic~-fed3757d-26d1-42b1-b8ad-a6d6259c4b04]: exited
+[debug] [2020-03-20T20:53:34.444Z] [worker-~diagnostic~-fed3757d-26d1-42b1-b8ad-a6d6259c4b04]: FINISHED
+[debug] [2020-03-20T20:53:34.931Z] [runtime-status] [44301] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:53:34.932Z] [runtime-status] [44301] Disabled runtime features: undefined
+[debug] [2020-03-20T20:53:34.935Z] [runtime-status] [44301] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:53:34.938Z] [runtime-status] [44301] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:53:35.289Z] [runtime-status] [44301] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:53:35.290Z] [runtime-status] [44301] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:53:35.343Z] [runtime-status] [44301] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:53:35.345Z] [runtime-status] [44301] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:53:35.346Z] [runtime-status] [44301] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:53:35.346Z] [runtime-status] [44301] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:53:35.418Z] [runtime-status] [44301] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: firebase.storage is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:29:27)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:53:35.644Z] [worker-~diagnostic~-b17009f8-1f99-4ca0-a11b-77e0a9245f29]: exited
+[debug] [2020-03-20T20:53:35.644Z] [worker-~diagnostic~-b17009f8-1f99-4ca0-a11b-77e0a9245f29]: FINISHED
+[debug] [2020-03-20T20:57:27.070Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:57:28.075Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 0
+[debug] [2020-03-20T20:57:28.083Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:57:28.083Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:57:28.083Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:57:28.084Z] [worker-~diagnostic~-ec53b4c4-0e48-49bb-85fc-04d9b68f2f91]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_53382.sock
+[debug] [2020-03-20T20:57:28.084Z] [worker-~diagnostic~-ec53b4c4-0e48-49bb-85fc-04d9b68f2f91]: BUSY
+[debug] [2020-03-20T20:57:28.546Z] [runtime-status] [53382] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:57:28.550Z] [runtime-status] [53382] Disabled runtime features: undefined
+[debug] [2020-03-20T20:57:28.554Z] [runtime-status] [53382] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:28.557Z] [runtime-status] [53382] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:57:28.922Z] [runtime-status] [53382] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:57:28.922Z] [runtime-status] [53382] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:57:28.973Z] [runtime-status] [53382] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:57:28.974Z] [runtime-status] [53382] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:28.975Z] [runtime-status] [53382] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:28.975Z] [runtime-status] [53382] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:29.042Z] [runtime-status] [53382] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: firebase.storage is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:29:27)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:57:29.225Z] [worker-~diagnostic~-ec53b4c4-0e48-49bb-85fc-04d9b68f2f91]: exited
+[debug] [2020-03-20T20:57:29.225Z] [worker-~diagnostic~-ec53b4c4-0e48-49bb-85fc-04d9b68f2f91]: FINISHED
+[debug] [2020-03-20T20:57:29.522Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:57:30.523Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T20:57:30.530Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:57:30.530Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:57:30.530Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:57:30.530Z] [worker-~diagnostic~-7e9994ab-9a28-4b84-bc3e-11538ea13d3b]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_53423.sock
+[debug] [2020-03-20T20:57:30.530Z] [worker-~diagnostic~-7e9994ab-9a28-4b84-bc3e-11538ea13d3b]: BUSY
+[debug] [2020-03-20T20:57:30.794Z] [runtime-status] [53423] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:57:30.795Z] [runtime-status] [53423] Disabled runtime features: undefined
+[debug] [2020-03-20T20:57:30.799Z] [runtime-status] [53423] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:30.800Z] [runtime-status] [53423] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:57:30.995Z] [runtime-status] [53423] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:57:30.995Z] [runtime-status] [53423] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:57:31.033Z] [runtime-status] [53423] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:57:31.034Z] [runtime-status] [53423] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:31.035Z] [runtime-status] [53423] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:31.036Z] [runtime-status] [53423] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:31.079Z] [runtime-status] [53423] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: firebase.storage is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:29:27)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:57:31.203Z] [worker-~diagnostic~-7e9994ab-9a28-4b84-bc3e-11538ea13d3b]: exited
+[debug] [2020-03-20T20:57:31.203Z] [worker-~diagnostic~-7e9994ab-9a28-4b84-bc3e-11538ea13d3b]: FINISHED
+[debug] [2020-03-20T20:57:48.235Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:57:49.240Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T20:57:49.245Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:57:49.245Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:57:49.245Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:57:49.245Z] [worker-~diagnostic~-a96ca2ee-364b-43e9-bafb-ee72845f2f7d]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_54204.sock
+[debug] [2020-03-20T20:57:49.245Z] [worker-~diagnostic~-a96ca2ee-364b-43e9-bafb-ee72845f2f7d]: BUSY
+[debug] [2020-03-20T20:57:49.497Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T20:57:49.542Z] [runtime-status] [54204] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:57:49.544Z] [runtime-status] [54204] Disabled runtime features: undefined
+[debug] [2020-03-20T20:57:49.546Z] [runtime-status] [54204] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:49.549Z] [runtime-status] [54204] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:57:49.742Z] [runtime-status] [54204] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:57:49.742Z] [runtime-status] [54204] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:57:49.786Z] [runtime-status] [54204] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:57:49.786Z] [runtime-status] [54204] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:49.788Z] [runtime-status] [54204] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:49.789Z] [runtime-status] [54204] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:49.860Z] [runtime-status] [54204] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: cloud.ref is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:29:24)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:57:50.073Z] [worker-~diagnostic~-a96ca2ee-364b-43e9-bafb-ee72845f2f7d]: exited
+[debug] [2020-03-20T20:57:50.073Z] [worker-~diagnostic~-a96ca2ee-364b-43e9-bafb-ee72845f2f7d]: FINISHED
+[debug] [2020-03-20T20:57:50.502Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T20:57:50.505Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T20:57:50.505Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T20:57:50.505Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T20:57:50.506Z] [worker-~diagnostic~-233a5c14-292e-4b63-848f-d379e0663772]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_54256.sock
+[debug] [2020-03-20T20:57:50.506Z] [worker-~diagnostic~-233a5c14-292e-4b63-848f-d379e0663772]: BUSY
+[debug] [2020-03-20T20:57:50.760Z] [runtime-status] [54256] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T20:57:50.762Z] [runtime-status] [54256] Disabled runtime features: undefined
+[debug] [2020-03-20T20:57:50.764Z] [runtime-status] [54256] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:50.766Z] [runtime-status] [54256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T20:57:50.966Z] [runtime-status] [54256] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T20:57:50.966Z] [runtime-status] [54256] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T20:57:51.005Z] [runtime-status] [54256] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T20:57:51.006Z] [runtime-status] [54256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:51.007Z] [runtime-status] [54256] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T20:57:51.007Z] [runtime-status] [54256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T20:57:51.048Z] [runtime-status] [54256] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: cloud.ref is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:29:24)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T20:57:51.181Z] [worker-~diagnostic~-233a5c14-292e-4b63-848f-d379e0663772]: exited
+[debug] [2020-03-20T20:57:51.181Z] [worker-~diagnostic~-233a5c14-292e-4b63-848f-d379e0663772]: FINISHED
+[debug] [2020-03-20T21:03:18.432Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T21:03:19.437Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T21:03:19.442Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:03:19.442Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:03:19.442Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:03:19.443Z] [worker-~diagnostic~-c220aa1d-1a8d-4f32-84bb-203bfa3b8eb9]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_67075.sock
+[debug] [2020-03-20T21:03:19.443Z] [worker-~diagnostic~-c220aa1d-1a8d-4f32-84bb-203bfa3b8eb9]: BUSY
+[debug] [2020-03-20T21:03:19.966Z] [runtime-status] [67075] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:03:19.967Z] [runtime-status] [67075] Disabled runtime features: undefined
+[debug] [2020-03-20T21:03:19.969Z] [runtime-status] [67075] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:03:19.973Z] [runtime-status] [67075] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:03:20.333Z] [runtime-status] [67075] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:03:20.333Z] [runtime-status] [67075] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:03:20.393Z] [runtime-status] [67075] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:03:20.394Z] [runtime-status] [67075] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:03:20.395Z] [runtime-status] [67075] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:03:20.396Z] [runtime-status] [67075] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:03:20.462Z] [runtime-status] [67075] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: Cannot find module '~/.firebaseAdmin.json'
+Require stack:
+- /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js
+- /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:31:24)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T21:03:20.663Z] [worker-~diagnostic~-c220aa1d-1a8d-4f32-84bb-203bfa3b8eb9]: exited
+[debug] [2020-03-20T21:03:20.663Z] [worker-~diagnostic~-c220aa1d-1a8d-4f32-84bb-203bfa3b8eb9]: FINISHED
+[debug] [2020-03-20T21:09:29.484Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T21:09:30.499Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T21:09:30.510Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:09:30.510Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:09:30.511Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:09:30.512Z] [worker-~diagnostic~-8730e0ed-3781-47fc-b574-4fd18ff9be41]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_81578.sock
+[debug] [2020-03-20T21:09:30.512Z] [worker-~diagnostic~-8730e0ed-3781-47fc-b574-4fd18ff9be41]: BUSY
+[debug] [2020-03-20T21:09:31.002Z] [runtime-status] [81578] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:09:31.003Z] [runtime-status] [81578] Disabled runtime features: undefined
+[debug] [2020-03-20T21:09:31.010Z] [runtime-status] [81578] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:09:31.011Z] [runtime-status] [81578] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:09:31.374Z] [runtime-status] [81578] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:09:31.375Z] [runtime-status] [81578] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:09:31.431Z] [runtime-status] [81578] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:09:31.431Z] [runtime-status] [81578] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:09:31.432Z] [runtime-status] [81578] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:09:31.433Z] [runtime-status] [81578] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:09:31.518Z] [runtime-status] [81578] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2020-03-20T21:09:31.587Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T21:09:31.687Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[warn] ⚠  Error: The default Firebase app does not exist. Make sure you call initializeApp() before using any of the Firebase services.
+    at FirebaseAppError.FirebaseError [as constructor] (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:42:28)
+    at FirebaseAppError.PrefixedFirebaseError [as constructor] (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:88:28)
+    at new FirebaseAppError (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:123:28)
+    at FirebaseNamespaceInternals.app (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:101:19)
+    at FirebaseNamespace.app (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:419:30)
+    at FirebaseNamespace.ensureApp (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:435:24)
+    at Proxy.fn (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:311:30)
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:31:22)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T21:09:31.770Z] [worker-~diagnostic~-8730e0ed-3781-47fc-b574-4fd18ff9be41]: exited
+[debug] [2020-03-20T21:09:31.770Z] [worker-~diagnostic~-8730e0ed-3781-47fc-b574-4fd18ff9be41]: FINISHED
+[debug] [2020-03-20T21:09:32.696Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T21:09:32.702Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:09:32.702Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:09:32.702Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:09:32.703Z] [worker-~diagnostic~-d10d2599-c37a-4e2e-883a-2f88a7cb575e]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_81659.sock
+[debug] [2020-03-20T21:09:32.703Z] [worker-~diagnostic~-d10d2599-c37a-4e2e-883a-2f88a7cb575e]: BUSY
+[debug] [2020-03-20T21:09:33.062Z] [runtime-status] [81659] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:09:33.064Z] [runtime-status] [81659] Disabled runtime features: undefined
+[debug] [2020-03-20T21:09:33.068Z] [runtime-status] [81659] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:09:33.070Z] [runtime-status] [81659] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:09:33.287Z] [runtime-status] [81659] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:09:33.287Z] [runtime-status] [81659] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:09:33.340Z] [runtime-status] [81659] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:09:33.341Z] [runtime-status] [81659] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:09:33.343Z] [runtime-status] [81659] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:09:33.344Z] [runtime-status] [81659] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:09:33.414Z] [runtime-status] [81659] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: The default Firebase app does not exist. Make sure you call initializeApp() before using any of the Firebase services.
+    at FirebaseAppError.FirebaseError [as constructor] (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:42:28)
+    at FirebaseAppError.PrefixedFirebaseError [as constructor] (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:88:28)
+    at new FirebaseAppError (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:123:28)
+    at FirebaseNamespaceInternals.app (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:101:19)
+    at FirebaseNamespace.app (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:419:30)
+    at FirebaseNamespace.ensureApp (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:435:24)
+    at Proxy.fn (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:311:30)
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:31:22)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T21:09:33.605Z] [worker-~diagnostic~-d10d2599-c37a-4e2e-883a-2f88a7cb575e]: exited
+[debug] [2020-03-20T21:09:33.605Z] [worker-~diagnostic~-d10d2599-c37a-4e2e-883a-2f88a7cb575e]: FINISHED
+[debug] [2020-03-20T21:10:04.205Z] ----------------------------------------------------------------------
+[debug] [2020-03-20T21:10:04.207Z] Command:       /usr/local/Cellar/node/13.8.0/bin/node /usr/local/Cellar/node/13.8.0/bin/firebase emulators:start
+[debug] [2020-03-20T21:10:04.207Z] CLI Version:   7.15.1
+[debug] [2020-03-20T21:10:04.207Z] Platform:      darwin
+[debug] [2020-03-20T21:10:04.207Z] Node Version:  v13.8.0
+[debug] [2020-03-20T21:10:04.208Z] Time:          Fri Mar 20 2020 16:10:04 GMT-0500 (Central Daylight Time)
+[debug] [2020-03-20T21:10:04.208Z] ----------------------------------------------------------------------
+[debug] [2020-03-20T21:10:04.208Z] 
+[debug] [2020-03-20T21:10:04.216Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-20T21:10:04.216Z] > authorizing via signed-in user
+[info] i  emulators: Starting emulators: functions, database
+[warn] ⚠  emulators: It seems that you are running multiple instances of the emulator suite for project trivia-1ca7c. This may result in unexpected behavior.
+[debug] [2020-03-20T21:10:04.267Z] [hub] writing locator at /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/hub-trivia-1ca7c.json
+[info] ✔  hub: emulator hub started at http://localhost:4400
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "13"
+[info] ✔  functions: functions emulator started at http://localhost:5001
+[warn] ⚠  database: Did not find a Realtime Database rules file specified in a firebase.json config file.
+[warn] ⚠  database: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration.
+[debug] [2020-03-20T21:10:04.547Z] Ignoring unsupported arg: projectId
+[debug] [2020-03-20T21:10:04.547Z] Ignoring unsupported arg: auto_download
+[debug] [2020-03-20T21:10:04.547Z] Starting database emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/amueller/.cache/firebase/emulators/firebase-database-emulator-v4.4.0.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false}
+[info] i  database: database emulator logging to database-debug.log
+[debug] [2020-03-20T21:10:05.738Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/amueller/.cache/firebase/emulators/firebase-database-emulator-v4.4.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+
+[debug] [2020-03-20T21:10:06.741Z] 16:10:06.739 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+
+[debug] [2020-03-20T21:10:07.137Z] 16:10:07.137 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+
+[info] ✔  database: database emulator started at http://localhost:9000
+[info] i  database: For testing set FIREBASE_DATABASE_EMULATOR_HOST=localhost:9000
+[info] i  functions: Watching "/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions" for Cloud Functions...
+[debug] [2020-03-20T21:10:07.351Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:10:07.351Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:10:07.351Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:10:07.351Z] [worker-~diagnostic~-d5f64887-99f1-4361-827d-bc8152dd72d0]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_83019.sock
+[debug] [2020-03-20T21:10:07.352Z] [worker-~diagnostic~-d5f64887-99f1-4361-827d-bc8152dd72d0]: BUSY
+[debug] [2020-03-20T21:10:07.644Z] [runtime-status] [83019] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:10:07.645Z] [runtime-status] [83019] Disabled runtime features: undefined
+[debug] [2020-03-20T21:10:07.648Z] [runtime-status] [83019] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:10:07.651Z] [runtime-status] [83019] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:10:07.996Z] [runtime-status] [83019] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:10:07.996Z] [runtime-status] [83019] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:10:08.044Z] [runtime-status] [83019] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:10:08.045Z] [runtime-status] [83019] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:10:08.045Z] [runtime-status] [83019] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:10:08.046Z] [runtime-status] [83019] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:10:08.135Z] [runtime-status] [83019] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: The default Firebase app does not exist. Make sure you call initializeApp() before using any of the Firebase services.
+    at FirebaseAppError.FirebaseError [as constructor] (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:42:28)
+    at FirebaseAppError.PrefixedFirebaseError [as constructor] (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:88:28)
+    at new FirebaseAppError (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/utils/error.js:123:28)
+    at FirebaseNamespaceInternals.app (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:101:19)
+    at FirebaseNamespace.app (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:419:30)
+    at FirebaseNamespace.ensureApp (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:435:24)
+    at Proxy.fn (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/firebase-namespace.js:311:30)
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:31:22)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T21:10:08.355Z] [worker-~diagnostic~-d5f64887-99f1-4361-827d-bc8152dd72d0]: exited
+[debug] [2020-03-20T21:10:08.355Z] [worker-~diagnostic~-d5f64887-99f1-4361-827d-bc8152dd72d0]: FINISHED
+[debug] [2020-03-20T21:11:29.022Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T21:11:30.027Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T21:11:30.031Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:11:30.031Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:11:30.031Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:11:30.031Z] [worker-~diagnostic~-a586c8a2-1a44-4104-b0f4-b9f8b2067b7f]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_86220.sock
+[debug] [2020-03-20T21:11:30.031Z] [worker-~diagnostic~-a586c8a2-1a44-4104-b0f4-b9f8b2067b7f]: BUSY
+[debug] [2020-03-20T21:11:30.476Z] [runtime-status] [86220] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:11:30.478Z] [runtime-status] [86220] Disabled runtime features: undefined
+[debug] [2020-03-20T21:11:30.490Z] [runtime-status] [86220] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:11:30.505Z] [runtime-status] [86220] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:11:30.919Z] [runtime-status] [86220] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:11:30.919Z] [runtime-status] [86220] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:11:30.994Z] [runtime-status] [86220] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:11:30.995Z] [runtime-status] [86220] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:11:30.996Z] [runtime-status] [86220] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:11:30.997Z] [runtime-status] [86220] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:11:31.126Z] [runtime-status] [86220] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  TypeError: firebase.storage is not a function
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:31:25)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:5:58)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T21:11:31.366Z] [worker-~diagnostic~-a586c8a2-1a44-4104-b0f4-b9f8b2067b7f]: exited
+[debug] [2020-03-20T21:11:31.367Z] [worker-~diagnostic~-a586c8a2-1a44-4104-b0f4-b9f8b2067b7f]: FINISHED
+[debug] [2020-03-20T21:12:38.294Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T21:12:39.296Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T21:12:39.299Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:12:39.299Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:12:39.299Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:12:39.300Z] [worker-~diagnostic~-2df6acd2-310b-48b3-a3bb-8271022d135c]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_88954.sock
+[debug] [2020-03-20T21:12:39.300Z] [worker-~diagnostic~-2df6acd2-310b-48b3-a3bb-8271022d135c]: BUSY
+[debug] [2020-03-20T21:12:39.710Z] [runtime-status] [88954] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:12:39.712Z] [runtime-status] [88954] Disabled runtime features: undefined
+[debug] [2020-03-20T21:12:39.714Z] [runtime-status] [88954] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:12:39.717Z] [runtime-status] [88954] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:12:40.020Z] [runtime-status] [88954] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:12:40.020Z] [runtime-status] [88954] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:12:40.069Z] [runtime-status] [88954] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:12:40.070Z] [runtime-status] [88954] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:12:40.071Z] [runtime-status] [88954] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:12:40.071Z] [runtime-status] [88954] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:12:40.140Z] [runtime-status] [88954] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: A bucket name is needed to use Cloud Storage.
+    at Storage.bucket (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/@google-cloud/storage/build/src/storage.js:138:19)
+    at Object.<anonymous> (/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js:31:22)
+    at Module._compile (internal/modules/cjs/loader.js:1151:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+    at Module.load (internal/modules/cjs/loader.js:1000:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+    at Module.require (internal/modules/cjs/loader.js:1040:19)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at /usr/local/Cellar/node/13.8.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:724:33
+    at Generator.next (<anonymous>)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-03-20T21:12:40.319Z] [worker-~diagnostic~-2df6acd2-310b-48b3-a3bb-8271022d135c]: exited
+[debug] [2020-03-20T21:12:40.319Z] [worker-~diagnostic~-2df6acd2-310b-48b3-a3bb-8271022d135c]: FINISHED
+[debug] [2020-03-20T21:12:52.953Z] File /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/index.js changed, reloading triggers
+[debug] [2020-03-20T21:12:53.957Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-03-20T21:12:53.960Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-20T21:12:53.960Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-20T21:12:53.960Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-20T21:12:53.960Z] [worker-~diagnostic~-45f344d5-3fc2-471c-b56d-a2924191c8e9]: Assigning socketPath: /var/folders/z2/k78pk8ns7_d1lyz5ftqgpvym0000gn/T/fire_emu_89535.sock
+[debug] [2020-03-20T21:12:53.960Z] [worker-~diagnostic~-45f344d5-3fc2-471c-b56d-a2924191c8e9]: BUSY
+[debug] [2020-03-20T21:12:54.194Z] [runtime-status] [89535] Functions runtime initialized. {"cwd":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions","node_version":"13.8.0"}
+[debug] [2020-03-20T21:12:54.195Z] [runtime-status] [89535] Disabled runtime features: undefined
+[debug] [2020-03-20T21:12:54.197Z] [runtime-status] [89535] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:12:54.199Z] [runtime-status] [89535] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[warn] ⚠  functions: Your GOOGLE_APPLICATION_CREDENTIALS environment variable points to ~/.firebaseAdmin.json. Non-emulated services will access production using these credentials. Be careful!
+[debug] [2020-03-20T21:12:54.387Z] [runtime-status] [89535] Found google-gax at /Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/google-gax/build/src/index.js
+[debug] [2020-03-20T21:12:54.387Z] [runtime-status] [89535] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2020-03-20T21:12:54.423Z] [runtime-status] [89535] Checked functions.config() {"config":{}}
+[debug] [2020-03-20T21:12:54.424Z] [runtime-status] [89535] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:12:54.425Z] [runtime-status] [89535] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-20T21:12:54.425Z] [runtime-status] [89535] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.4.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-20T21:12:54.461Z] [runtime-status] [89535] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.10.0","resolution":"/Users/amueller/Desktop/ITDev_projects/Class/Assignments/trivia/functions/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2020-03-20T21:12:54.583Z] [worker-~diagnostic~-45f344d5-3fc2-471c-b56d-a2924191c8e9]: IDLE

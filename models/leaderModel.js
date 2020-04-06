@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const LeaderSchema = mongoose.Schema({
   name: {
     type: String,
@@ -19,3 +20,5 @@ const LeaderSchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model("Leader", LeaderSchema);
+
+
