@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require("express-validator");
+
 const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
 
 router.post("/", auth, async (req, res) => {
-  console.log(req)
+  console.log(req.body)
+console.log('reached part one')
   const {
     question,
     imageHolder,
@@ -16,7 +17,7 @@ router.post("/", auth, async (req, res) => {
     wrongAnswerThree,
     submittedBy: { name, email, organizationName, organizationReference }
   } = req.body;
-  console.log("body", req.body)
+  console.log('reached part two')
   try {
     const newQuestion = new Question({
       question,
@@ -33,9 +34,9 @@ router.post("/", auth, async (req, res) => {
         organizationReference
       }
     });
-    console.log("newQuestion",newQuestion)
+    console.log('reached part three')
     const addQuestion = await newQuestion.save();
-    console.log("addquestion ", addQuestion);
+
     return res.json({ addQuestion });
   } catch (error) {
     console.error(error.message);
