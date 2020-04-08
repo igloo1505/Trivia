@@ -92,8 +92,8 @@ const QuestionForm = ({
     console.log(question);
 
     if(imageHolder !== null){
-      question = ""
-      addQuestion({question,  imageHolder, difficulty, correctAnswer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree})
+
+      addQuestion({imageHolder, difficulty, correctAnswer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree, submittedBy: { name, email, organizationName, organizationReference }})
     }
     else {
 

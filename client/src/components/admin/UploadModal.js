@@ -14,7 +14,6 @@ const UploadModal = ({ addImage, ...props }) => {
   };
   const handleChoose = (e) => {
     console.log(e.target.files[0]);
-
     setToUpload(e.target.files[0]);
   };
   return (

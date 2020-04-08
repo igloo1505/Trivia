@@ -69,8 +69,7 @@ export default (state = initialState, action) => {
         loading: false
       };
     case LOGIN:
-      console.log("logged in Reducer reached");
-      console.log("playload: ", action.payload);
+    
       localStorage.setItem("token", action.payload.token);
       loadUser();
       return {

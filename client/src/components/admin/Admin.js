@@ -6,9 +6,7 @@ import QuestionForm from "./QuestionSubmitForm";
 
 const Admin = () => {
   useEffect(() => {
-    console.log(
-      "Add graphql query call here to return questions based on search, and paginate"
-    );
+
     loadUser();
     // eslint-disable-next-line
   }, []);

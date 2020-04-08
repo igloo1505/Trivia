@@ -32,7 +32,8 @@ const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  question: state.question
 });
 
 export default connect(mapStateToProps)(QuestionSubmitForm);

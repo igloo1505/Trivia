@@ -155,4 +155,4 @@ export default connect(mapStateToProps, {
   editQuestion,
   deleteQuestion,
   setMenuView
-})(DetailModal);
+})(DetailModal)

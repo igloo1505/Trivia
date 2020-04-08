@@ -80,7 +80,7 @@ export const editUserAccess = ({ orgInfo }) => async dispatch => {
 
 export const loginUser = user => async dispatch => {
   try {
-    console.log("reached actions as " + user);
+
     const res = await axios.post("/auth", user, config);
     dispatch({
       type: LOGIN,

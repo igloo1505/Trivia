@@ -29,7 +29,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
     });
   };
   let position = window.location.pathname;
-  console.log(position);
+
   const onSubmit = e => {
     //!!   Add front end form validation here and 'toast' if not suffice
     e.preventDefault();

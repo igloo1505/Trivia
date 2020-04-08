@@ -24,7 +24,7 @@ const config = {
 };
 
 export const addQuestion = (question) => async (dispatch) => {
-  console.log(question);
+  console.log("question added as", question);
 
   setLoading();
   console.log("reached addQuestion script as " + question);
