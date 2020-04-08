@@ -15,6 +15,7 @@ const Play = ({
   correctAnswer,
   wrongAnswer,
 }) => {
+  const [questionDisplay, setQuestionDisplay] = useState(null);
   useEffect(() => {
     getQuestions(organizationReference);
   }, []);
@@ -41,6 +42,9 @@ const Play = ({
       };
       asyncFunc();
       setLoading(false);
+    } else {
+      setImage(false);
+      setQuestionDisplay(active.question);
     }
   }, [active, getQuestions, correctAnswer]);
 
@@ -86,7 +90,7 @@ const Play = ({
             />
           )
         ) : (
-          <h3>{active.question}</h3>
+          <h3>{questionDisplay}</h3>
         )}
       </div>
       <div className="answerGrid">
