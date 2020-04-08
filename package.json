@@ -2,7 +2,6 @@
   "name": "trivia",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://igloo1505.github.io/Trivia",
   "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +10,7 @@
     "client": "npm start --prefix ./client",
     "clientInstall": "npm install --prefix client",
     "production": "concurrently \"NODE_ENV=production npm start\" \"npm run client\"",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +22,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6",
     "express-validator": "^6.4.0",
+    "firebase": "^7.13.2",
     "firebase-admin": "^8.10.0",
     "gh-pages": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
