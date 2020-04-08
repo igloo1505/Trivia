@@ -46,7 +46,22 @@ export const getQuestions = (reference) => async (dispatch) => {
   console.log("calling getQuestions");
   try {
     const res = await axios.get(`/questions/${reference}`);
-    console.log("res with questions: ", res);
+    let finalArray = [];
+    const logthis = firebase
+      .storage()
+      .ref("71f278b2-cbff-4d8a-89ae-79561063fa3b");
+    const logurl = await logthis.getDownloadURL();
+    console.log(logurl);
+    for (var i = 0; i < res.data.length; i++) {
+      if ("imageHolder" in res.data[i]) {
+        const ref = firebase.storage().ref(res.data[i].imageHolder);
+        const url = await ref.getDownloadURL();
+        res.data[i].imgUrl = url;
+        finalArray.push(res.data[i]);
+      } else finalArray.push(res.data[i]);
+    }
+    console.log("res with questions after calcs ", res);
+
     dispatch({ type: GET_QUESTIONS, payload: res.data });
   } catch (err) {
     console.log(err);
