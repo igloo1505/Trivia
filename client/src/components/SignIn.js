@@ -6,6 +6,7 @@ import dataListArray from "../assets/datalist";
 import { setNewUser } from "../actions/userActions";
 import SignInModal from "./SignInModal";
 import { Route, Redirect } from "react-router-dom";
+import uuid from "uuid";
 
 const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -15,34 +16,34 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
     email: "",
     organizationString: "",
     city: "Milwaukee",
-    state: "Wisconsin"
+    state: "Wisconsin",
   });
-  const handleModal = e => {
+  const handleModal = (e) => {
     e.preventDefault();
     setModalShow(true);
   };
 
-  const onChange = e => {
+  const onChange = (e) => {
     setUser({
       ...user,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   let position = window.location.pathname;
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     //!!   Add front end form validation here and 'toast' if not suffice
     e.preventDefault();
     setNewUser(user);
   };
   const RowStyle = {
-    margin: "30px"
+    margin: "30px",
   };
   const buttonStyle = {
     marginLeft: "50%",
     marginTop: "20px",
     transform: "translateX(-50%)",
-    width: "min(50%, 200px)"
+    width: "min(50%, 200px)",
   };
   if (loggedIn && !loading) {
     return <Redirect to="/" />;
@@ -75,7 +76,7 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
               type="text"
               name="organizationString"
               onChange={onChange}
-              placeholder="Org. code (required only for admins)"
+              placeholder="Org. code or Admin code"
             />
           </Col>
           <Col xs={12} md={6} style={{ marginTop: "20px" }}>
@@ -111,10 +112,14 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
             </Form.Control>
           </Form.Group>
         </Row>
-        <Button type="submit" style={buttonStyle} onClick={e => onSubmit(e)}>
+        <Button type="submit" style={buttonStyle} onClick={(e) => onSubmit(e)}>
           Register
         </Button>
-        <Button type="signIn" style={buttonStyle} onClick={e => handleModal(e)}>
+        <Button
+          type="signIn"
+          style={buttonStyle}
+          onClick={(e) => handleModal(e)}
+        >
           Have an account ?
         </Button>
       </Form>
@@ -122,9 +127,9 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  admin: state.admin
+  admin: state.admin,
 });
 
 export default connect(mapStateToProps, { setNewUser })(SignIn);

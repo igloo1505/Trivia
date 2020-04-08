@@ -1,26 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 import { Jumbotron, Container, Button } from "react-bootstrap";
 import { setPlayState } from "../actions/play/playActions";
+import InsufficientToast from "./play/InsufficientToast";
 
 const Guest = ({
   user: {
     loggedIn,
-    user: { name, organizationReference }
+    user: { name, organizationReference },
   },
-  setPlayState
+  play: questionArray,
+  setPlayState,
 }) => {
+  const [show, setShow] = useState(false);
   useEffect(() => {
     setPlayState(organizationReference);
   }, []);
-  const handlePlay = e => {
+  useEffect(() => {
+    for (var i = 0; i < questionArray.length; i++) {
+      if (questionArray[i] == null) {
+        debugger;
+        console.log("this atleast ran");
+        setShow(true);
+      }
+    }
+  }, [questionArray]);
+  const handlePlay = (e) => {
     console.log("call async randomize here");
     // setPlayState(organizationReference);
   };
   return (
     <div>
+      <InsufficientToast show={show} />
       <Jumbotron fluid>
         <Container>
           {loggedIn ? <h1>Welcome {name}! </h1> : <h1>"Welcome!"</h1>}
@@ -36,7 +49,7 @@ const Guest = ({
                 variant="primary"
                 size="lg"
                 className="playButton"
-                onClick={e => handlePlay(e)}
+                onClick={(e) => handlePlay(e)}
               >
                 Play
               </Button>
@@ -47,8 +60,9 @@ const Guest = ({
     </div>
   );
 };
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = (state) => ({
+  user: state.user,
+  play: state.play,
 });
 
 export default connect(mapStateToProps, { setPlayState })(Guest);

@@ -47,11 +47,7 @@ export const getQuestions = (reference) => async (dispatch) => {
   try {
     const res = await axios.get(`/questions/${reference}`);
     let finalArray = [];
-    const logthis = firebase
-      .storage()
-      .ref("71f278b2-cbff-4d8a-89ae-79561063fa3b");
-    const logurl = await logthis.getDownloadURL();
-    console.log(logurl);
+
     for (var i = 0; i < res.data.length; i++) {
       if ("imageHolder" in res.data[i]) {
         const ref = firebase.storage().ref(res.data[i].imageHolder);

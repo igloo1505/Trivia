@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getQuestions } from "../../actions/questionActions";
 import { correctAnswer, wrongAnswer } from "../../actions/play/playActions";
 import firebase from "firebase";
+import { setLoading } from "../../actions/userActions";
 
 const Play = ({
   user: {
@@ -17,8 +18,31 @@ const Play = ({
   useEffect(() => {
     getQuestions(organizationReference);
   }, []);
+
+  const [image, setImage] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
   var storage = firebase.storage();
   var storageRef = storage.ref();
+  useEffect(() => {
+    if ("imageHolder" in active) {
+      const asyncFunc = async () => {
+        setLoading(true);
+        setImage(true);
+        await storageRef
+          .child(active.imageHolder)
+          .getDownloadURL()
+          .then(function (url) {
+            setImageSrc(url);
+            console.log("url returns ", url);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      };
+      asyncFunc();
+      setLoading(false);
+    }
+  }, [active, getQuestions, correctAnswer]);
 
   const setAnswer = (index) => {
     if (randomizedAnswerArray[index] === active.correctAnswer) {
@@ -40,11 +64,30 @@ const Play = ({
     answerArray.splice(random, 1);
   }
   console.log("active returns ", active);
+  const questionImage = {
+    maxWidth: "80%",
+    objectFit: "cover",
+  };
 
   return (
     <div>
       <div className="QuestionContainer">
-        {loading ? <h1>test</h1> : <h3>{active.question}</h3>}
+        {loading ? (
+          <h1>test</h1>
+        ) : image ? (
+          loading ? (
+            <h1>Loading</h1>
+          ) : (
+            <img
+              alt=""
+              src={imageSrc}
+              className="d-inline-block align-top"
+              style={questionImage}
+            />
+          )
+        ) : (
+          <h3>{active.question}</h3>
+        )}
       </div>
       <div className="answerGrid">
         {loading ? (
