@@ -19,15 +19,16 @@ const ScoreModal = ({
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            {organizationName}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
+          <h4>{name}</h4>
           <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
+            Congratulations {name}! You scored {score} points. That's from{" "}
+            {totalCorrect.length} correct guesses and {totalIncorrect.length}{" "}
+            incorrect guesses over {totalQuestions ? totalQuestions : 0} total
+            questions.
           </p>
         </Modal.Body>
         <Modal.Footer>
