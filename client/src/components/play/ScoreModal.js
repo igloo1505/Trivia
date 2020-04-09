@@ -1,7 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 
-const ScoreModal = (props) => {
+const ScoreModal = ({
+  user: {
+    user: { name, organizationName, city, state },
+  },
+  play: { score, totalCorrect, totalIncorrect, totalQuestions, gameEnd },
+  ...props
+}) => {
   return (
     <div>
       <Modal
@@ -30,5 +37,9 @@ const ScoreModal = (props) => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  user: state.user,
+  play: state.play,
+});
 
-export default ScoreModal;
+export default connect(mapStateToProps)(ScoreModal);

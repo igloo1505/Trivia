@@ -10,14 +10,14 @@ const NavBar = ({
   user: {
     loggedIn,
     user,
-    organization: { organizationName, displayName }
+    organization: { organizationName, displayName },
   },
   organization,
-  logOut
+  logOut,
 }) => {
   const NavLinkStyle = {
     marginRight: "10px",
-    marginLeft: "auto"
+    marginLeft: "auto",
   };
 
   return (
@@ -42,7 +42,8 @@ const NavBar = ({
         <Nav style={NavLinkStyle}>
           {loggedIn ? (
             <Nav>
-              <Link to="/">Home</Link> <Link to="/">LeaderBoard</Link>{" "}
+              <Link to="/">Home</Link>{" "}
+              <Link to="/leaderboard">LeaderBoard</Link>{" "}
               {user.adminStatus ? <Link to="/admin">Admin</Link> : ""}
               <Link to="/" onClick={logOut}>
                 Log Out
@@ -64,8 +65,8 @@ const NavBar = ({
     </Navbar>
   );
 };
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = (state) => ({
+  user: state.user,
 });
 
 export default connect(mapStateToProps, { logOut })(NavBar);

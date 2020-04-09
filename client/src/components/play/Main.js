@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { correctAnswer, wrongAnswer } from "../../actions/play/playActions";
+import {
+  correctAnswer,
+  wrongAnswer,
+  gameOver,
+} from "../../actions/play/playActions";
 import { getQuestions } from "../../actions/questionActions";
 import Play from "./Play";
+import Leaderboard from "../Leaderboard";
 const Main = ({
   user: {
     user: { organizationReference },
@@ -12,14 +17,17 @@ const Main = ({
   getQuestions,
   correctAnswer,
   wrongAnswer,
+  gameOver,
 }) => {
+  useEffect(() => {
+    if (questionArray && questionArray.length == 0) {
+      gameOver();
+    }
+  }, [questionArray]);
+
   return (
     <div>
-      {questionArray && questionArray.length >= 1 ? (
-        <Play />
-      ) : (
-        <h1>Redirect to finish page here</h1>
-      )}
+      {questionArray && questionArray.length >= 1 ? <Play /> : <Leaderboard />}
     </div>
   );
 };
@@ -34,4 +42,5 @@ export default connect(mapStateToProps, {
   getQuestions,
   correctAnswer,
   wrongAnswer,
+  gameOver,
 })(Main);

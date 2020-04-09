@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getQuestions } from "../../actions/questionActions";
-import { correctAnswer, wrongAnswer } from "../../actions/play/playActions";
+import {
+  correctAnswer,
+  wrongAnswer,
+  gameOver,
+} from "../../actions/play/playActions";
 import firebase from "firebase";
 import { setLoading } from "../../actions/userActions";
 import Timer from "./Timer";
@@ -15,6 +19,7 @@ const Play = ({
   getQuestions,
   correctAnswer,
   wrongAnswer,
+  gameOver,
 }) => {
   const [questionDisplay, setQuestionDisplay] = useState(null);
   useEffect(() => {
@@ -157,4 +162,5 @@ export default connect(mapStateToProps, {
   getQuestions,
   correctAnswer,
   wrongAnswer,
+  gameOver,
 })(Play);

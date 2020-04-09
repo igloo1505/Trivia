@@ -25,14 +25,13 @@ function App({ user: { loggedIn } }) {
   return (
     <Provider store={store}>
       <div className="App">
-        <ScoreModal />
         <Router>
           <Nav />
           <div className="container" style={{ marginTop: "30px" }}>
             <Switch>
               <PrivateRoute exact path="/" component={Guest} />
               <Route exact path="/signIn" component={SignIn} />
-              <Route exact path="/leaderboard" component={Leaderboard} />
+              <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
               <PrivateRoute exact path="/admin" component={Admin} />
               <PrivateRoute exact path="/play" component={Main} />
               <PrivateRoute exact path="/upload" component={UploadModal} />
