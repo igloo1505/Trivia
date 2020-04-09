@@ -4,6 +4,7 @@ import { getQuestions } from "../../actions/questionActions";
 import { correctAnswer, wrongAnswer } from "../../actions/play/playActions";
 import firebase from "firebase";
 import { setLoading } from "../../actions/userActions";
+import Timer from "./Timer";
 
 const Play = ({
   user: {
@@ -75,6 +76,7 @@ const Play = ({
 
   return (
     <div>
+      <Timer />
       <div className="QuestionContainer">
         {loading ? (
           <h1>test</h1>
