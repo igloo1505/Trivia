@@ -5,26 +5,26 @@ import { Col, Row, Modal, Table } from "react-bootstrap";
 import {
   getQuestions,
   setCurrent,
-  clearCurrent
+  clearCurrent,
 } from "../../actions/questionActions";
 import DetailModal from "./DetailModal";
 
 const ListView = ({
   user: {
-    user: { adminStatus, organizationReference, organizationName }
+    user: { adminStatus, organizationReference, organizationName },
   },
   question: { questions, filtered, current },
   getQuestions,
   setCurrent,
   clearCurrent,
-  onSelect
+  onSelect,
 }) => {
   console.log(adminStatus, organizationName, organizationReference);
   useEffect(() => {
     getQuestions(organizationReference);
   }, []);
   const [show, setShow] = useState(false);
-  const triggerDetail = e => {
+  const triggerDetail = (e) => {
     console.log("e ran as ", e);
     let att = e.getAttribute("value");
     console.log("attribute ", att);
@@ -55,17 +55,19 @@ const ListView = ({
         {questions !== null ? (
           <tbody>
             {filtered !== null
-              ? filtered.map(ques => (
+              ? filtered.map((ques) => (
                   <tr key={ques._id}>
                     <td value={ques._id}>{ques.difficulty}</td>
                     <td value={ques._id}>{ques.question}</td>
                     <td value={ques._id}>{ques.submittedBy}</td>
                   </tr>
                 ))
-              : questions.map(ques => (
-                  <tr key={ques._id} onClick={e => triggerDetail(e.target)}>
+              : questions.map((ques) => (
+                  <tr key={ques._id} onClick={(e) => triggerDetail(e.target)}>
                     <td value={ques._id}>{ques.difficulty}</td>
-                    <td value={ques._id}>{ques.question}</td>
+                    <td value={ques._id}>
+                      {"imageHolder" in ques ? "Image" : ques.question}
+                    </td>
                     <td value={ques._id}>{ques.submittedBy.name}</td>
                   </tr>
                 ))}
@@ -78,13 +80,13 @@ const ListView = ({
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  question: state.question
+  question: state.question,
 });
 
 export default connect(mapStateToProps, {
   getQuestions,
   setCurrent,
-  clearCurrent
+  clearCurrent,
 })(ListView);

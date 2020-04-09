@@ -5,17 +5,17 @@ import { getQuestions } from "../../actions/questionActions";
 import Play from "./Play";
 const Main = ({
   user: {
-    user: { organizationReference }
+    user: { organizationReference },
   },
   question: { questions, current, loading },
   play: { questionArray, active, score, totalCorrect, totalIncorrect },
   getQuestions,
   correctAnswer,
-  wrongAnswer
+  wrongAnswer,
 }) => {
   return (
     <div>
-      {questionArray.length >= 1 ? (
+      {questionArray && questionArray.length >= 1 ? (
         <Play />
       ) : (
         <h1>Redirect to finish page here</h1>
@@ -23,15 +23,15 @@ const Main = ({
     </div>
   );
 };
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
   question: state.question,
   play: state.play,
-  active: state.play.active
+  active: state.play.active,
 });
 
 export default connect(mapStateToProps, {
   getQuestions,
   correctAnswer,
-  wrongAnswer
+  wrongAnswer,
 })(Main);
