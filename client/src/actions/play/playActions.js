@@ -10,6 +10,7 @@ import {
 } from "../Types";
 import store from "../../store";
 import Axios from "axios";
+import { useHistory } from "react-router-dom";
 let reduxState = store.getState();
 
 export const setPlayState = (reference) => async (dispatch) => {

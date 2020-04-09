@@ -11,6 +11,7 @@ import {
 } from "../Types";
 import store from "../../store";
 import { browserHistory } from "react-router";
+import { Route, Redirect } from "react-router-dom";
 
 const initialState = {
   questionArray: null,
@@ -19,6 +20,7 @@ const initialState = {
   totalCorrect: [],
   totalIncorrect: [],
   totalQuestions: null,
+  gameEnd: false,
   loading: false,
 };
 
@@ -26,6 +28,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET_PLAYSTATE:
       console.log("add Toast here to make sure enough questions");
+
       return {
         ...state,
         questionArray: action.payload,
@@ -35,6 +38,7 @@ export default (state = initialState, action) => {
         totalCorrect: [],
         totalIncorrect: [],
         totalQuestions: null,
+        gameEnd: false,
         loading: false,
       };
     case CORRECT_ANSWER:
@@ -56,9 +60,10 @@ export default (state = initialState, action) => {
       };
 
     case GAME_FINISH:
-      browserHistory.push("/leaderboard");
       return {
         ...state,
+        gameEnd: true,
+        loading: false,
       };
 
     case WRONG_ANSWER:

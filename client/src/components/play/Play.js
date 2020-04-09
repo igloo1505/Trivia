@@ -68,7 +68,7 @@ const Play = ({
     randomizedAnswerArray.push(answerArray[random]);
     answerArray.splice(random, 1);
   }
-  console.log("active returns ", active);
+
   const questionImage = {
     maxWidth: "80%",
     objectFit: "cover",
@@ -77,6 +77,7 @@ const Play = ({
   return (
     <div>
       <Timer />
+
       <div className="QuestionContainer">
         {loading ? (
           <h1>test</h1>

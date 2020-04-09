@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { browserHistory } from "react-router";
+import { connect } from "react-redux";
+import { gameOver } from "../../actions/play/playActions";
+import { useHistory } from "react-router-dom";
+const Timer = ({ gameOver }) => {
+  let history = useHistory();
+  const redirectFunc = () => {
+    history.push("/leaderboard");
+  };
 
-const Timer = () => {
-  //   const calculateTime = () => {
-  //     const difference = time - 1;
-  //     time = time - 1;
-  //     //   Calculations based on gameplay go here
-  //     return difference;
-  //   };
   const [time, setTime] = useState(10);
   useEffect(() => {
     let timer = setTimeout(() => {
       setTime(time - 1);
     }, 1000);
     if (time <= 0) {
-      // alert("score modal here");
+      gameOver();
+      redirectFunc();
       clearTimeout(timer);
-      browserHistory.push("/");
-      return;
     }
   }, [time]);
 
@@ -28,4 +27,4 @@ const Timer = () => {
   );
 };
 
-export default Timer;
+export default connect(null, { gameOver })(Timer);
