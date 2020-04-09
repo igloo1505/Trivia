@@ -28,3 +28,4 @@ export const NEXT_QUESTION = "NEXT_QUESTION";
 export const PLAY_LOADING = "PLAY_LOADING";
 export const ADD_IMAGE = "ADD_IMAGE";
 export const CLEAR_IMAGE = "CLEAR_IMAGE";
+export const GAME_FINISH = "GAME_FINISH";

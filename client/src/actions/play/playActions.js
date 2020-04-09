@@ -5,13 +5,14 @@ import {
   SET_LOADING,
   SET_RESULT,
   PLAY_ERROR,
-  PLAY_LOADING
+  GAME_FINISH,
+  PLAY_LOADING,
 } from "../Types";
 import store from "../../store";
 import Axios from "axios";
 let reduxState = store.getState();
 
-export const setPlayState = reference => async dispatch => {
+export const setPlayState = (reference) => async (dispatch) => {
   //   !!! Dont forget to change this number when questions added
   setLoading();
   try {
@@ -19,36 +20,41 @@ export const setPlayState = reference => async dispatch => {
     console.log("randomized returns : ", res);
     dispatch({
       type: SET_PLAYSTATE,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     console.log(error);
     dispatch({
       type: PLAY_ERROR,
-      payload: error
+      payload: error,
     });
   }
 };
 
-export const correctAnswer = ques => dispatch => {
+export const correctAnswer = (ques) => (dispatch) => {
   console.log(reduxState);
   console.log("received at action: ", ques);
   dispatch({
     type: CORRECT_ANSWER,
-    payload: ques
+    payload: ques,
+  });
+};
+export const gameOver = () => (dispatch) => {
+  dispatch({
+    type: GAME_FINISH,
   });
 };
 
-export const wrongAnswer = ques => dispatch => {
+export const wrongAnswer = (ques) => (dispatch) => {
   console.log("received at action: ", ques);
   dispatch({
     type: WRONG_ANSWER,
-    payload: ques
+    payload: ques,
   });
 };
 
 export const setLoading = () => {
   return {
-    type: PLAY_LOADING
+    type: PLAY_LOADING,
   };
 };

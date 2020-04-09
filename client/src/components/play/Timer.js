@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { browserHistory } from "react-router";
 
 const Timer = () => {
   //   const calculateTime = () => {
@@ -7,14 +8,17 @@ const Timer = () => {
   //     //   Calculations based on gameplay go here
   //     return difference;
   //   };
-  const [time, setTime] = useState(30);
+  const [time, setTime] = useState(10);
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setTime(time - 1);
-      if (time <= 0) {
-        alert("score modal here");
-      }
     }, 1000);
+    if (time <= 0) {
+      // alert("score modal here");
+      clearTimeout(timer);
+      browserHistory.push("/");
+      return;
+    }
   }, [time]);
 
   return (
