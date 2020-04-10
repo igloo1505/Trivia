@@ -67,6 +67,7 @@ export const wrongAnswer = (ques) => (dispatch) => {
 };
 
 export const getLeaders = (organizationReference) => async (dispatch) => {
+  console.log("running get leaders");
   try {
     const res = await Axios.get(`/leaderboard/${organizationReference}`);
     console.log("leaders response: ", res);

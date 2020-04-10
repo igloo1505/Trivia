@@ -37,9 +37,12 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-router.get("/:id", auth, async (req, res) => {
+router.get("/:organizationReference", auth, async (req, res) => {
   try {
-    const leaders = await Leader.findById(req.params.id);
+    let ref = req.params.organizationReference;
+    const leaders = await Leader.find({
+      organizationReference: ref,
+    });
     res.json(leaders);
   } catch (error) {
     console.error(error.message);

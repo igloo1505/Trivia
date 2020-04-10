@@ -19,15 +19,13 @@ const ListView = ({
   clearCurrent,
   onSelect,
 }) => {
-  console.log(adminStatus, organizationName, organizationReference);
   useEffect(() => {
     getQuestions(organizationReference);
   }, []);
   const [show, setShow] = useState(false);
   const triggerDetail = (e) => {
-    console.log("e ran as ", e);
     let att = e.getAttribute("value");
-    console.log("attribute ", att);
+
     setCurrent(att);
     setShow(true);
   };
