@@ -25,7 +25,6 @@ export const setPlayState = (reference) => async (dispatch) => {
   setLoading();
   try {
     const res = await Axios.get(`questions/${reference}/randomize`);
-
     dispatch({
       type: SET_PLAYSTATE,
       payload: res.data,
@@ -40,8 +39,6 @@ export const setPlayState = (reference) => async (dispatch) => {
 };
 
 export const correctAnswer = (ques) => (dispatch) => {
-  console.log(reduxState);
-  console.log("received at action: ", ques);
   dispatch({
     type: CORRECT_ANSWER,
     payload: ques,
@@ -59,7 +56,6 @@ export const resetStatus = () => (dispatch) => {
 };
 
 export const wrongAnswer = (ques) => (dispatch) => {
-  console.log("received at action: ", ques);
   dispatch({
     type: WRONG_ANSWER,
     payload: ques,
@@ -67,10 +63,9 @@ export const wrongAnswer = (ques) => (dispatch) => {
 };
 
 export const getLeaders = (organizationReference) => async (dispatch) => {
-  console.log("running get leaders");
   try {
     const res = await Axios.get(`/leaderboard/${organizationReference}`);
-    console.log("leaders response: ", res);
+
     dispatch({
       type: GET_LEADERS,
       payload: res.data,
@@ -84,7 +79,6 @@ export const getLeaders = (organizationReference) => async (dispatch) => {
 };
 
 export const setLeader = (leader) => async (dispatch) => {
-  console.log(leader);
   try {
     const res = await Axios.post("/leaderboard", leader, config);
     dispatch({

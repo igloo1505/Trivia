@@ -41,7 +41,6 @@ const Play = ({
           .getDownloadURL()
           .then(function (url) {
             setImageSrc(url);
-            console.log("url returns ", url);
           })
           .catch(function (error) {
             console.log(error);

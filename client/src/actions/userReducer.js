@@ -48,7 +48,7 @@ export default (state = initialState, action) => {
     case REGISTER_ADMIN:
       const { token, user } = action.payload;
       setAuthToken(token);
-      console.log(action.payload);
+
       localStorage.setItem("token", token);
       return {
         ...state,
@@ -75,7 +75,6 @@ export default (state = initialState, action) => {
       };
 
     case EDIT_ACCESS:
-      console.log("add toast here if successfully changed");
       return {
         ...state,
         organization: action.payload,

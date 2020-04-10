@@ -57,7 +57,7 @@ export const editUserAccess = ({ orgInfo }) => async (dispatch) => {
     orgInfo,
     config
   );
-  console.log(res);
+
   try {
     dispatch({
       type: EDIT_ACCESS,

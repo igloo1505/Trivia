@@ -51,14 +51,20 @@ router.get("/:organizationReference/randomize", auth, async (req, res) => {
     const questions = await Question.find({
       "submittedBy.organizationReference": ref,
     });
-    let placeholderArray = questions;
-    let returnArray = [];
-    for (var i = 0; i < questions.length; i++) {
-      let randomIndex = Math.floor(Math.random() * placeholderArray.length);
-      returnArray.push(placeholderArray[randomIndex]);
-      placeholderArray.splice(randomIndex, 1);
-    }
-    res.json(returnArray);
+
+    const randomize = (arr) => {
+      let returnedArray = [];
+      do {
+        let randomIndex = Math.floor(Math.random() * questions.length);
+        returnedArray.push(questions[randomIndex]);
+        questions.splice(randomIndex, 1);
+      } while (questions.length >= 1);
+      return returnedArray;
+    };
+
+    let newReturn = randomize(questions);
+
+    res.json(newReturn);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("failed to get randomized array");

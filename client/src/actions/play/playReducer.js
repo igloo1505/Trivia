@@ -34,12 +34,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         questionArray: action.payload,
-        active: action.payload[0],
-        totalQuestions: action.payload.length,
         score: 0,
+        active: action.payload[0],
         totalCorrect: [],
         totalIncorrect: [],
-        totalQuestions: null,
+        totalQuestions: action.payload.length,
         gameEnd: false,
         loading: false,
       };

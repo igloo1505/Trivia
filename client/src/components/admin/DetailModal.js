@@ -9,7 +9,7 @@ import { set } from "mongoose";
 
 const DetailModal = ({
   user: {
-    user: { adminStatus, organizationReference, organizationName }
+    user: { adminStatus, organizationReference, organizationName },
   },
   question: { questions, filtered, current },
   getQuestions,
@@ -24,19 +24,19 @@ const DetailModal = ({
   reRoute,
   onSelect,
   onEdit,
-  editQuestion
+  editQuestion,
 }) => {
   const state = store.getState();
-  const onDelete = e => {
+  const onDelete = (e) => {
     e.preventDefault();
 
     let id = current[0]._id;
     setShow();
     deleteQuestion(id);
   };
-  onEdit = e => {
+  onEdit = (e) => {
     e.preventDefault();
-    console.log("reRoute Here");
+
     onSelect("Submit");
     setShow();
   };
@@ -63,7 +63,7 @@ const DetailModal = ({
                 style={{
                   textAlign: "center",
                   fontSize: "1.5rem",
-                  textDecoration: "underline"
+                  textDecoration: "underline",
                 }}
                 className="mobilePadding"
               >
@@ -102,7 +102,7 @@ const DetailModal = ({
                   marginTop: "auto",
                   marginBottom: "0px",
                   marginLeft: "10px",
-                  fontSize: "0.8rem"
+                  fontSize: "0.8rem",
                 }}
                 className="desktopSubmittedBy"
               >
@@ -112,7 +112,7 @@ const DetailModal = ({
                 type="submit"
                 variant="danger"
                 className="mobileEditButtons deleteButton"
-                onClick={e => onDelete(e)}
+                onClick={(e) => onDelete(e)}
               >
                 Delete!
               </Button>
@@ -120,7 +120,7 @@ const DetailModal = ({
                 type="submit"
                 variant="warning"
                 className="mobileEditButtons"
-                onClick={e => onEdit(e)}
+                onClick={(e) => onEdit(e)}
               >
                 Edit
               </Button>
@@ -131,7 +131,7 @@ const DetailModal = ({
                   marginTop: "10px",
                   marginBottom: "0px",
                   marginLeft: "10px",
-                  fontSize: "0.8rem"
+                  fontSize: "0.8rem",
                 }}
                 className="mobileSubmittedBy"
               >
@@ -146,13 +146,13 @@ const DetailModal = ({
     </Fragment>
   );
 };
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  question: state.question
+  question: state.question,
 });
 
 export default connect(mapStateToProps, {
   editQuestion,
   deleteQuestion,
-  setMenuView
-})(DetailModal)
+  setMenuView,
+})(DetailModal);

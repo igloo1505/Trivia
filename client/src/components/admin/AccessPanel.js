@@ -31,7 +31,7 @@ const AccessPanel = ({
     e.preventDefault();
     if (userPassOne === userPassTwo) {
       let id = organizationReference;
-      console.log("sending orgInfo as ", orgInfo);
+
       editUserAccess({ orgInfo });
     }
   };
