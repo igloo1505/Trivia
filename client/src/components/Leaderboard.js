@@ -27,7 +27,7 @@ const Leaderboard = ({
       setShow(true);
     }
     return () => {
-      console.log("cleanup here");
+      console.log("");
     };
   }, [gameEnd]);
 

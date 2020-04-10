@@ -6,16 +6,16 @@ import { loginUser } from "../actions/userActions";
 const SignInModal = ({ loginUser, ...props }) => {
   const [user, setUser] = useState({
     email: "",
-    password: ""
+    password: "",
   });
-  const onChange = e =>
+  const onChange = (e) =>
     setUser({
       ...user,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+
     loginUser(user);
   };
   return (
@@ -66,8 +66,8 @@ const SignInModal = ({ loginUser, ...props }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = (state) => ({
+  user: state.user,
 });
 
 export default connect(mapStateToProps, { loginUser })(SignInModal);

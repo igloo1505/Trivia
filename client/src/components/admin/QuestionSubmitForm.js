@@ -3,14 +3,16 @@ import "../../assets/app.css";
 import { Form, Col, Row, Button, Modal, Tabs, Tab } from "react-bootstrap";
 import store from "../../store";
 import { getQuestions } from "../../actions/questionActions";
+import { resetStatus } from "../../actions/play/playActions";
 import QuestionForm from "./Form";
 import AccessPanel from "./AccessPanel";
 import ListView from "./ListView";
 import { connect } from "react-redux";
 
-const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
+const QuestionSubmitForm = ({ user: { admin, menuKey }, resetStatus }) => {
   useEffect(() => {
     setKey(menuKey);
+    resetStatus();
   }, [menuKey]);
   const [key, setKey] = useState(menuKey);
 
@@ -34,4 +36,4 @@ const mapStateToProps = (state) => ({
   question: state.question,
 });
 
-export default connect(mapStateToProps)(QuestionSubmitForm);
+export default connect(mapStateToProps, { resetStatus })(QuestionSubmitForm);

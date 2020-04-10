@@ -31,8 +31,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_PLAYSTATE:
-      console.log("add Toast here to make sure enough questions");
-
       return {
         ...state,
         questionArray: action.payload,
@@ -49,8 +47,7 @@ export default (state = initialState, action) => {
       let newArray = state.questionArray.filter(
         (que) => que._id !== action.payload._id
       );
-      console.log("total count at ", state.totalQuestions);
-      console.log("score is ", state.score);
+
       return {
         ...state,
         totalCorrect: [action.payload, ...state.totalCorrect],

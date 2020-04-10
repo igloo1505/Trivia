@@ -40,7 +40,6 @@ const QuestionForm = ({
   }, [current]);
   //! Setting form for question select with image
   useEffect(() => {
-    console.log("imageholder", imageHolder);
     if (imageHolder !== null) {
       setQuestion({
         question:
@@ -86,7 +85,6 @@ const QuestionForm = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(question);
 
     if (imageHolder !== null) {
       addQuestion({
