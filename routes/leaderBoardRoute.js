@@ -42,18 +42,14 @@ router.get("/:organizationReference", auth, async (req, res) => {
     let ref = req.params.organizationReference;
     const leaders = await Leader.find({
       organizationReference: ref,
-    });
+    }).sort({ points: -1 });
     let returnArray = [];
-    let pointsArray = [];
-    // for(var x = 0; x < leaders.length; x ++){
-    //   pointsArray.push(leaders.points)
-    // }
-    // const sorted = leaders.points.sort((a, b) => b - a);
+
     for (var i = 0; i < 10; i++) {
       returnArray.push(leaders[i]);
     }
 
-    res.json(returnArray);
+    res.json(leaders);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("failed at get leaders");
