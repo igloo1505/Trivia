@@ -35,7 +35,10 @@ const Leaderboard = ({
     <div>
       <ScoreModal show={show} onHide={() => setShow(false)} />
       <h1 style={{ textAlign: "center" }}>{organizationName} Leaderboard</h1>
-      <ListGroup variant="flush" style={{ marginTop: "50px" }}>
+      <ListGroup
+        variant="flush"
+        style={{ marginTop: "50px", marginBottom: "50px" }}
+      >
         {leaders
           ? leaders.map((leader) => (
               <ListGroup.Item key={leader._id}>

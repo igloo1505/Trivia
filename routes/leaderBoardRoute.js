@@ -42,7 +42,9 @@ router.get("/:organizationReference", auth, async (req, res) => {
     let ref = req.params.organizationReference;
     const leaders = await Leader.find({
       organizationReference: ref,
-    }).sort({ points: -1 });
+    })
+      .limit(10)
+      .sort({ points: -1 });
     let returnArray = [];
 
     for (var i = 0; i < 10; i++) {

@@ -9,6 +9,7 @@ import {
 import firebase from "firebase";
 import { setLoading } from "../../actions/userActions";
 import Timer from "./Timer";
+import Scorecard from "./Scorecard";
 
 const Play = ({
   user: {
@@ -82,7 +83,7 @@ const Play = ({
   return (
     <div>
       <Timer />
-
+      <Scorecard />
       <div className="QuestionContainer">
         {loading ? (
           <h1>test</h1>

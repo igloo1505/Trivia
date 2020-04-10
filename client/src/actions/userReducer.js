@@ -26,6 +26,7 @@ const initialState = {
     organizationName: null,
     organizationUserPassword: null,
     displayName: null,
+    organizationTime: null,
   },
   user: null,
   error: null,

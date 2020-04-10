@@ -227,7 +227,7 @@ const QuestionForm = ({
             style={{ marginTop: "20px" }}
             className="submitFormButton"
           >
-            Upload
+            Upload Image
           </Button>
         )}
         {imageHolder ? (

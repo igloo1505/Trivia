@@ -8,7 +8,7 @@ const Timer = ({ gameOver }) => {
     history.push("/leaderboard");
   };
 
-  const [time, setTime] = useState(3);
+  const [time, setTime] = useState(30);
   useEffect(() => {
     let timer = setTimeout(() => {
       setTime(time - 1);

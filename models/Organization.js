@@ -3,33 +3,36 @@ const mongoose = require("mongoose");
 const OrganizationSchema = mongoose.Schema({
   referenceID: {
     type: String,
-    required: true
+    required: true,
   },
   organizationName: {
     type: String,
-    required: true
+    required: true,
   },
   organizationAdminPassword: {
     type: String,
-    required: true
+    required: true,
   },
   organizationUserPassword: {
-    type: String
+    type: String,
   },
   displayName: {
     type: String,
-    default: ""
+    default: "",
+  },
+  organizationTime: {
+    type: Number,
   },
   city: {
-    type: String
+    type: String,
   },
   state: {
-    type: String
+    type: String,
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Organization", OrganizationSchema);

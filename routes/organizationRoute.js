@@ -13,7 +13,8 @@ router.put("/:id", auth, async (req, res) => {
     referenceID,
     organizationName,
     organizationUserPassword,
-    DisplayName
+    DisplayName,
+    organizationTime,
   } = req.body;
   console.log(req.body);
 
@@ -34,6 +35,9 @@ router.put("/:id", auth, async (req, res) => {
     }
     if (DisplayName) {
       fieldHolder.displayName = DisplayName;
+    }
+    if (organizationTime) {
+      fieldHolder.organizationTime = organizationTime;
     }
 
     console.log("retrieved Organization to update as ", orgAccess);
