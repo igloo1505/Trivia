@@ -1,6 +1,4 @@
 import {
-  GET_LEADERS,
-  SET_LEADER,
   SET_ADMIN,
   GET_ADMIN,
   SET_USER,
@@ -11,7 +9,7 @@ import {
   REGISTER_ADMIN,
   CHANGE_VIEW,
   LOGOUT,
-  AUTHENTICATED
+  AUTHENTICATED,
 } from "./Types";
 import { loadUser } from "./userActions";
 import setAuthToken from "../setToken";
@@ -21,15 +19,16 @@ const initialState = {
   token: localStorage.getItem("token"),
   leaders: null,
   loading: false,
+
   menuKey: "Submit",
   admin: false,
   organization: {
     organizationName: null,
     organizationUserPassword: null,
-    displayName: null
+    displayName: null,
   },
   user: null,
-  error: null
+  error: null,
 };
 
 export default (state = initialState, action) => {
@@ -37,19 +36,14 @@ export default (state = initialState, action) => {
     case SET_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case CHANGE_VIEW:
       return {
         ...state,
-        menuKey: action.payload
+        menuKey: action.payload,
       };
-    case GET_LEADERS:
-      return {
-        ...state,
-        leaders: action.payload,
-        loading: false
-      };
+
     case REGISTER_ADMIN:
       const { token, user } = action.payload;
       setAuthToken(token);
@@ -59,17 +53,16 @@ export default (state = initialState, action) => {
         ...state,
         loggedIn: true,
         user: user,
-        loading: false
+        loading: false,
       };
     case SET_USER:
       return {
         ...state,
         user: action.payload,
         loggedIn: true,
-        loading: false
+        loading: false,
       };
     case LOGIN:
-    
       localStorage.setItem("token", action.payload.token);
       loadUser();
       return {
@@ -77,14 +70,15 @@ export default (state = initialState, action) => {
         user: action.payload.user,
         organization: action.payload.orgReturn,
         loggedIn: true,
-        loading: false
+        loading: false,
       };
+
     case EDIT_ACCESS:
       console.log("add toast here if successfully changed");
       return {
         ...state,
         organization: action.payload,
-        loading: false
+        loading: false,
       };
     case LOGOUT:
       localStorage.removeItem("token");
@@ -93,7 +87,7 @@ export default (state = initialState, action) => {
         loggedIn: false,
         user: null,
         admin: false,
-        loading: false
+        loading: false,
       };
 
     case AUTHENTICATED:
@@ -101,7 +95,7 @@ export default (state = initialState, action) => {
         ...state,
         loggedIn: true,
         user: action.payload,
-        loading: false
+        loading: false,
       };
 
     default:

@@ -5,6 +5,10 @@ const LeaderSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  organizationReference: {
+    type: String,
+    required: true,
+  },
   organizationName: {
     type: String,
     required: true,

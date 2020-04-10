@@ -1,6 +1,4 @@
 import {
-  GET_LEADERS,
-  SET_LEADER,
   SET_ADMIN,
   GET_ADMIN,
   SET_USER,
@@ -11,7 +9,7 @@ import {
   REGISTER_ADMIN,
   CHANGE_VIEW,
   LOGOUT,
-  AUTHENTICATED
+  AUTHENTICATED,
 } from "./Types";
 import uuid from "uuid";
 import axios from "axios";
@@ -19,24 +17,24 @@ import setAuthToken from "../setToken";
 
 const config = {
   headers: {
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 };
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   console.log("reached loadUser script");
   setAuthToken(localStorage.token);
   try {
     const res = await axios.get("/auth");
     dispatch({
       type: SET_USER,
-      payload: res.data
+      payload: res.data,
     });
   } catch (err) {
     dispatch({ type: USER_ERROR, payload: err });
   }
 };
 
-export const setNewUser = user => async dispatch => {
+export const setNewUser = (user) => async (dispatch) => {
   setLoading();
 
   try {
@@ -45,18 +43,18 @@ export const setNewUser = user => async dispatch => {
 
     dispatch({
       type: REGISTER_ADMIN,
-      payload: res.data
+      payload: res.data,
     });
     loadUser();
   } catch (error) {
     console.log("reached catch block");
     dispatch({
       type: USER_ERROR,
-      payload: error
+      payload: error,
     });
   }
 };
-export const editUserAccess = ({ orgInfo }) => async dispatch => {
+export const editUserAccess = ({ orgInfo }) => async (dispatch) => {
   console.log("sending organization as ", orgInfo);
 
   const res = await axios.put(
@@ -68,41 +66,41 @@ export const editUserAccess = ({ orgInfo }) => async dispatch => {
   try {
     dispatch({
       type: EDIT_ACCESS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     dispatch({
       type: USER_ERROR,
-      payload: error
+      payload: error,
     });
   }
 };
 
-export const loginUser = user => async dispatch => {
+export const loginUser = (user) => async (dispatch) => {
   try {
-
     const res = await axios.post("/auth", user, config);
     dispatch({
       type: LOGIN,
-      payload: res.data
+      payload: res.data,
     });
     loadUser();
   } catch (err) {
     dispatch({
       type: USER_ERROR,
-      payload: err.msg
+      payload: err.msg,
     });
   }
 };
-export const setMenuView = key => dispatch =>
+
+export const setMenuView = (key) => (dispatch) =>
   dispatch({
     type: CHANGE_VIEW,
-    payload: key
+    payload: key,
   });
 
 export const setLoading = () => {
   return {
-    type: SET_LOADING
+    type: SET_LOADING,
   };
 };
-export const logOut = () => async dispatch => dispatch({ type: LOGOUT });
+export const logOut = () => async (dispatch) => dispatch({ type: LOGOUT });

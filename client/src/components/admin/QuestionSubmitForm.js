@@ -6,9 +6,7 @@ import { getQuestions } from "../../actions/questionActions";
 import QuestionForm from "./Form";
 import AccessPanel from "./AccessPanel";
 import ListView from "./ListView";
-import dataListArray from "../../assets/datalist";
 import { connect } from "react-redux";
-import uuid from "uuid";
 
 const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
   useEffect(() => {
@@ -17,12 +15,12 @@ const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
   const [key, setKey] = useState(menuKey);
 
   return (
-    <Tabs id="admin-key-form" activeKey={key} onSelect={k => setKey(k)}>
+    <Tabs id="admin-key-form" activeKey={key} onSelect={(k) => setKey(k)}>
       <Tab eventKey="Submit" title="Input">
-        <QuestionForm onSelect={k => setKey(k)} />
+        <QuestionForm onSelect={(k) => setKey(k)} />
       </Tab>
       <Tab eventKey="View" title="View" style={{ color: "black" }}>
-        <ListView onSelect={k => setKey(k)} />
+        <ListView onSelect={(k) => setKey(k)} />
       </Tab>
       <Tab eventKey="Access" title="Access">
         <AccessPanel />
@@ -31,9 +29,9 @@ const QuestionSubmitForm = ({ user: { admin, menuKey } }) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
-  question: state.question
+  question: state.question,
 });
 
 export default connect(mapStateToProps)(QuestionSubmitForm);

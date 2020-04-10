@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Route, Redirect } from "react-router-dom";
+
 import { Jumbotron, Container, Button } from "react-bootstrap";
 import { setPlayState } from "../actions/play/playActions";
 import InsufficientToast from "./play/InsufficientToast";
@@ -15,9 +15,11 @@ const Guest = ({
   setPlayState,
 }) => {
   const [show, setShow] = useState(false);
+
   useEffect(() => {
     setPlayState(organizationReference);
   }, []);
+
   useEffect(() => {
     for (var i = 0; i < questionArray.length; i++) {
       if (questionArray[i] == null) {

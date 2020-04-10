@@ -9,12 +9,15 @@ import {
   NEXT_QUESTION,
   GAME_FINISH,
   CLEAR_PLAY,
+  GET_LEADERS,
+  SET_LEADER,
 } from "../Types";
 import store from "../../store";
 import { browserHistory } from "react-router";
 import { Route, Redirect } from "react-router-dom";
 
 const initialState = {
+  leaders: [],
   questionArray: null,
   score: 0,
   active: null,
@@ -81,6 +84,12 @@ export default (state = initialState, action) => {
         questionArray: state.questionArray.filter(
           (que) => que._id !== action.payload._id
         ),
+        loading: false,
+      };
+    case SET_LEADER:
+      return {
+        ...state,
+        leaders: [action.payload, ...state.leaders],
         loading: false,
       };
 

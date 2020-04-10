@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import ScoreModal from "./play/ScoreModal";
+import { getLeaders } from "../actions/play/playActions";
 
 const Leaderboard = ({
   user: {
-    user: { name, organizationName, city, state },
+    user: { name, organizationReference, organizationName, city, state },
   },
   play: { score, totalCorrect, totalIncorrect, totalQuestions, gameEnd },
+  getLeaders,
 }) => {
   const [show, setShow] = useState(false);
+  useEffect(() => {
+    debugger;
+    getLeaders(organizationReference);
+  }, []);
   useEffect(() => {
     if (gameEnd) {
       setShow(true);
@@ -30,4 +36,4 @@ const mapStateToProps = (state) => ({
   play: state.play,
 });
 
-export default connect(mapStateToProps)(Leaderboard);
+export default connect(mapStateToProps, { getLeaders })(Leaderboard);

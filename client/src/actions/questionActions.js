@@ -14,7 +14,7 @@ import {
   CLEAR_IMAGE,
 } from "./Types";
 import axios from "axios";
-import store from "../store";
+
 import firebase from "../firebase";
 
 const config = {
@@ -24,13 +24,11 @@ const config = {
 };
 
 export const addQuestion = (question) => async (dispatch) => {
-  console.log("question added as", question);
-
   setLoading();
-  console.log("reached addQuestion script as " + question);
+
   try {
     const res = await axios.post("/questions", question, config);
-    console.log("res", res);
+
     dispatch({
       type: ADD_QUESTION,
       payload: res.data,
@@ -43,7 +41,6 @@ export const addQuestion = (question) => async (dispatch) => {
   }
 };
 export const getQuestions = (reference) => async (dispatch) => {
-  console.log("calling getQuestions");
   try {
     const res = await axios.get(`/questions/${reference}`);
     let finalArray = [];
@@ -56,7 +53,6 @@ export const getQuestions = (reference) => async (dispatch) => {
         finalArray.push(res.data[i]);
       } else finalArray.push(res.data[i]);
     }
-    console.log("res with questions after calcs ", res);
 
     dispatch({ type: GET_QUESTIONS, payload: res.data });
   } catch (err) {
@@ -82,9 +78,7 @@ export const addImage = (image, questionID) => async (dispatch) => {
   var storage = firebase.storage().ref();
   var imageRef = storage.child(questionID);
   try {
-    await imageRef.put(image).then(function (snapshot) {
-      console.log("Uploaded");
-    });
+    await imageRef.put(image).then(function (snapshot) {});
     dispatch({
       type: ADD_IMAGE,
       payload: questionID,

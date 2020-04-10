@@ -1,19 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
-import { resetStatus } from "../../actions/play/playActions";
+import { resetStatus, setLeader } from "../../actions/play/playActions";
 
 const ScoreModal = ({
   user: {
-    user: { name, organizationName, city, state },
+    user: { name, organizationReference, organizationName, city, state },
   },
   play: { score, totalCorrect, totalIncorrect, totalQuestions, gameEnd },
   resetStatus,
+  setLeader,
   ...props
 }) => {
   const resetGame = () => {
     props.onHide();
     resetStatus();
+  };
+  const leader = {
+    name: name,
+    organizationReference: organizationReference,
+    organizationName: organizationName,
+    city: city,
+    state: state,
+    points: score,
+  };
+
+  const submitScore = () => {
+    props.onHide();
+    setLeader(leader);
   };
 
   return (
@@ -39,10 +53,10 @@ const ScoreModal = ({
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={() => resetGame()}>
+          <Button variant="success" onClick={() => submitScore()}>
             Submit High Score
           </Button>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button onClick={() => resetGame()}>Close</Button>
         </Modal.Footer>
       </Modal>
     </div>
@@ -53,4 +67,4 @@ const mapStateToProps = (state) => ({
   play: state.play,
 });
 
-export default connect(mapStateToProps, { resetStatus })(ScoreModal);
+export default connect(mapStateToProps, { resetStatus, setLeader })(ScoreModal);

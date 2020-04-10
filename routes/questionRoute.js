@@ -5,8 +5,8 @@ const auth = require("../auth/auth");
 const Question = require("../models/questionModel");
 
 router.post("/", auth, async (req, res) => {
-  console.log(req.body)
-console.log('reached part one')
+  console.log(req.body);
+  console.log("reached part one");
   const {
     question,
     imageHolder,
@@ -15,9 +15,9 @@ console.log('reached part one')
     wrongAnswerOne,
     wrongAnswerTwo,
     wrongAnswerThree,
-    submittedBy: { name, email, organizationName, organizationReference }
+    submittedBy: { name, email, organizationName, organizationReference },
   } = req.body;
-  console.log('reached part two')
+  console.log("reached part two");
   try {
     const newQuestion = new Question({
       question,
@@ -31,10 +31,10 @@ console.log('reached part one')
         name,
         email,
         organizationName,
-        organizationReference
-      }
+        organizationReference,
+      },
     });
-    console.log('reached part three')
+    console.log("reached part three");
     const addQuestion = await newQuestion.save();
 
     return res.json({ addQuestion });
@@ -49,11 +49,11 @@ router.get("/:organizationReference/randomize", auth, async (req, res) => {
     let ref = req.params.organizationReference;
     console.log("ref : ", ref);
     const questions = await Question.find({
-      "submittedBy.organizationReference": ref
+      "submittedBy.organizationReference": ref,
     });
     let placeholderArray = questions;
     let returnArray = [];
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < questions.length; i++) {
       let randomIndex = Math.floor(Math.random() * placeholderArray.length);
       returnArray.push(placeholderArray[randomIndex]);
       placeholderArray.splice(randomIndex, 1);
@@ -70,7 +70,7 @@ router.get("/:organizationReference", auth, async (req, res) => {
     let ref = req.params.organizationReference;
     console.log("ref : ", ref);
     const questions = await Question.find({
-      "submittedBy.organizationReference": ref
+      "submittedBy.organizationReference": ref,
     }).sort({ date: -1 });
     res.json(questions);
   } catch (error) {
@@ -104,7 +104,7 @@ router.put("/:id", auth, async (req, res) => {
     correctAnswer,
     wrongAnswerOne,
     wrongAnswerTwo,
-    wrongAnswerThree
+    wrongAnswerThree,
   } = req.body;
 
   try {

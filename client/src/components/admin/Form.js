@@ -8,10 +8,8 @@ import {
   addQuestion,
   editQuestion,
   clearCurrent,
-  clearImageState
+  clearImageState,
 } from "../../actions/questionActions";
-
-import uuid from "uuid";
 
 const QuestionForm = ({
   user: {
@@ -26,7 +24,6 @@ const QuestionForm = ({
   clearImageState,
 }) => {
   useEffect(() => {
-    console.log("current", current);
     if (current !== null) {
       setQuestion(current[0]);
     } else {
@@ -82,7 +79,7 @@ const QuestionForm = ({
     let id = current[0]._id;
     editQuestion(id, question);
   };
-  const clearImage = () => clearImageState()
+  const clearImage = () => clearImageState();
 
   const onChange = (e) =>
     setQuestion({ ...question, [e.target.name]: e.target.value });
@@ -91,15 +88,20 @@ const QuestionForm = ({
     e.preventDefault();
     console.log(question);
 
-    if(imageHolder !== null){
-
-      addQuestion({imageHolder, difficulty, correctAnswer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree, submittedBy: { name, email, organizationName, organizationReference }})
-    }
-    else {
-
+    if (imageHolder !== null) {
+      addQuestion({
+        imageHolder,
+        difficulty,
+        correctAnswer,
+        wrongAnswerOne,
+        wrongAnswerTwo,
+        wrongAnswerThree,
+        submittedBy: { name, email, organizationName, organizationReference },
+      });
+    } else {
       addQuestion(question);
     }
-    
+
     setQuestion({
       question: "",
       difficulty: "",
@@ -228,16 +230,20 @@ const QuestionForm = ({
             Upload
           </Button>
         )}
-        {imageHolder ?  <Button
-          variant="info"
-          size="lg"
-          block
-          onClick={(e) => clearImage(e)}
-          style={{ marginTop: "20px" }}
-          className="submitFormButton"
-        >
-          Clear Image
-        </Button> : ""}
+        {imageHolder ? (
+          <Button
+            variant="info"
+            size="lg"
+            block
+            onClick={(e) => clearImage(e)}
+            style={{ marginTop: "20px" }}
+            className="submitFormButton"
+          >
+            Clear Image
+          </Button>
+        ) : (
+          ""
+        )}
       </Form>
     </div>
   );
@@ -252,5 +258,5 @@ export default connect(mapStateToProps, {
   addQuestion,
   editQuestion,
   clearCurrent,
-  clearImageState
+  clearImageState,
 })(QuestionForm);
