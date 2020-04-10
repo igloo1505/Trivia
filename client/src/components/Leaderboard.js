@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ListGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import ScoreModal from "./play/ScoreModal";
 import { getLeaders } from "../actions/play/playActions";
@@ -7,12 +8,18 @@ const Leaderboard = ({
   user: {
     user: { name, organizationReference, organizationName, city, state },
   },
-  play: { score, totalCorrect, totalIncorrect, totalQuestions, gameEnd },
+  play: {
+    leaders,
+    score,
+    totalCorrect,
+    totalIncorrect,
+    totalQuestions,
+    gameEnd,
+  },
   getLeaders,
 }) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    debugger;
     getLeaders(organizationReference);
   }, []);
   useEffect(() => {
@@ -27,7 +34,26 @@ const Leaderboard = ({
   return (
     <div>
       <ScoreModal show={show} onHide={() => setShow(false)} />
-      <h1>Leaderboard goes here</h1>
+      <h1 style={{ textAlign: "center" }}>{organizationName} Leaderboard</h1>
+      <ListGroup variant="flush" style={{ marginTop: "50px" }}>
+        {leaders
+          ? leaders.map((leader) => (
+              <ListGroup.Item key={leader._id}>
+                <span>{leader.name}</span>
+                <span style={{ marginLeft: "50px" }}>{leader.city}</span>
+                <span
+                  style={{
+                    float: "right",
+                    fontSize: "1.2rem",
+                    fontWeight: "200",
+                  }}
+                >
+                  {leader.points}
+                </span>
+              </ListGroup.Item>
+            ))
+          : ""}
+      </ListGroup>
     </div>
   );
 };

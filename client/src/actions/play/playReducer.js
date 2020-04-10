@@ -86,6 +86,12 @@ export default (state = initialState, action) => {
         ),
         loading: false,
       };
+    case GET_LEADERS:
+      return {
+        ...state,
+        leaders: action.payload,
+        loading: false,
+      };
     case SET_LEADER:
       return {
         ...state,

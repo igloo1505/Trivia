@@ -43,27 +43,37 @@ router.get("/:organizationReference", auth, async (req, res) => {
     const leaders = await Leader.find({
       organizationReference: ref,
     });
-    res.json(leaders);
+    let returnArray = [];
+    let pointsArray = [];
+    // for(var x = 0; x < leaders.length; x ++){
+    //   pointsArray.push(leaders.points)
+    // }
+    // const sorted = leaders.points.sort((a, b) => b - a);
+    for (var i = 0; i < 10; i++) {
+      returnArray.push(leaders[i]);
+    }
+
+    res.json(returnArray);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("failed at get leaders");
   }
 });
 
-router.delete("/:id", auth, async (req, res) => {
-  try {
-    let question = await Question.findById(req.params.id);
+// router.delete("/:id", auth, async (req, res) => {
+//   try {
+//     let question = await Question.findById(req.params.id);
 
-    if (!question)
-      return res.status(404).json({ msg: "Question ID not found" });
+//     if (!question)
+//       return res.status(404).json({ msg: "Question ID not found" });
 
-    await Question.findByIdAndRemove(req.params.id);
+//     await Question.findByIdAndRemove(req.params.id);
 
-    res.json({ msg: "Successfully removed" });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-});
+//     res.json({ msg: "Successfully removed" });
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send("Server Error");
+//   }
+// });
 
 module.exports = router;
