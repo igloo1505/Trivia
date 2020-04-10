@@ -6,11 +6,12 @@ import {
   SET_RESULT,
   PLAY_ERROR,
   GAME_FINISH,
+  RESET_GAME_FINISH,
   PLAY_LOADING,
 } from "../Types";
 import store from "../../store";
 import Axios from "axios";
-import { useHistory } from "react-router-dom";
+
 let reduxState = store.getState();
 
 export const setPlayState = (reference) => async (dispatch) => {
@@ -43,6 +44,11 @@ export const correctAnswer = (ques) => (dispatch) => {
 export const gameOver = () => (dispatch) => {
   dispatch({
     type: GAME_FINISH,
+  });
+};
+export const resetStatus = () => (dispatch) => {
+  dispatch({
+    type: RESET_GAME_FINISH,
   });
 };
 

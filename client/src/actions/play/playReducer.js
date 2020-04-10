@@ -5,6 +5,7 @@ import {
   SET_RESULT,
   PLAY_ERROR,
   PLAY_LOADING,
+  RESET_GAME_FINISH,
   NEXT_QUESTION,
   GAME_FINISH,
   CLEAR_PLAY,
@@ -63,6 +64,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         gameEnd: true,
+        loading: false,
+      };
+
+    case RESET_GAME_FINISH:
+      return {
+        ...state,
+        gameEnd: false,
         loading: false,
       };
 

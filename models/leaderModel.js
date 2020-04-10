@@ -1,24 +1,30 @@
 const mongoose = require("mongoose");
 
-
 const LeaderSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+  },
+  organizationName: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
   },
   points: {
     type: Number,
-    required: true
-  },
-  time: {
-    type: Number
+    required: true,
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Leader", LeaderSchema);
-
-

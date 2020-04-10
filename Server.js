@@ -10,7 +10,7 @@ connectDB();
 
 app.use(express.json({ extended: false }));
 var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-  flags: "a"
+  flags: "a",
 });
 
 // setup the logger
@@ -20,6 +20,7 @@ app.use("/users", require("./routes/userRoute"));
 app.use("/auth", require("./routes/authRoute"));
 app.use("/questions", require("./routes/questionRoute"));
 app.use("/organizations", require("./routes/organizationRoute"));
+app.use("/leaderboard", require("./routes/leaderBoardRoute"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

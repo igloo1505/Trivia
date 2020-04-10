@@ -29,3 +29,4 @@ export const PLAY_LOADING = "PLAY_LOADING";
 export const ADD_IMAGE = "ADD_IMAGE";
 export const CLEAR_IMAGE = "CLEAR_IMAGE";
 export const GAME_FINISH = "GAME_FINISH";
+export const RESET_GAME_FINISH = "RESET_GAME_FINISH";

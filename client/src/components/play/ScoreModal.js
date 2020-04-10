@@ -1,14 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
+import { resetStatus } from "../../actions/play/playActions";
 
 const ScoreModal = ({
   user: {
     user: { name, organizationName, city, state },
   },
   play: { score, totalCorrect, totalIncorrect, totalQuestions, gameEnd },
+  resetStatus,
   ...props
 }) => {
+  const resetGame = () => {
+    props.onHide();
+    resetStatus();
+  };
+
   return (
     <div>
       <Modal
@@ -32,6 +39,9 @@ const ScoreModal = ({
           </p>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="success" onClick={() => resetGame()}>
+            Submit High Score
+          </Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>
@@ -43,4 +53,4 @@ const mapStateToProps = (state) => ({
   play: state.play,
 });
 
-export default connect(mapStateToProps)(ScoreModal);
+export default connect(mapStateToProps, { resetStatus })(ScoreModal);
