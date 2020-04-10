@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { gameOver } from "../../actions/play/playActions";
-import { useHistory } from "react-router-dom";
 
 const Scorecard = ({ play: { score } }) => {
   const [scoreDisplay, setScoreDisplay] = useState(0);

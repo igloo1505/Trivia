@@ -24,7 +24,7 @@ router.post(
   "/",
   [
     check("email", "Please include a valid email").isEmail(),
-    check("password", "Password is required").exists()
+    check("password", "Password is required").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -53,18 +53,21 @@ router.post(
       orgReturn.organizationName = org.organizationName;
       orgReturn.organizationUserPassword = org.organizationUserPassword;
       orgReturn.displayName = org.displayName;
+      if (org.organizationTime) {
+        orgReturn.organizationTime = org.organizationTime;
+      }
 
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       };
       console.log(payload);
       jwt.sign(
         payload,
         config.get("jwtSecret"),
         {
-          expiresIn: 3600
+          expiresIn: 3600,
         },
         (err, token) => {
           if (err) throw err;

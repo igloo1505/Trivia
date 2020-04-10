@@ -21,7 +21,6 @@ const config = {
   },
 };
 export const loadUser = () => async (dispatch) => {
-  console.log("reached loadUser script");
   setAuthToken(localStorage.token);
   try {
     const res = await axios.get("/auth");
@@ -38,7 +37,6 @@ export const setNewUser = (user) => async (dispatch) => {
   setLoading();
 
   try {
-    console.log("reached try block");
     const res = await axios.post("/users", user, config);
 
     dispatch({
@@ -47,7 +45,6 @@ export const setNewUser = (user) => async (dispatch) => {
     });
     loadUser();
   } catch (error) {
-    console.log("reached catch block");
     dispatch({
       type: USER_ERROR,
       payload: error,
@@ -55,8 +52,6 @@ export const setNewUser = (user) => async (dispatch) => {
   }
 };
 export const editUserAccess = ({ orgInfo }) => async (dispatch) => {
-  console.log("sending organization as ", orgInfo);
-
   const res = await axios.put(
     `/organizations/${orgInfo.organizationReference}`,
     orgInfo,
