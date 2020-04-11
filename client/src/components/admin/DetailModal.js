@@ -62,7 +62,7 @@ const DetailModal = ({
                 md={6}
                 style={{
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.2rem",
                   textDecoration: "underline",
                 }}
                 className="mobilePadding"
