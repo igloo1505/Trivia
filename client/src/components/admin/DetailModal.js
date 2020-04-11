@@ -51,7 +51,7 @@ const DetailModal = ({
           aria-labelledby="detailModal"
         >
           <Modal.Header closeButton>
-            <Modal.Title id="detailModal">
+            <Modal.Title id="detailModal" style={{ fontSize: "1.3rem" }}>
               {current ? current[0].question : ""}
             </Modal.Title>
           </Modal.Header>
