@@ -26,9 +26,6 @@ const Leaderboard = ({
     if (gameEnd) {
       setShow(true);
     }
-    return () => {
-      console.log("");
-    };
   }, [gameEnd]);
 
   return (

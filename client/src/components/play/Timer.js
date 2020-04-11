@@ -22,8 +22,10 @@ const Timer = ({
     if (time <= 0) {
       gameOver();
       redirectFunc();
-      clearTimeout(timer);
     }
+    return () => {
+      clearTimeout(timer);
+    };
   }, [time]);
 
   return (

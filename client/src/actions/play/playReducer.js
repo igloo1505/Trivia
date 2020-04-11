@@ -76,6 +76,7 @@ export default (state = initialState, action) => {
     case WRONG_ANSWER:
       return {
         ...state,
+        score: state.score - 100,
         totalIncorrect: [action.payload, ...state.totalIncorrect],
         questionArray: state.questionArray.filter(
           (que) => que._id !== action.payload._id
