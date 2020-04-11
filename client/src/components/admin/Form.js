@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Form, Col, Row, Button, Modal } from "react-bootstrap";
-import dataListArray from "../../assets/datalist";
+import React, { useState, useEffect } from "react";
+import { Form, Col, Row, Button } from "react-bootstrap";
+
 import UploadModal from "./UploadModal";
-import { Route, Redirect } from "react-router-dom";
+
 import { connect } from "react-redux";
 import {
   addQuestion,
@@ -37,6 +37,7 @@ const QuestionForm = ({
         submittedBy: { name, email, organizationName, organizationReference },
       });
     }
+    // eslint-disable-next-line
   }, [current]);
   //! Setting form for question select with image
   useEffect(() => {
@@ -62,6 +63,7 @@ const QuestionForm = ({
         submittedBy: { name, email, organizationName, organizationReference },
       });
     }
+    // eslint-disable-next-line
   }, [imageHolder]);
   const [showUpload, setShowUpload] = useState(false);
   const [question, setQuestion] = useState({

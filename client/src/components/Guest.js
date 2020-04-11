@@ -18,6 +18,7 @@ const Guest = ({
 
   useEffect(() => {
     setPlayState(organizationReference);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

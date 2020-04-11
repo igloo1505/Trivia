@@ -1,11 +1,9 @@
-import React, { Fragment, useState } from "react";
-import { Col, Row, Modal, Button, Table } from "react-bootstrap";
-import store from "../../store";
-import { Route, Redirect } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Col, Row, Modal, Button } from "react-bootstrap";
+
 import { deleteQuestion, editQuestion } from "../../actions/questionActions";
 import { setMenuView } from "../../actions/userActions";
 import { connect } from "react-redux";
-import { set } from "mongoose";
 
 const DetailModal = ({
   user: {
@@ -26,7 +24,6 @@ const DetailModal = ({
   onEdit,
   editQuestion,
 }) => {
-  const state = store.getState();
   const onDelete = (e) => {
     e.preventDefault();
 

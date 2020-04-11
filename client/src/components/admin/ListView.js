@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Col, Row, Modal, Table } from "react-bootstrap";
+
+import { Table } from "react-bootstrap";
 import {
   getQuestions,
   setCurrent,
@@ -21,6 +21,7 @@ const ListView = ({
 }) => {
   useEffect(() => {
     getQuestions(organizationReference);
+    // eslint-disable-next-line
   }, []);
   const [show, setShow] = useState(false);
   const triggerDetail = (e) => {

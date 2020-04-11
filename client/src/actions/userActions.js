@@ -1,6 +1,4 @@
 import {
-  SET_ADMIN,
-  GET_ADMIN,
   SET_USER,
   SET_LOADING,
   USER_ERROR,
@@ -9,9 +7,8 @@ import {
   REGISTER_ADMIN,
   CHANGE_VIEW,
   LOGOUT,
-  AUTHENTICATED,
 } from "./Types";
-import uuid from "uuid";
+
 import axios from "axios";
 import setAuthToken from "../setToken";
 

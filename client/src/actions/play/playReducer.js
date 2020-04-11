@@ -2,19 +2,12 @@ import {
   CORRECT_ANSWER,
   WRONG_ANSWER,
   SET_PLAYSTATE,
-  SET_RESULT,
-  PLAY_ERROR,
   PLAY_LOADING,
   RESET_GAME_FINISH,
-  NEXT_QUESTION,
   GAME_FINISH,
-  CLEAR_PLAY,
   GET_LEADERS,
   SET_LEADER,
 } from "../Types";
-import store from "../../store";
-import { browserHistory } from "react-router";
-import { Route, Redirect } from "react-router-dom";
 
 const initialState = {
   leaders: [],

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { logOut } from "../actions/userActions";
 
 import Smiley from "../assets/smiley.svg";
-import { set } from "mongoose";
 
 const NavBar = ({
   user: {
@@ -47,7 +46,7 @@ const NavBar = ({
       </Navbar.Brand>
       <Navbar.Toggle
         aria-controls="mobileHamburger"
-        onClick={() => setExpandedState(true)}
+        onClick={() => setExpandedState(!expandedState)}
       />
       <Navbar.Collapse id="mobileHamburger">
         <Nav style={NavLinkStyle}>
@@ -78,7 +77,9 @@ const NavBar = ({
           ) : (
             <Nav>
               {" "}
-              <Link to="/signIn">Sign In</Link>
+              <Link to="/signIn" onClick={() => setExpandedState(false)}>
+                Sign In
+              </Link>
             </Nav>
           )}
         </Nav>

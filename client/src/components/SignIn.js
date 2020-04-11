@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Form, Col, Row, Button, Modal } from "react-bootstrap";
+import { Form, Col, Row, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+
 import dataListArray from "../assets/datalist";
 import { setNewUser } from "../actions/userActions";
 import SignInModal from "./SignInModal";
-import { Route, Redirect } from "react-router-dom";
-import uuid from "uuid";
+import { Redirect } from "react-router-dom";
 
 const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -29,7 +28,6 @@ const SignIn = ({ user: { loggedIn, loading }, setNewUser }) => {
       [e.target.name]: e.target.value,
     });
   };
-  let position = window.location.pathname;
 
   const onSubmit = (e) => {
     //!!   Add front end form validation here and 'toast' if not suffice

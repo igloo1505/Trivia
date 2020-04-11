@@ -2,7 +2,6 @@ import {
   CORRECT_ANSWER,
   WRONG_ANSWER,
   SET_PLAYSTATE,
-  SET_LOADING,
   GET_LEADERS,
   SET_LEADER,
   PLAY_ERROR,
@@ -10,10 +9,9 @@ import {
   RESET_GAME_FINISH,
   PLAY_LOADING,
 } from "../Types";
-import store from "../../store";
+
 import Axios from "axios";
 
-let reduxState = store.getState();
 const config = {
   headers: {
     "Content-Type": "application/json",

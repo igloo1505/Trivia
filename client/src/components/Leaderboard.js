@@ -21,6 +21,7 @@ const Leaderboard = ({
   const [show, setShow] = useState(false);
   useEffect(() => {
     getLeaders(organizationReference);
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     if (gameEnd) {

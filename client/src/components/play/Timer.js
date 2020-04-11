@@ -26,6 +26,7 @@ const Timer = ({
     return () => {
       clearTimeout(timer);
     };
+    // eslint-disable-next-line
   }, [time]);
 
   return (

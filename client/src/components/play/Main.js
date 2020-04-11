@@ -20,9 +20,10 @@ const Main = ({
   gameOver,
 }) => {
   useEffect(() => {
-    if (questionArray && questionArray.length == 0) {
+    if (questionArray && questionArray.length === 0) {
       gameOver();
     }
+    // eslint-disable-next-line
   }, [questionArray]);
 
   return (

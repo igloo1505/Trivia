@@ -8,11 +8,6 @@ const Admin = () => {
     loadUser();
     // eslint-disable-next-line
   }, []);
-  const AdminDisplay = {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gridGap: "2rem",
-  };
 
   return (
     <div>

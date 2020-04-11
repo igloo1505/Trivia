@@ -25,6 +25,7 @@ const Play = ({
   const [questionDisplay, setQuestionDisplay] = useState(null);
   useEffect(() => {
     getQuestions(organizationReference);
+    // eslint-disable-next-line
   }, []);
 
   const [image, setImage] = useState(false);
@@ -52,6 +53,7 @@ const Play = ({
       setImage(false);
       setQuestionDisplay(active.question);
     }
+    // eslint-disable-next-line
   }, [active, getQuestions, correctAnswer]);
 
   const setAnswer = (index) => {

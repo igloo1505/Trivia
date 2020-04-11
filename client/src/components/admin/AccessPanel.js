@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Col, Row, Button, Modal, Tabs, Tab } from "react-bootstrap";
+import { Form, Col, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { editUserAccess } from "../../actions/userActions";
 
@@ -30,8 +30,6 @@ const AccessPanel = ({
   const editUserPass = (e) => {
     e.preventDefault();
     if (userPassOne === userPassTwo) {
-      let id = organizationReference;
-
       editUserAccess({ orgInfo });
     }
   };

@@ -1,8 +1,4 @@
 import {
-  GET_LEADERS,
-  SET_LEADER,
-  SET_LOADING,
-  AUTHENTICATED,
   ADD_QUESTION,
   GET_QUESTIONS,
   QUESTION_ERROR,
@@ -13,8 +9,6 @@ import {
   CLEAR_CURRENT,
   CLEAR_IMAGE,
 } from "./Types";
-import axios from "axios";
-import setAuth from "../setToken";
 
 const initialState = {
   questions: null,
@@ -50,7 +44,7 @@ export default (state = initialState, action) => {
     case SET_CURRENT:
       return {
         ...state,
-        current: state.questions.filter((que) => que._id == action.payload),
+        current: state.questions.filter((que) => que._id === action.payload),
         loading: false,
       };
     case CLEAR_IMAGE:

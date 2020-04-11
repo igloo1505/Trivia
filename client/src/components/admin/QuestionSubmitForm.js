@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../../assets/app.css";
-import { Form, Col, Row, Button, Modal, Tabs, Tab } from "react-bootstrap";
-import store from "../../store";
-import { getQuestions } from "../../actions/questionActions";
+import { Tabs, Tab } from "react-bootstrap";
+
 import { resetStatus } from "../../actions/play/playActions";
 import QuestionForm from "./Form";
 import AccessPanel from "./AccessPanel";
@@ -13,6 +12,7 @@ const QuestionSubmitForm = ({ user: { admin, menuKey }, resetStatus }) => {
   useEffect(() => {
     setKey(menuKey);
     resetStatus();
+    // eslint-disable-next-line
   }, [menuKey]);
   const [key, setKey] = useState(menuKey);
 
