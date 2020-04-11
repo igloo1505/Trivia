@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { logOut } from "../actions/userActions";
 
 import Smiley from "../assets/smiley.svg";
+import { set } from "mongoose";
 
 const NavBar = ({
   user: {
@@ -19,9 +20,16 @@ const NavBar = ({
     marginRight: "10px",
     marginLeft: "auto",
   };
+  const [expandedState, setExpandedState] = useState(false);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar
+      collapseOnSelect
+      bg="dark"
+      variant="dark"
+      expand="lg"
+      expanded={expandedState}
+    >
       <Navbar.Brand>
         <img
           alt=""
@@ -37,14 +45,27 @@ const NavBar = ({
           <Link to="/"> Javascript Trivia</Link>
         )}
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="mobileHamburger" />
+      <Navbar.Toggle
+        aria-controls="mobileHamburger"
+        onClick={() => setExpandedState(true)}
+      />
       <Navbar.Collapse id="mobileHamburger">
         <Nav style={NavLinkStyle}>
           {loggedIn ? (
             <Nav>
-              <Link to="/">Home</Link>{" "}
-              <Link to="/leaderboard">LeaderBoard</Link>{" "}
-              {user.adminStatus ? <Link to="/admin">Admin</Link> : ""}
+              <Link to="/" onClick={() => setExpandedState(false)}>
+                Home
+              </Link>{" "}
+              <Link to="/leaderboard" onClick={() => setExpandedState(false)}>
+                LeaderBoard
+              </Link>{" "}
+              {user.adminStatus ? (
+                <Link to="/admin" onClick={() => setExpandedState(false)}>
+                  Admin
+                </Link>
+              ) : (
+                ""
+              )}
               <Link to="/" onClick={logOut}>
                 Log Out
               </Link>
