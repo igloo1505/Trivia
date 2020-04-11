@@ -28,7 +28,6 @@ export const setPlayState = (reference) => async (dispatch) => {
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: PLAY_ERROR,
       payload: error,
