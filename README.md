@@ -1,0 +1,1 @@
+Trivia game built using React, express, Node and firebase. Allows users to organize into different organizations and not share access to questions between organizations, as well as protected admin privileges for certain users.
